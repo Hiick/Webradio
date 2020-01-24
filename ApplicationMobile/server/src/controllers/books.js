@@ -7,7 +7,7 @@ const getBooks = (req, res) => {
             res.status(401).send(e)
         } else {
             res.status(200).json({
-                books: books,
+                book: books,
                 code: 200
             })
         }
