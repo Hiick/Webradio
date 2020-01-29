@@ -5,7 +5,7 @@ const mongoose = require('mongoose'),
     mocha = require('mocha'),
     chai = require('chai'),
     chaiHttp = require('chai-http'),
-    server = require('../index'),
+    server = require('../app'),
     should = chai.should();
 
 chai.use(chaiHttp);
