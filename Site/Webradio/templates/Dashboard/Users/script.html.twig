@@ -1,0 +1,69 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="../js/sb-admin-2.min.js"></script>
+<script>
+console.log("je suis ici dans users admin")
+
+$(document).ready(function() {
+
+    let results = new Object(); 
+
+    let mytabody = "<thead><tr id='entete'><th scope='col'>Avatar</th><th scope='col'>Username</th><th scope='col'>Email</th><th scope='col'>Chaîne</th><th scope='col'>Rôle</th><th scope='col'>Status</th><th scope='col'>Management</th></tr></thead><tbody id='corps-table'>";
+    $.ajax({
+        method: "GET", 
+        url: "/listusers", 
+        async: true,
+        success: function(data) {
+        
+            listusers = data[0]; 
+            //console.log(listusers); 
+            
+
+            /*for(i=0; i<listusers.users.length; i++) {
+                mytabody +="<tr><td>"+listusers.users[i].avatar
+                +"</td><td>"+listusers.users[i].username
+                +"</td><td>"+listusers.users[i].email
+                +"</td><td>"+listusers.users[i].nom_chaine
+                +"</td><td>"+listusers.users[i].role
+                +"</td><td>"+listusers.users[i].status
+                +"</td><td><i class='fas fa-trash-alt fa-2x text-danger'><i class='fas fa-pen fa-1x text-gray-300'></i>"
+                +"</tr>";
+            }
+             
+            mytabody +="</tbody>";
+
+            $("#table").html(mytabody);*/ 
+            results.allusers = listusers;
+            //console.log(results);
+        }
+        
+    });
+
+    $.ajax({
+        method: "GET", 
+        url: "/listchannels",
+        async: true,
+        success: function(channels) {
+
+            listchannels = channels[0]
+            //console.log(listchannels)
+
+            results.allchannels = listchannels
+           // console.log(results);
+        }
+    });
+
+    
+
+    
+    
+})
+
+</script>

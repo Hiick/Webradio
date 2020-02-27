@@ -2,11 +2,8 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ path('dashboard') }}">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">Webradio - Stream</div>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center mt-5" href="{{ path('dashboard') }}">
+        <div class="sidebar-brand-text mx-3">Administrateur</div>
     </a>
 
     <!-- Divider -->
@@ -14,20 +11,55 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{ path('dashboard') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('dashboard') }}">
             <span>Dashboard</span>
         </a>
     </li>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
-
+     <!-- Divider -->
+   
 
     <!-- Nav Item - Utilisateurs -->
     <li class="nav-item active">
-        <a class="nav-link" href="{# {{ path('logout') }} #}">
-            <i class="fas fa-fw fa-sign-out-alt"></i>
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('utilisateurs') }}">
+            <span>Utilisateurs</span>
+        </a>
+    </li>    
+
+    <!-- Divider -->
+ 
+
+    <!-- Nav Item - chaines -->
+    <li class="nav-item active">
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('chaines') }}">
+            <span>Chaînes</span>
+        </a>
+    </li>
+
+   
+
+    <!-- Nav Item - signalements -->
+    <li class="nav-item active">
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('signalements') }}">
+            <span>Signalements</span>
+        </a>
+    </li>
+   
+      <!-- Nav Item - notifications -->
+    <li class="nav-item active">
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{#{ path('notif') }#}">
+            <span>Notifications</span>
+        </a>
+    </li>
+    <hr class="sidebar-divider my-0">
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block" id="deconnexion">
+
+
+    <!-- Nav Item - logout -->
+    <li class="nav-item active">
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{# {{ path('logout') }} #}">
             <span>Déconnexion</span></a>
     </li>
 

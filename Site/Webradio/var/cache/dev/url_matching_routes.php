@@ -13,11 +13,33 @@ return [
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/dashboard' => [
-            [['_route' => 'stats', '_controller' => 'App\\Controller\\DashboardController::start'], null, null, null, false, false, null],
-            [['_route' => 'dashboard', '_controller' => 'App\\Controller\\DashboardController::start'], null, ['GET' => 0], null, false, false, null],
+        '/chaines' => [
+            [['_route' => 'Chaines', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::home'], null, null, null, false, false, null],
+            [['_route' => 'chaines', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::home'], null, ['GET' => 0], null, false, false, null],
         ],
+        '/userdashboard' => [
+            [['_route' => 'stats', '_controller' => 'App\\Controller\\Users\\DashboardController::start'], null, null, null, false, false, null],
+            [['_route' => 'userdashboard', '_controller' => 'App\\Controller\\Users\\DashboardUserController::start'], null, ['GET' => 0], null, false, false, null],
+        ],
+        '/planning' => [
+            [['_route' => 'planification', '_controller' => 'App\\Controller\\Users\\PlanningController::start'], null, null, null, false, false, null],
+            [['_route' => 'planning', '_controller' => 'App\\Controller\\PlanningController::start'], null, ['GET' => 0], null, false, false, null],
+        ],
+        '/radios' => [
+            [['_route' => 'accueil', '_controller' => 'App\\Controller\\Users\\RadiosController::start'], null, null, null, false, false, null],
+            [['_route' => 'radios', '_controller' => 'App\\Controller\\Users\\RadiosController::start'], null, ['GET' => 0], null, false, false, null],
+        ],
+        '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\LoginController::login'], null, ['GET' => 0], null, false, false, null]],
         '/logout' => [[['_route' => 'logout'], null, null, null, false, false, null]],
+        '/admindashboard' => [[['_route' => 'dashboard', '_controller' => 'App\\Controller\\Administrateur\\DashboardController::start'], null, ['GET' => 0], null, false, false, null]],
+        '/settingsadmin' => [[['_route' => 'settingsadmin', '_controller' => 'App\\Controller\\Administrateur\\SettingsController::settings'], null, ['GET' => 0], null, false, false, null]],
+        '/utilisateurs' => [[['_route' => 'utilisateurs', '_controller' => 'App\\Controller\\Administrateur\\UtilisateursController::home'], null, ['GET' => 0], null, false, false, null]],
+        '/listusers' => [[['_route' => 'listusers', '_controller' => 'App\\Controller\\Administrateur\\UtilisateursController::listUsers'], null, ['GET' => 0], null, false, false, null]],
+        '/signalements' => [[['_route' => 'signalements', '_controller' => 'App\\Controller\\Administrateur\\SignalementsController::listReporting'], null, ['GET' => 0], null, false, false, null]],
+        '/listchannels' => [[['_route' => 'listchannels', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::allchannels'], null, ['GET' => 0], null, false, false, null]],
+        '/listradios' => [[['_route' => 'listradios', '_controller' => 'App\\Controller\\Users\\RadiosController::getAllRadio'], null, ['GET' => 0], null, false, false, null]],
+        '/settings' => [[['_route' => 'settings', '_controller' => 'App\\Controller\\Users\\SettingsController::accountSetting'], null, ['GET' => 0], null, false, false, null]],
+        '/musiclibrary' => [[['_route' => 'musiclibrary', '_controller' => 'App\\Controller\\Users\\MusicLibraryController::start'], null, ['GET' => 0], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
