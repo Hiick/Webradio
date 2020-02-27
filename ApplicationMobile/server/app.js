@@ -34,11 +34,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-mongoose.connect(config.mongo_host, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
-
 app.use(app.oauth.errorHandler());
 
 app.use('/auth', authRoutes);
