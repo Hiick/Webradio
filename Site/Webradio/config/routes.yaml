@@ -70,4 +70,3 @@ musiclibrary:
     path: /musiclibrary
     methods: GET
     controller: App\Controller\Users\MusicLibraryController::start
->>>>>>> 73aaa5b6c0dfd7d3b27b02bd9bf70025adc3f1d8
