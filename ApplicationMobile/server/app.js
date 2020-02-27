@@ -10,7 +10,6 @@ const express= require('express'),
     session = require('express-session'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-    cors = require('cors');
     app = express();
 
 app.oauth = oAuth2Server({
@@ -34,13 +33,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(passport.initialize());
+
 app.use(app.oauth.errorHandler());
 
 app.use('/auth', authRoutes);
 app.use('/authorized', restrictedAreaRoutes);
 
 require('./src/controllers/facebookLoginRegister')(app);
-mongoose.connect('mongodb://localhost:27017/TestDb', {
+mongoose.connect(process.env.CONNECT_URL, {
    useNewUrlParser: true,
    useUnifiedTopology: true
 }).then((database) => {
