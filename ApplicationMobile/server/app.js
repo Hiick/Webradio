@@ -33,14 +33,11 @@ const restrictedAreaRoutesMethods = require('./src/routes/restricted/restrictedA
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    key: 'sid'
-}));
-app.use(passport.initialize());
-app.use(passport.session());
+
+mongoose.connect(config.mongo_host, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
 app.use(app.oauth.errorHandler());
 
