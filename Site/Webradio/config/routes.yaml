@@ -1,0 +1,72 @@
+login:
+    path: /login
+    methods: GET
+    controller: App\Controller\LoginController::login
+
+logout:
+    path: /logout
+
+dashboard:
+    path: /admindashboard
+    methods: GET
+    controller: App\Controller\Administrateur\DashboardController::start
+
+settingsadmin:
+    path: /settingsadmin
+    methods: GET
+    controller: App\Controller\Administrateur\SettingsController::settings
+
+utilisateurs:
+    path: /utilisateurs
+    methods: GET
+    controller: App\Controller\Administrateur\UtilisateursController::home
+
+listusers:
+    path: /listusers
+    methods: GET
+    controller: App\Controller\Administrateur\UtilisateursController::listUsers
+
+signalements:
+    path: /signalements
+    methods: GET
+    controller: App\Controller\Administrateur\SignalementsController::listReporting
+
+chaines:
+    path: /chaines
+    methods: GET
+    controller: App\Controller\Administrateur\ChainesController::home
+
+listchannels:
+    path: /listchannels
+    methods: GET
+    controller: App\Controller\Administrateur\ChainesController::allchannels
+
+userdashboard:
+    path: /userdashboard
+    methods: GET
+    controller: App\Controller\Users\DashboardUserController::start
+
+planning:
+    path: /planning
+    methods: GET
+    controller: App\Controller\PlanningController::start
+
+radios:
+    path: /radios
+    methods: GET
+    controller: App\Controller\Users\RadiosController::start
+
+listradios:
+    path: /listradios
+    methods: GET
+    controller: App\Controller\Users\RadiosController::getAllRadio
+
+settings:
+    path: /settings
+    methods: GET
+    controller: App\Controller\Users\SettingsController::accountSetting
+
+musiclibrary:
+    path: /musiclibrary
+    methods: GET
+    controller: App\Controller\Users\MusicLibraryController::start

@@ -10,52 +10,120 @@
         <div id="content">
             {% include 'Dashboard/navigation.html.twig' %}
             <!-- Begin Page Content -->
-            <div class="container-fluid text-center">
+            <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <div class="mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                <div class="">
+                    <h3 class="h3 mb-2 text-gray-800">Dashboard</h3>
                 </div>
 
-                <!-- Content Row -->
-                <div class="row">
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-12 col-md-6 mb-4">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div style="color: #8b8ac2" class="text-xs font-weight-bold text-uppercase mb-1">Montant total d'argent récoltés</div>
-                                        <div id="all-sub" class="h5 mb-0 font-weight-bold text-gray-800">200'000</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-euro-sign fa-2x text-gray-300"></i>
-                                    </div>
+                    <!-- Content Row -->
+                    <div class="row">
+
+                    <!-- Nombre d’utilisateurs Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card shadow h-80 border-raduis py-2">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col mr-2 mb-2 d-flex flex-column align-items-center justify-content-center">
+                                    <div class="text-principal justify-content-center">Nombre d’utilisateurs</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">98’578</div>
                                 </div>
                             </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Nombre d’abonnés Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card shadow h-80 border-raduis py-2">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col mr-2 mb-2 d-flex flex-column align-items-center justify-content-center">
+                                    <div class="text-bleue">Nombre d’abonnés</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">44’577</div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Total d'écoutes Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card shadow h-80 border-raduis py-2">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col mr-2 d-flex flex-column align-items-center justify-content-center">
+                                    <div class="text-turquoise">Total d'écoutes</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">453’987</div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Nombre de chaînes créée Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card shadow h-80 border-raduis py-2">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col mr-2  mb-2 d-flex flex-column align-items-center justify-content-center">
+                                    <div class="text-purple">Nombre de chaînes créée</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">24’767</div>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Content Row -->
+                <!-- /Content Row -->
+                    <!-- Content Row -->
+                    <div class="row">
 
-                <div class="row">
+                    <!-- Area Chart -->
+                    <div class="col-xl-8 col-lg-7">
+                        <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="text-purple">Nombre d’inscrits par mois</h6>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="chart-area">
+                            <canvas id="myAreaChart"></canvas>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                     <!-- Pie Chart -->
                     <div class="col-xl-4 col-lg-5">
                         <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 style="color: #8b8ac2" class="m-0 font-weight-bold">Emails</h6>
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="text-purple">Nombre d’abonnements par jour</h6>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="chart-pie pt-4 pb-2">
+                            <canvas id="myPieChart"></canvas>
                             </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-pie pt-4 pb-2">
-                                    <canvas id="emailChart"></canvas>
-                                </div>
+                            <div class="mt-4 text-center small">
+                            <span class="mr-2 text-black">
+                                <i class="fas fa-circle text-primary"></i> Lundi
+                            </span>
+                            <span class="mr-2 text-black">
+                                <i class="fas fa-circle text-success"></i> Mercredi 
+                            </span>
+                            <span class="mr-2 text-black">
+                                <i class="fas fa-circle text-info"></i> Samedi
+                            </span>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
+                <!-- /Content Row -->
             </div>
             <!-- /.container-fluid -->
 

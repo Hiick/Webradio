@@ -1,0 +1,22 @@
+<!-- Topbar -->
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-2 static-top shadow">
+
+    <!-- Sidebar Toggle (Topbar) -->
+    <span class="d-flex align-items-center justify-content-center" id="img-logo-nav">
+        <a href="#"><img class="img-logo" src="../assets/Groupe 8.png"/></a>
+     </span>
+
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav ml-auto">
+
+        <!-- Nav Item - User Information -->
+        <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" id="text-nav" data-toggle="modal" data-target="#loginModal">
+                <span class="mr-2 d-none d-lg-inline text-dark small">Se connecter</span>
+            </a>
+        </li>
+
+    </ul>
+    {% include 'LoginPage/modal.html.twig' %}
+
+</nav>

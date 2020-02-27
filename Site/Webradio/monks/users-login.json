@@ -1,0 +1,76 @@
+{
+    "users" : [
+        {
+            "id": "1",
+            "email": "alexandre@gmail.com",
+            "username": "Alexandre",
+            "avatar": "<i class='fas fa-user-circle fa-2x text-gray-300'></i>",
+            "nom_chaine" :"AlexSound",
+            "role":"ADMIN",
+            "password": "123456"
+
+        },
+
+        {
+            "id": "2",
+            "email": "emerick@gmail.com",
+            "username": "Emerick",
+            "avatar": "<i class='fas fa-user-circle fa-2x text-gray-300'></i>",
+            "nom_chaine" :"EmeSound",
+            "role":"ADMIN",
+            "password": "123456"
+
+        },
+        {
+            "id": "3",
+            "email": "mike.sylvestre@gmail.com",
+            "username": "MikeSylv",
+            "avatar": "<i class='fas fa-user-circle fa-2x text-gray-300'></i>",
+            "nom_chaine" :"MikySound",
+            "role":"ADMIN",
+            "password": "123456"
+
+        },
+        {
+            "id": "4",
+            "email": "Antoine@gmail.com",
+            "username": "Antoine",
+            "avatar": "<i class='fas fa-user-circle fa-2x text-gray-300'></i>",
+            "nom_chaine" :"AntSound",
+            "role":"USER",
+            "password": "123456"
+
+        },
+
+        {
+            "id": "5",
+            "email": "didier@gmail.com",
+            "username": "Didier",
+            "avatar": "<i class='fas fa-user-circle fa-2x text-gray-300'></i>",
+            "nom_chaine" :"DidiSound",
+            "role":"USER",
+            "password": "123456"
+
+        },
+        {
+            "id": "6",
+            "email": "jean@gmail.com",
+            "username": "Jean",
+            "avatar": "<i class='fas fa-user-circle fa-2x text-gray-300'></i>",
+            "nom_chaine" :"JeanSound",
+            "role":"USER",
+            "password": "123456"
+
+        },
+        {
+            "id": "7",
+            "email": "pascal@gmail.com",
+            "username": "Pascal",
+            "avatar": "<i class='fas fa-user-circle fa-2x text-gray-300'></i>",
+            "nom_chaine" :"PapaSound",
+            "role":"USER",
+            "password": "123456"
+
+        }
+    ]
+}
