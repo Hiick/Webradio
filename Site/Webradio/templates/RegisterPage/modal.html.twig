@@ -1,12 +1,15 @@
-<div class="modal fade" id="loginModal" role="dialog">
+<div class="modal fade" id="registerModal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content login">
             <div class="rounded-circle img border border1">
                 <img class="img-logo-login" src="../assets/Groupe 8.png"/></a>
             </div>
-            <div class="modal-body login-body">
+            <div class="modal-body mt-3 login-body">
                 <div class="row">
                     <div class="col-sm">
+                        <div class="form-group champ">
+                            <input type="email" class="form-control" placeholder="Nom d'utilisateur">
+                        </div>
                         <div class="form-group champ">
                             <input type="email" class="form-control" placeholder="Email">
                         </div>
@@ -21,8 +24,9 @@
                         </div>
                         <div class="row">
                             <div class="col-sm d-flex flex-column align-items-center justify-content-center">
-                                <span class="d-none d-lg-inline text-gray-600 small text-center" >Pas encore inscrit ? <a class="text-pink" href="#registerModal" data-toggle="modal" data-dismiss="modal">Inscrivez-vous</a></span>
-                                <span class="d-none d-lg-inline text-gray-600 small text-center" >Mot de passe oublié ? <a class="text-pink" href="#passwordLostModal" data-toggle="modal" data-dismiss="modal">C’est ici</a></span>
+                                <span class="d-none d-lg-inline text-gray-600 small text-center" >Déjà un compte ? <a class="text-pink" href="#loginModal" data-toggle="modal" data-dismiss="modal">Connectez
+                                -vous</a></span>
+                                <span class="d-none d-lg-inline text-gray-600 small text-center" >Mot de passe oublié ? <a class="text-pink" href="#">C’est ici</a></span>
                             </div>
                         </div>
                     </div>
@@ -31,6 +35,4 @@
         </div>
     </div>
 </div>
-{% include 'RegisterPage/modal.html.twig' %}
-{% include 'PasswordLost/modal.html.twig' %}
-{% include 'LoginPage/script.html.twig' %}
+{% include 'RegisterPage/script.html.twig' %}

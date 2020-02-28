@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% include 'LoginPage/head.html.twig' %}
+    {% include 'HomePage/head.html.twig' %}
 <body id="page-top">
 
 <!-- Page Wrapper -->
 <div id="wrapper">
-    {% include 'LoginPage/sidebar.html.twig' %}
+    {% include 'HomePage/sidebar.html.twig' %}
         <!-- Main Content -->
         <div id="content">
-            {% include 'LoginPage/navigation.html.twig' %}
+            {% include 'HomePage/navigation.html.twig' %}
             <!-- Begin Page Content -->
             <div class="container-fluid">
                                 
@@ -22,7 +22,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row toutesRadio">
                         <div class="col radio">
                             <!--titre -->
                             <div class="text-dark">
@@ -31,20 +31,14 @@
                             <hr class="diviser">
                         </div>
                     </div>
-                    <audio id="track" src="../../assets/Jidenna_-_Little_Bit_More.mp3" controls />
-                            ça ne marche pas 
-                        </audio>
+                    <!--<audio id="track">
+                        <source src="http://basichow.com/asserts/interlude.mp3" type="audio/mpeg" />
+                    </audio>
                             <div id="player-container">
                                 <div id="play-pause" class="play">Play</div>
-                            </div>
-                    <div class="row mt-5">
-                        <!--<div class="col">
-                            <img src="" alt="">
-                            <h5></h5>
-                        </div> -->
-                         
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div id="list-radio" class="col-xl-6 col-md-6 mb-4">
+                            </div>-->
+                    <div class="row mt-5 tabradio">
+                        <div id="list-radio" class="col-md mb-4">
                         
                         </div>
                     </div>
@@ -76,7 +70,7 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-{% include 'LoginPage/script.html.twig' %}
+{% include 'HomePage/script.html.twig' %}
  
 
 </body>

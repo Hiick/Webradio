@@ -17,6 +17,7 @@ return [
             [['_route' => 'Chaines', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::home'], null, null, null, false, false, null],
             [['_route' => 'chaines', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::home'], null, ['GET' => 0], null, false, false, null],
         ],
+        '/home' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::home'], null, null, null, false, false, null]],
         '/userdashboard' => [
             [['_route' => 'stats', '_controller' => 'App\\Controller\\Users\\DashboardController::start'], null, null, null, false, false, null],
             [['_route' => 'userdashboard', '_controller' => 'App\\Controller\\Users\\DashboardUserController::start'], null, ['GET' => 0], null, false, false, null],
@@ -29,7 +30,7 @@ return [
             [['_route' => 'accueil', '_controller' => 'App\\Controller\\Users\\RadiosController::start'], null, null, null, false, false, null],
             [['_route' => 'radios', '_controller' => 'App\\Controller\\Users\\RadiosController::start'], null, ['GET' => 0], null, false, false, null],
         ],
-        '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\LoginController::login'], null, ['GET' => 0], null, false, false, null]],
+        '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\HomeController::home'], null, ['GET' => 0], null, false, false, null]],
         '/logout' => [[['_route' => 'logout'], null, null, null, false, false, null]],
         '/admindashboard' => [[['_route' => 'dashboard', '_controller' => 'App\\Controller\\Administrateur\\DashboardController::start'], null, ['GET' => 0], null, false, false, null]],
         '/settingsadmin' => [[['_route' => 'settingsadmin', '_controller' => 'App\\Controller\\Administrateur\\SettingsController::settings'], null, ['GET' => 0], null, false, false, null]],

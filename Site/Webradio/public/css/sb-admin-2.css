@@ -130,7 +130,15 @@ div#col-text{
     padding: 30px;
     width: 420px !important;
 }
+.modal-content.passwordLost {
+    border-radius: .95rem !important;
+    padding: 20px;
+    width: 420px !important;  
+}
 .modal-body {padding: 0 !important;}
+/*.conteneur, .row.recherche, .row.toutesRadio {
+    width: 100%;
+}*/
 /*
 *je me suis arrete la 
 */
@@ -140,17 +148,29 @@ div#col-text{
     transform: translate(60%, -60%);
     background-color: #fff;
 }
+
+.passwordLost .rounded-circle.img{
+    width: 164.59px;
+    height: 153.38px;
+    transform: translate(65%, -50%);
+    background-color: #fff;
+}
+
 .img-logo-login{transform: translate(30%, 50%);}
 .img-logo{width: 12vh}
 #img-logo-nav{width: 100%;}
+#aside-nav{width: 100%;}
 
 
 .form-group.champ {margin-bottom: 1.75rem;}
 .champ .form-control {border-radius: .95rem !important;}
 .modal-dialog {padding-top: 40px;}
-.modal {background: rgba(255, 255, 255, 0) !important; }
+
+.modal {background: rgba(255, 255, 255, 0.54) !important; }
+
 .form-group.champ input.form-control {text-align: center !important;}
 .login-body{transform: translate(0%, -20%)}
+.passwordLost-body{transform: translate(0%, -20%)}
 
 .setting{width: 90vh; margin-bottom: 1.94rem;}
 .setting .form-control{border-radius: .95rem !important; }
@@ -158,15 +178,19 @@ div#col-text{
 .img-radio{
     width: 93px !important;
 }
-#tab td {
+.tab td {
     border: none !important;
+    padding: 10px;
+    width: 14.29%;
+    height: 20%;
 }
-#tab tr {
-    height: 15vh;
+.tab  {
+  width: 100%;
+  height: calc(100vh - 248px); 
 }
 /*
-* player pause css
-*/
+* player pause css*/
+
 #player-container #play-pause {
     cursor: pointer;
     text-indent: -999999px;
@@ -174,9 +198,11 @@ div#col-text{
     width: 40px;
     background: #EF0051;
     background-repeat:no-repeat;
+    background-image: url('../assets/play.png');
     background-position:center;
     background-size:20px;
-    border-radius: 20px;
+    border-radius: 25px;
+    padding: 20px;
 }
 
 #play-pause.play {
@@ -200,4 +226,16 @@ div#col-text{
 }
 #corps-table td:first-child {
     border-top: none !important;
+}
+.couleur-principal{
+    background-color: #EF0051; 
+    color: #fff; 
+}
+.couleur-btn{
+    background-color: #007bff;
+    color: #fff;
+}
+.card-body.calendar {
+
+    height: calc(100vh - 98px);
 }
