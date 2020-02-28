@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-//facebook button
 
-import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from 'angularx-social-login';
-
+//http request
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 
 import { AboutPage } from '../pages/about/about';
@@ -17,20 +17,13 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RegisterPage } from '../pages/register/register';
+import { LoginPage } from '../pages/login/login';
 
 
-//FACEBOOK
-const config = new AuthServiceConfig([
- {
-   id: FacebookLoginProvider.PROVIDER_ID,
-   provider: new FacebookLoginProvider('2203659926599837')
- }
-]);
 
-export function provideConfig() {
- return config;
-}
-//ENDFB
+
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -39,11 +32,13 @@ export function provideConfig() {
     HomePage,
     TabsPage,
     RegisterPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
-    SocialLoginModule, //FB
     IonicModule.forRoot(MyApp),
+    HttpClientModule,
+    HttpModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -52,18 +47,14 @@ export function provideConfig() {
     ContactPage,
     HomePage,
     TabsPage,
-    RegisterPage
+    RegisterPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    //FB
-    {
-     provide: AuthServiceConfig,
-     useFactory: provideConfig
-    }
-    //ENDFB
+
   ]
 })
 export class AppModule {}

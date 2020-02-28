@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -6,10 +6,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 //import { TabsPage } from '../pages/tabs/tabs';
 
 //fb
-import { AuthService, FacebookLoginProvider, SocialUser } from 'angularx-social-login';
-
+//import { AuthService, FacebookLoginProvider, SocialUser } from 'angularx-social-login';
 
 import { RegisterPage } from '../pages/register/register';
+//import { LoginPage } from '../pages/login/login';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,6 +17,7 @@ import { RegisterPage } from '../pages/register/register';
 
 export class MyApp {
 
+  
   rootPage:any = RegisterPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
@@ -29,15 +30,6 @@ export class MyApp {
   }
 }
 
-export class AppComponent implements OnInit {
-  user: SocialUser;
-  loggedIn: boolean;
-
-  constructor(private authService: AuthService) { 
-
-    
-  }
-}
 
 // export class MyApp { //ORIGINAL
 

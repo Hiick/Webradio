@@ -18,6 +18,7 @@
     "@angular/compiler-cli": "^9.0.3",
     "@angular/core": "^5.2.11",
     "@angular/forms": "^5.2.11",
+    "@angular/http": "^7.2.16",
     "@angular/material": "^9.1.0",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
@@ -26,10 +27,14 @@
     "@ionic-native/status-bar": "4.20.0",
     "@ionic/storage": "2.2.0",
     "angularx-social-login": "^2.2.1",
+    "connect": "^3.7.0",
+    "http-proxy": "^1.18.0",
+    "https": "^1.0.0",
     "ionic-angular": "3.9.9",
     "ionicons": "3.0.0",
     "rxjs": "^5.5.11",
     "sw-toolbox": "3.6.0",
+    "util": "^0.12.2",
     "zone.js": "0.8.29"
   },
   "devDependencies": {

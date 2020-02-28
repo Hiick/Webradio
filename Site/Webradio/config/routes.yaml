@@ -1,7 +1,0 @@
-dashboard:
-    path: /dashboard
-    methods: GET
-    controller: App\Controller\DashboardController::start
-
-logout:
-    path: /logout
