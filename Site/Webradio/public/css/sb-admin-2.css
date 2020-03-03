@@ -47,6 +47,10 @@ i.fas.fa-fw.far.fa-edit {
 div.rounded-circle.avatar {
     margin: 2rem;
 }
+/*@media (max-width: 992px)
+{
+#text-nav span#login1{ margin-left: -150px; margin-right: 0px !important;}
+}*/
 
 #fleche-retour {
     color: rgba(26, 25, 25, 0.753);
@@ -132,8 +136,9 @@ div#col-text{
 }
 .modal-content.passwordLost {
     border-radius: .95rem !important;
-    padding: 20px;
-    width: 420px !important;  
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 320px !important;  
 }
 .modal-body {padding: 0 !important;}
 /*.conteneur, .row.recherche, .row.toutesRadio {
@@ -150,13 +155,39 @@ div#col-text{
 }
 
 .passwordLost .rounded-circle.img{
-    width: 164.59px;
-    height: 153.38px;
-    transform: translate(65%, -50%);
+    width: 144.59px;
+    height: 133.38px;
+    transform: translate(40%, -50%);
     background-color: #fff;
 }
-
+.bouton-password{
+    position: absolute;
+    top:-2px;
+    left: 171px;
+    color:white;
+    height:45px;
+    width: 45px;
+    background: #EF0051;
+    background-position:center;
+    background-size:20px;
+    border-radius: 25px;
+    padding: 15px;
+    border: none;
+}
+.bouton-password a:hover{ color: white;}
+.fas.fa-arrow-right{
+    position: relative;
+    font-size: 30px;
+    top: -7px;
+    left: -5px;
+}
+.password-input{
+    border-radius: .95rem !important; 
+    text-align: center; 
+}
+.form-group.champ-password{padding-bottom: 0px !important; margin-bottom:0px !important; }
 .img-logo-login{transform: translate(30%, 50%);}
+.img-logo-password{transform: translate(20%, 50%); position: absolute;}
 .img-logo{width: 12vh}
 #img-logo-nav{width: 100%;}
 #aside-nav{width: 100%;}
@@ -170,7 +201,7 @@ div#col-text{
 
 .form-group.champ input.form-control {text-align: center !important;}
 .login-body{transform: translate(0%, -20%)}
-.passwordLost-body{transform: translate(0%, -20%)}
+.passwordLost-body{ position: relative; transform: translate(0%, -50%)}
 
 .setting{width: 90vh; margin-bottom: 1.94rem;}
 .setting .form-control{border-radius: .95rem !important; }
