@@ -11,6 +11,11 @@ dashboard:
     methods: GET
     controller: App\Controller\Administrateur\DashboardController::start
 
+adminuser:
+    path: /adminuser
+    methods: GET
+    controller: App\Controller\Administrateur\AdminUserController::home
+
 settingsadmin:
     path: /settingsadmin
     methods: GET
@@ -70,3 +75,8 @@ musiclibrary:
     path: /musiclibrary
     methods: GET
     controller: App\Controller\Users\MusicLibraryController::start
+
+timeline:
+    path: /timeline
+    methods: GET
+    controller: App\Controller\Users\TimelineController::start

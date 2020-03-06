@@ -23,6 +23,7 @@ return [
     'login' => [[], ['_controller' => 'App\\Controller\\HomeController::home'], [], [['text', '/login']], [], []],
     'logout' => [[], [], [], [['text', '/logout']], [], []],
     'dashboard' => [[], ['_controller' => 'App\\Controller\\Administrateur\\DashboardController::start'], [], [['text', '/admindashboard']], [], []],
+    'adminuser' => [[], ['_controller' => 'App\\Controller\\Administrateur\\AdminUserController::home'], [], [['text', '/adminuser']], [], []],
     'settingsadmin' => [[], ['_controller' => 'App\\Controller\\Administrateur\\SettingsController::settings'], [], [['text', '/settingsadmin']], [], []],
     'utilisateurs' => [[], ['_controller' => 'App\\Controller\\Administrateur\\UtilisateursController::home'], [], [['text', '/utilisateurs']], [], []],
     'listusers' => [[], ['_controller' => 'App\\Controller\\Administrateur\\UtilisateursController::listUsers'], [], [['text', '/listusers']], [], []],
@@ -35,4 +36,5 @@ return [
     'listradios' => [[], ['_controller' => 'App\\Controller\\Users\\RadiosController::getAllRadio'], [], [['text', '/listradios']], [], []],
     'settings' => [[], ['_controller' => 'App\\Controller\\Users\\SettingsController::accountSetting'], [], [['text', '/settings']], [], []],
     'musiclibrary' => [[], ['_controller' => 'App\\Controller\\Users\\MusicLibraryController::start'], [], [['text', '/musiclibrary']], [], []],
+    'timeline' => [[], ['_controller' => 'App\\Controller\\Users\\TimelineController::start'], [], [['text', '/timeline']], [], []],
 ];

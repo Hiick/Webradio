@@ -33,6 +33,7 @@ return [
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\HomeController::home'], null, ['GET' => 0], null, false, false, null]],
         '/logout' => [[['_route' => 'logout'], null, null, null, false, false, null]],
         '/admindashboard' => [[['_route' => 'dashboard', '_controller' => 'App\\Controller\\Administrateur\\DashboardController::start'], null, ['GET' => 0], null, false, false, null]],
+        '/adminuser' => [[['_route' => 'adminuser', '_controller' => 'App\\Controller\\Administrateur\\AdminUserController::home'], null, ['GET' => 0], null, false, false, null]],
         '/settingsadmin' => [[['_route' => 'settingsadmin', '_controller' => 'App\\Controller\\Administrateur\\SettingsController::settings'], null, ['GET' => 0], null, false, false, null]],
         '/utilisateurs' => [[['_route' => 'utilisateurs', '_controller' => 'App\\Controller\\Administrateur\\UtilisateursController::home'], null, ['GET' => 0], null, false, false, null]],
         '/listusers' => [[['_route' => 'listusers', '_controller' => 'App\\Controller\\Administrateur\\UtilisateursController::listUsers'], null, ['GET' => 0], null, false, false, null]],
@@ -41,6 +42,7 @@ return [
         '/listradios' => [[['_route' => 'listradios', '_controller' => 'App\\Controller\\Users\\RadiosController::getAllRadio'], null, ['GET' => 0], null, false, false, null]],
         '/settings' => [[['_route' => 'settings', '_controller' => 'App\\Controller\\Users\\SettingsController::accountSetting'], null, ['GET' => 0], null, false, false, null]],
         '/musiclibrary' => [[['_route' => 'musiclibrary', '_controller' => 'App\\Controller\\Users\\MusicLibraryController::start'], null, ['GET' => 0], null, false, false, null]],
+        '/timeline' => [[['_route' => 'timeline', '_controller' => 'App\\Controller\\Users\\TimelineController::start'], null, ['GET' => 0], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

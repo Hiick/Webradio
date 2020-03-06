@@ -9,12 +9,11 @@
 <!-- Custom scripts for all pages-->
 <script src="../js/sb-admin-2.min.js"></script>
 <script>
-console.log("je suis ici dans users admin")
+//console.log("je suis ici dans users admin")
 
 $(document).ready(function() {
 
-    let results = new Object(); 
-
+    table = $("#table");
     let mytabody = "<thead><tr id='entete'><th scope='col'>Avatar</th><th scope='col'>Username</th><th scope='col'>Email</th><th scope='col'>Chaîne</th><th scope='col'>Rôle</th><th scope='col'>Status</th><th scope='col'>Management</th></tr></thead><tbody id='corps-table'>";
     $.ajax({
         method: "GET", 
@@ -23,44 +22,72 @@ $(document).ready(function() {
         success: function(data) {
         
             listusers = data[0]; 
+            myusers= listusers.users;
             //console.log(listusers); 
             
-
-            /*for(i=0; i<listusers.users.length; i++) {
-                mytabody +="<tr><td>"+listusers.users[i].avatar
-                +"</td><td>"+listusers.users[i].username
-                +"</td><td>"+listusers.users[i].email
-                +"</td><td>"+listusers.users[i].nom_chaine
-                +"</td><td>"+listusers.users[i].role
-                +"</td><td>"+listusers.users[i].status
-                +"</td><td><i class='fas fa-trash-alt fa-2x text-danger'><i class='fas fa-pen fa-1x text-gray-300'></i>"
-                +"</tr>";
-            }
-             
-            mytabody +="</tbody>";
-
-            $("#table").html(mytabody);*/ 
-            results.allusers = listusers;
-            //console.log(results);
-        }
-        
-    });
-
-    $.ajax({
-        method: "GET", 
-        url: "/listchannels",
-        async: true,
-        success: function(channels) {
-
-            listchannels = channels[0]
-            //console.log(listchannels)
-
-            results.allchannels = listchannels
-           // console.log(results);
-        }
-    });
-
     
+
+				let max_size=myusers.length;
+				let sta = 0;
+				let elements_per_page = 5;
+				let limit = elements_per_page;
+				goFun(sta,limit);
+				function goFun(sta,limit){
+                    console.log(sta,limit);
+					for(let i=sta;i<limit;i++){
+
+                           mytabody +="<tr><td>"+myusers[i].avatar
+                            +"</td><td>"+myusers[i].username
+                            +"</td><td>"+myusers[i].email
+                            +"</td><td>"+myusers[i].nom_chaine
+                            +"</td><td>"+myusers[i].role
+                            +"</td><td>"+myusers[i].status+"</td><td>";
+                            if(myusers[i].role === "USER"){
+                                mytabody +="<i class='fas fa-trash-alt fa-2x text-danger'><i class='fas fa-pen fa-1x text-gray-300'></i>";
+                            }
+                            mytabody +="</td></tr>"; 
+					}
+				}
+                mytabody +="</tbody>";
+                table.html(mytabody);
+                $('#nextValue').click(function(){
+					var next = limit;
+					if(max_size>=next) {
+					def = limit+elements_per_page;
+                        limit = def
+                            table.empty();
+                        if(limit > max_size) {
+                            def = max_size;
+                        }
+                        goFun(next,def);  
+					}
+				});
+				  $('#preValue').click(function(){
+					let pre = limit-(2*elements_per_page);
+					if(pre>=0) {
+					limit = limit-elements_per_page;
+					table.empty();
+					goFun(pre,limit); 
+					}
+				});
+                let number = Math.ceil(myusers.length / elements_per_page);
+                    console.log(number)
+                    let mypagination = "<button style='text-decoration: none; outline: none' class='rounded-circle border-0 pagination_button' id='preValue'><b>&laquo;</b></button>";
+                for(i=0; i<= number;i++) {
+                    mypagination += "<button style='text-decoration: none; outline: none' class='rounded-circle border-0 pagination_button'><b>"+(i+1)+"</b></button>";
+                }
+                mypagination += "<button style='text-decoration: none; outline: none' class='rounded-circle border-0 pagination_button' id='nextValue'><b>&raquo;</b></button>";
+
+                $('#pagination_data').html(mypagination);
+                $('.pagination_button').click(function(){
+                    var start = $(this).text();
+                    table.empty();
+                    limit = 3*(parseInt(start)+1) > max_size ? max_size: 3*(parseInt(start)+1)
+                    goFun(start*3,limit); 
+                }); 
+            }
+        
+    });  
 
     
     

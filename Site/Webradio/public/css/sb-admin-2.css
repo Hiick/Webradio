@@ -270,3 +270,8 @@ div#col-text{
 
     height: calc(100vh - 98px);
 }
+
+.has-search.user{
+    position: relative;
+    left: 200px;
+}

@@ -305,6 +305,13 @@
     <service id="EasyCorp\EasyLog\EasyLogHandler" class="EasyCorp\EasyLog\EasyLogHandler" public="false">
       <argument>H:\Jalon\Webradio\Site\Webradio\var\log/dev.log</argument>
     </service>
+    <service id="App\Controller\Administrateur\AdminUserController" class="App\Controller\Administrateur\AdminUserController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Administrateur\AdminUserController"/>
+      </call>
+    </service>
     <service id="App\Controller\Administrateur\ChainesController" class="App\Controller\Administrateur\ChainesController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -394,6 +401,13 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Users\SettingsController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Users\TimelineController" class="App\Controller\Users\TimelineController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Users\TimelineController"/>
       </call>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory" public="false"/>
@@ -4597,6 +4611,9 @@
       <tag name="maker.command"/>
       <argument>H:\Jalon\Webradio\Site\Webradio</argument>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Administrateur\AdminUserController" class="App\Controller\Administrateur\AdminUserController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Administrateur\AdminUserController" class="App\Controller\Administrateur\AdminUserController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Administrateur\AdminUserController" class="App\Controller\Administrateur\AdminUserController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Administrateur\ChainesController" class="App\Controller\Administrateur\ChainesController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Administrateur\ChainesController" class="App\Controller\Administrateur\ChainesController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Administrateur\ChainesController" class="App\Controller\Administrateur\ChainesController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4636,6 +4653,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Users\SettingsController" class="App\Controller\Users\SettingsController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Users\SettingsController" class="App\Controller\Users\SettingsController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Users\SettingsController" class="App\Controller\Users\SettingsController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Users\TimelineController" class="App\Controller\Users\TimelineController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Users\TimelineController" class="App\Controller\Users\TimelineController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Users\TimelineController" class="App\Controller\Users\TimelineController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.CmORmuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5098,6 +5118,12 @@
         <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\Administrateur\AdminUserController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Administrateur\AdminUserController"/>
+      <argument>App\Controller\Administrateur\AdminUserController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
     <service id=".service_locator.pNNo5z3.App\Controller\Administrateur\ChainesController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\Administrateur\ChainesController"/>
       <argument>App\Controller\Administrateur\ChainesController</argument>
@@ -5173,6 +5199,12 @@
     <service id=".service_locator.pNNo5z3.App\Controller\Users\SettingsController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\Users\SettingsController"/>
       <argument>App\Controller\Users\SettingsController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\Users\TimelineController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Users\TimelineController"/>
+      <argument>App\Controller\Users\TimelineController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
