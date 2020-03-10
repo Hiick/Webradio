@@ -78,13 +78,11 @@ div.rounded-circle.avatar {
 }
 .avatar i.fa-3x.far.fa-edit{
     color: #EF0051;
-    transform: translate(-150%, 20%);
-    
+   
 }
 
 .has-search .form-control {
     padding-left: 2.375rem;
-    width: 60vh !important;
     border-radius: 14px; 
     background-color: rgba(204, 204, 204, 0.212);
     border: none;
@@ -114,7 +112,7 @@ div#col-text{
 .border-raduis {border-radius: 10px !important;}.card-body{padding: 0.5rem !important;}
 
 .text-principal{color:#953030;}.text-bleue{color:#4E73DF;}.text-turquoise{color:#1CC88A;}.text-purple{color:#4E73DF;}.text-pink{color:#EF0051;}.text-black{color: #000;}
-#color-charte{background-color:#EF0051;}.color-facebook{background-color: #29487d; height: 9vh}
+.color-charte{background-color:#EF0051;}.color-facebook{background-color: #29487d; height: 9vh}
 .couleur{background-color: darkorange;}.vert{background-color: darkviolet; height: 2vh;} .pink{background-color: green;}
 .satistique{
     padding-top: 0 !important;
@@ -273,5 +271,176 @@ div#col-text{
 
 .has-search.user{
     position: relative;
-    left: 200px;
+}
+
+.btn.add_user{
+    display: block;
+    width: 55px;
+    height: 55px;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+    background-color: #EF0051;
+    border-radius: 50%;
+    position: absolute; /***/
+    bottom: 30px;
+    right: 30px;
+    text-decoration: none;
+    box-shadow: 0 6px 10px 0 #0000001a,0 1px 18px 0 #0000001a, 0 3px 5px -1px #0003;
+    transition: transform 0.3s; /** une transition*/
+}
+.btn.add_user:hover {
+    text-decoration: none;
+    color: #fff;
+    transform: scale(1.2); /** zoomer le bouton*/
+}
+
+@media (min-width: 576px) { 
+    .has-search .form-control{
+        padding-left: 2.4rem;
+        width: 100%;
+    }
+    .has-search.user{
+        left: 150px;
+    }
+    .far.fa-trash-alt{
+        padding-right: 1rem;
+        line-height: 0;
+        font-weight: 100;
+        font-size: 1.5em !important;
+    }
+    .fa-2x.far.fa-edit{
+        line-height: 0;
+        font-weight: 100;
+        font-size: 1.5em !important;
+    }
+    div.rounded-circle.avatar{
+        position: relative;
+        left: 20px
+    }
+    .avatar i.fa-3x.far.fa-edit{
+        position: absolute;
+        top: 60px;
+        right: 80px;
+    }
+    .logo-addUser{
+        position: relative;
+         right: 20px;
+    }
+ }
+ @media (max-width:575.98px){
+    div.rounded-circle.avatar{
+        position: relative;
+        left: 20px
+    }
+    .avatar i.fa-3x.far.fa-edit{
+        position: absolute;
+        top: 50px;
+        right: 50px;
+    }
+ }
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) { 
+    .has-search .form-control{
+        padding-left: 2.4rem;
+        width: 100%;
+    }
+    .has-search.user{
+        left: 210px;
+    }
+    .far.fa-trash-alt{
+        padding-right: 1rem;
+        line-height: 0;
+        font-weight: 100;
+        font-size: 1.5em !important;
+    }
+    .fa-2x.far.fa-edit{
+        line-height: 0;
+        font-weight: 100;
+        font-size: 1.5em !important;
+    }
+    .adduser {
+        width: 60vh;
+        margin-bottom: 1.94rem;
+    }
+    .adduser .form-control{border-radius: .95rem !important; }
+    div.rounded-circle.avatar{
+        position: relative;
+        left: 20px
+    }
+    .avatar i.fa-3x.far.fa-edit{
+        position: absolute;
+        top: 60px;
+        right: 80px;
+    }
+ }
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) { 
+    .has-search .form-control{
+        padding-left: 2.4rem;
+        width: 100%;
+    }
+    .has-search.user{
+        left: 290px;
+    }
+    .far.fa-trash-alt{
+        padding-right: 1rem;
+        line-height: 0;
+        font-weight: 100;
+        font-size: 1.5em !important;
+    }
+    .fa-2x.far.fa-edit{
+        line-height: 0;
+        font-weight: 100;
+        font-size: 1.5em !important;
+    }
+    .adduser .form-control{border-radius: .95rem !important; }
+    div.rounded-circle.avatar{
+        position: relative;
+        left: 20px
+    }
+    .avatar i.fa-3x.far.fa-edit{position: absolute;top: 60px;right: 80px;}
+ }
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+    .has-search .form-control {
+        padding-left: 2.4rem;
+        width: 60vh;
+    }
+    .has-search.user{
+        left: 200px; 
+    }
+    .far.fa-trash-alt{
+        padding-right: 1rem;
+        line-height: 0;
+        font-weight: 100;
+        font-size: 1.5em !important;
+    }
+    .fa-2x.far.fa-edit{
+        line-height: 0;
+        font-weight: 100;
+        font-size: 1.5em !important;
+    }
+    .logo-addUser {
+        margin-left: 2.5rem;
+    }
+    div.rounded-circle.avatar{
+        position: relative;
+        left: 0px
+    }
+    .adduser {
+        width: 90vh;
+        margin-bottom: 1.94rem;
+    }
+    .adduser .form-control{border-radius: .95rem !important; }
+ }
+
+ /*input select*/
+ select#sel1.form-control{
+    text-align-last: center !important;
+    padding-right: 29px;
 }

@@ -30,6 +30,8 @@ return [
     'signalements' => [[], ['_controller' => 'App\\Controller\\Administrateur\\SignalementsController::listReporting'], [], [['text', '/signalements']], [], []],
     'chaines' => [[], ['_controller' => 'App\\Controller\\Administrateur\\ChainesController::home'], [], [['text', '/chaines']], [], []],
     'listchannels' => [[], ['_controller' => 'App\\Controller\\Administrateur\\ChainesController::allchannels'], [], [['text', '/listchannels']], [], []],
+    'adduser' => [[], ['_controller' => 'App\\Controller\\Administrateur\\AddUserController::getUser'], [], [['text', '/adduser']], [], []],
+    'newuser' => [[], ['_controller' => 'App\\Controller\\Administrateur\\AddUserController::addNewUser'], [], [['text', '/newuser']], [], []],
     'userdashboard' => [[], ['_controller' => 'App\\Controller\\Users\\DashboardUserController::start'], [], [['text', '/userdashboard']], [], []],
     'planning' => [[], ['_controller' => 'App\\Controller\\PlanningController::start'], [], [['text', '/planning']], [], []],
     'radios' => [[], ['_controller' => 'App\\Controller\\Users\\RadiosController::start'], [], [['text', '/radios']], [], []],

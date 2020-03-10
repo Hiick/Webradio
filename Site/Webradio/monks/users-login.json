@@ -78,6 +78,39 @@
             "status": "Active",
             "password": "123456"
 
+        },
+        {
+            "id": "8",
+            "email": "jane@gmail.com",
+            "username": "Jane",
+            "avatar": "<i class='fas fa-user-circle fa-2x text-gray-300'></i>",
+            "nom_chaine" :"JaneSound",
+            "role":"USER",
+            "status": "Active",
+            "password": "123456"
+
+        },
+        {
+            "id": "9",
+            "email": "jodie@gmail.com",
+            "username": "Jodie",
+            "avatar": "<i class='fas fa-user-circle fa-2x text-gray-300'></i>",
+            "nom_chaine" :"JodieSound",
+            "role":"USER",
+            "status": "Active",
+            "password": "123456"
+
+        },
+        {
+            "id": "10",
+            "email": "viviane@gmail.com",
+            "username": "Viviane",
+            "avatar": "<i class='fas fa-user-circle fa-2x text-gray-300'></i>",
+            "nom_chaine" :"ViviSound",
+            "role":"USER",
+            "status": "Active",
+            "password": "123456"
+
         }
     ]
 }

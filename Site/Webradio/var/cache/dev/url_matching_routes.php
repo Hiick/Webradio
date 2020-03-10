@@ -39,6 +39,8 @@ return [
         '/listusers' => [[['_route' => 'listusers', '_controller' => 'App\\Controller\\Administrateur\\UtilisateursController::listUsers'], null, ['GET' => 0], null, false, false, null]],
         '/signalements' => [[['_route' => 'signalements', '_controller' => 'App\\Controller\\Administrateur\\SignalementsController::listReporting'], null, ['GET' => 0], null, false, false, null]],
         '/listchannels' => [[['_route' => 'listchannels', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::allchannels'], null, ['GET' => 0], null, false, false, null]],
+        '/adduser' => [[['_route' => 'adduser', '_controller' => 'App\\Controller\\Administrateur\\AddUserController::getUser'], null, ['GET' => 0], null, false, false, null]],
+        '/newuser' => [[['_route' => 'newuser', '_controller' => 'App\\Controller\\Administrateur\\AddUserController::addNewUser'], null, ['GET' => 0], null, false, false, null]],
         '/listradios' => [[['_route' => 'listradios', '_controller' => 'App\\Controller\\Users\\RadiosController::getAllRadio'], null, ['GET' => 0], null, false, false, null]],
         '/settings' => [[['_route' => 'settings', '_controller' => 'App\\Controller\\Users\\SettingsController::accountSetting'], null, ['GET' => 0], null, false, false, null]],
         '/musiclibrary' => [[['_route' => 'musiclibrary', '_controller' => 'App\\Controller\\Users\\MusicLibraryController::start'], null, ['GET' => 0], null, false, false, null]],

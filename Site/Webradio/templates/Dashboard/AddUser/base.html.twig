@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include 'Dashboard/head.html.twig' %}
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+    {% include 'Dashboard/sidebar.html.twig' %}
+        <!-- Main Content -->
+        <div id="content">
+            {% include 'Dashboard/navigation.html.twig' %}
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-6 d-flex">
+                        <a class="retour mt-auto mb-1" href="{{ path('utilisateurs') }}" >
+                            <i id="fleche-retour" class="fas fa-long-arrow-alt-left"></i>
+                            <button id="bouton-retour" class="btn btn-sm rounded-pill">retour</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="main d-flex flex-column align-items-center justify-content-center">
+                    <!--img logo-->
+                    <div class="rounded-circle avatar">
+                        <img src="../assets/element-1.png" class="logo-addUser"/>
+                        <i class="fa-3x far fa-edit"></i>
+                    </div>
+                    <!--input-->
+                    <div class="row mb-5">
+                        <div class="col-sm">
+                            <div class="form-group adduser" id="name">
+                            </div>
+                            <div class="form-group adduser" id="nomchaine">
+                            </div>
+                            <div class="form-group adduser">
+                                <select class="form-control" id="sel1" name="sellist1">
+                                    <option class="text-center text-black">USER</option>
+                                    <option class="text-center text-black">ADMIN</option>
+                                </select>
+                            </div>
+                            <div class="form-group adduser">
+                                <input type="button" id="saveUser" class="form-control border-0 font-weight-bold text-white"  style="background-color:#EF0051;" value="Enregistrer">
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <div class="modal fade" id="saveModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content saveUser">
+            <div class="rounded-circle img border border1">
+                <img class="img-logo-user" src="../assets/Groupe 8.png"/></a>
+            </div>
+            <div class="modal-body login-body">
+                <div class="row">
+                    <div class="col-sm">
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span class="text-black">Copyright &copy; Webradio - Stream - 2020</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+{% include 'Dashboard/AddUser/script.html.twig' %}
+
+</body>
+
+</html>

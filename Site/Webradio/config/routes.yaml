@@ -46,6 +46,16 @@ listchannels:
     methods: GET
     controller: App\Controller\Administrateur\ChainesController::allchannels
 
+adduser:
+    path: /adduser
+    methods: GET
+    controller: App\Controller\Administrateur\AddUserController::getUser
+
+newuser:
+    path: /newuser
+    methods: GET
+    controller: App\Controller\Administrateur\AddUserController::addNewUser
+
 userdashboard:
     path: /userdashboard
     methods: GET

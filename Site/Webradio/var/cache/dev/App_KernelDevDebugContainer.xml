@@ -305,6 +305,13 @@
     <service id="EasyCorp\EasyLog\EasyLogHandler" class="EasyCorp\EasyLog\EasyLogHandler" public="false">
       <argument>H:\Jalon\Webradio\Site\Webradio\var\log/dev.log</argument>
     </service>
+    <service id="App\Controller\Administrateur\AddUserController" class="App\Controller\Administrateur\AddUserController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Administrateur\AddUserController"/>
+      </call>
+    </service>
     <service id="App\Controller\Administrateur\AdminUserController" class="App\Controller\Administrateur\AdminUserController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -4611,6 +4618,9 @@
       <tag name="maker.command"/>
       <argument>H:\Jalon\Webradio\Site\Webradio</argument>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Administrateur\AddUserController" class="App\Controller\Administrateur\AddUserController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Administrateur\AddUserController" class="App\Controller\Administrateur\AddUserController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Administrateur\AddUserController" class="App\Controller\Administrateur\AddUserController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Administrateur\AdminUserController" class="App\Controller\Administrateur\AdminUserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Administrateur\AdminUserController" class="App\Controller\Administrateur\AdminUserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Administrateur\AdminUserController" class="App\Controller\Administrateur\AdminUserController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5117,6 +5127,12 @@
         <argument key="session" type="service" id="session" on-invalid="ignore"/>
         <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
       </argument>
+    </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\Administrateur\AddUserController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Administrateur\AddUserController"/>
+      <argument>App\Controller\Administrateur\AddUserController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
     <service id=".service_locator.pNNo5z3.App\Controller\Administrateur\AdminUserController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\Administrateur\AdminUserController"/>
