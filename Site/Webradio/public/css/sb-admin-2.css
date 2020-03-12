@@ -127,18 +127,36 @@ div#col-text{
     width: 100%;
 }
 
-.modal-content.login {
-    border-radius: .95rem !important;
-    padding: 30px;
-    width: 420px !important;
+.modal-content.login, .modal-content.passwordLost, .modal-content.saveUser {
+    border-radius: 10% !important;
 }
-.modal-content.passwordLost {
-    border-radius: .95rem !important;
-    padding-left: 25px;
-    padding-right: 25px;
-    width: 320px !important;  
+
+.modal-content{ padding: 30px; }
+.modal-content.saveUser{
+padding-top: 30px;
+padding-bottom: 30px;
+padding-left: 0px !important;
+padding-right: 0px !important;
 }
 .modal-body {padding: 0 !important;}
+/*
+*modal button
+*/
+.close { position: absolute; right: 30px;}
+.oui{ color: #1DC88A; border: none; background-color: inherit; text-align: center; font-size: 1.5rem;}
+.non{ color: #C81D1D; border: none; background-color: inherit; text-align: center; font-size: 1.5rem;}
+.diviser-col{
+    border-right: 1px solid #dddddd;
+    line-height: 0px;
+    font-weight: 100;
+    height: 70px;
+}
+.modal-footer.addUser{
+    padding: 0px;
+    position: relative;
+    top: 30px;
+}
+
 /*.conteneur, .row.recherche, .row.toutesRadio {
     width: 100%;
 }*/
@@ -150,6 +168,10 @@ div#col-text{
     height: 153.38px;
     transform: translate(60%, -60%);
     background-color: #fff;
+}
+.rounded-circle.img.imgadd{
+    position: relative;
+    left: 30px;
 }
 
 .passwordLost .rounded-circle.img{
@@ -184,7 +206,7 @@ div#col-text{
     text-align: center; 
 }
 .form-group.champ-password{padding-bottom: 0px !important; margin-bottom:0px !important; }
-.img-logo-login{transform: translate(30%, 50%);}
+.img-logo-login, .img-logo-user{transform: translate(30%, 50%);}
 .img-logo-password{transform: translate(20%, 50%); position: absolute;}
 .img-logo{width: 12vh}
 #img-logo-nav{width: 100%;}
@@ -332,13 +354,32 @@ div#col-text{
  @media (max-width:575.98px){
     div.rounded-circle.avatar{
         position: relative;
-        left: 20px
     }
     .avatar i.fa-3x.far.fa-edit{
         position: absolute;
         top: 50px;
         right: 50px;
     }
+    .modal-dialog {
+        width: 420px !important;
+        position: absolute;
+        top: 40px;
+        left: 80px
+    }
+    .rounded-circle.img{
+        position: relative;
+        right: 20px;
+    }
+ }
+ @media (min-width:576px) and (max-width:767px){
+
+    .modal-dialog {
+        width: 420px !important;
+        position: absolute;
+        top: 20px;
+        left: 80px
+    }
+
  }
 
 /* Medium devices (tablets, 768px and up)*/
@@ -374,6 +415,12 @@ div#col-text{
         position: absolute;
         top: 60px;
         right: 80px;
+    }
+    .modal-dialog {
+        width: 420px !important;
+        position: relative;
+        top: 20px;
+        left: 10px;
     }
  }
 
@@ -437,6 +484,15 @@ div#col-text{
         margin-bottom: 1.94rem;
     }
     .adduser .form-control{border-radius: .95rem !important; }
+    .modal-content.login {
+        padding: 30px;
+        width: 420px !important;
+    }
+    .modal-content.passwordLost {
+        padding-left: 25px;
+        padding-right: 25px;
+        width: 320px !important;  
+    }
  }
 
  /*input select*/
