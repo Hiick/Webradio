@@ -49,12 +49,17 @@ listchannels:
 adduser:
     path: /adduser
     methods: GET
-    controller: App\Controller\Administrateur\AddUserController::getUser
+    controller: App\Controller\Administrateur\CrudController::getUser
 
 newuser:
     path: /newuser
     methods: GET
-    controller: App\Controller\Administrateur\AddUserController::addNewUser
+    controller: App\Controller\Administrateur\CrudController::addNewUser
+
+edituser:
+    path: /edituser/id
+    methods: GET
+    controller: App\Controller\Administrateur\CrudController::editUser
 
 userdashboard:
     path: /userdashboard

@@ -127,12 +127,12 @@ div#col-text{
     width: 100%;
 }
 
-.modal-content.login, .modal-content.passwordLost, .modal-content.saveUser {
+.modal-content.login, .modal-content.passwordLost, .modal-content.saveUser, .modal-content.removeUser {
     border-radius: 10% !important;
 }
 
 .modal-content{ padding: 30px; }
-.modal-content.saveUser{
+.modal-content.saveUser, .modal-content.removeUser{
 padding-top: 30px;
 padding-bottom: 30px;
 padding-left: 0px !important;
@@ -151,7 +151,7 @@ padding-right: 0px !important;
     font-weight: 100;
     height: 70px;
 }
-.modal-footer.addUser{
+.modal-footer.addUser, .modal-footer.removeButton{
     padding: 0px;
     position: relative;
     top: 30px;
@@ -170,6 +170,10 @@ padding-right: 0px !important;
     background-color: #fff;
 }
 .rounded-circle.img.imgadd{
+    position: relative;
+    left: 30px;
+}
+.rounded-circle.img.imgRemove{
     position: relative;
     left: 30px;
 }
@@ -206,7 +210,7 @@ padding-right: 0px !important;
     text-align: center; 
 }
 .form-group.champ-password{padding-bottom: 0px !important; margin-bottom:0px !important; }
-.img-logo-login, .img-logo-user{transform: translate(30%, 50%);}
+.img-logo-login, .img-logo-user, .img-logo-remove{transform: translate(30%, 50%);}
 .img-logo-password{transform: translate(20%, 50%); position: absolute;}
 .img-logo{width: 12vh}
 #img-logo-nav{width: 100%;}
@@ -498,5 +502,5 @@ padding-right: 0px !important;
  /*input select*/
  select#sel1.form-control{
     text-align-last: center !important;
-    padding-right: 29px;
+    padding-right: 2px;
 }

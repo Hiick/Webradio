@@ -29,22 +29,17 @@
                     <div class="row mb-5">
                         <div class="col-sm">
                             <div class="form-group adduser" id="name">
-                                <input type='text' class='form-control text-center text-black' placeholder='Username' value=''>
-                            </div>
-                            <div class="form-group adduser" id="emailadd">
-                                <input type='text' class='form-control text-center text-black' placeholder='Email' value=''>
                             </div>
                             <div class="form-group adduser" id="nomchaine">
-                                <input type='text' class='form-control text-center text-black' placeholder='Chaîne' value=''>
                             </div>
                             <div class="form-group adduser">
-                                <select class="form-control" id="sel1">
+                                <select class="form-control" id="sel1" name="sellist1">
                                     <option class="text-center text-black">USER</option>
                                     <option class="text-center text-black">ADMIN</option>
                                 </select>
                             </div>
                             <div class="form-group adduser">
-                                <input type="button" id="saveUser" class="form-control border-0 font-weight-bold text-white"  style="background-color:#EF0051;" value="Ajouter">
+                                <input type="button" id="editUserB" class="form-control border-0 font-weight-bold text-white"  style="background-color:#EF0051;" value="Enregistrer">
                             </div>
                         </div>
                     </div>
@@ -53,7 +48,9 @@
             <!-- /.container-fluid -->
 
         </div>
- 
+        <!-- End of Main Content -->
+     {% include 'Dashboard/EditUser/modalEdit.html.twig' %}
+</div>
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
@@ -75,7 +72,8 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-{% include 'Dashboard/AddUser/script.html.twig' %}
+{% include 'Dashboard/EditUser/script.html.twig' %}
+
 
 </body>
 

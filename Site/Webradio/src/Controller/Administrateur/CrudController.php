@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AddUserController extends BaseController {
+class CrudController extends BaseController {
 
     /**
      * @Route("/adminuser", name="adminuser")
@@ -23,6 +23,13 @@ class AddUserController extends BaseController {
         $listuser = json_decode($userJson);
        
         return $this->responseApi([$listuser]);
+    }
+
+    public function editUser(Request $request): Response {
+
+        $userId= $request->query->get('id', '1');
+
+        return $this->render('Dashboard/EditUser/base.html.twig');
     }
 
 }
