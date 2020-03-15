@@ -11,11 +11,12 @@
             {% include 'Dashboard/navigation.html.twig' %}
             <!-- Begin Page Content -->
             <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="row mt-4 mb-2">
-                    <div class="col-xl-2">
-                        <h4 class="h4 text-gray-800">Signalements</h4>
+                <div class="row mb-3">
+                    <div class="col-xl-6 d-flex">
+                        <a class="retour mt-auto mb-1" href="{{ path('signalements') }}" >
+                            <i id="fleche-retour" class="fas fa-long-arrow-alt-left"></i>
+                            <button id="bouton-retour" class="btn btn-sm rounded-pill">retour</button>
+                        </a>
                     </div>
                 </div>
                 <div class="row">
@@ -28,14 +29,13 @@
                                     <table id="table" class"table table-bordered">
                                         <thead>
                                             <tr id='entete'>
-                                                <th scope='col'>Avatar</th>
-                                                <th scope='col'>Nom de la chaîne</th>
-                                                <th scope='col'>Nombre de signalements</th>
-                                                <th scope='col'>Liste des signalements</th>
-                                                <th scope='col'>Management</th>
+                                                <th scope='col'>Flux audio</th>
+                                                <th scope='col'>Date et heure de commencement du stream</th>
+                                                <th scope='col'>Date et heure du signalement</th>
+                                                <th scope='col'>Motif</th>
                                             </tr>
                                         </thead>
-                                        <tbody id='corps-table'></tbody>
+                                        <tbody id='malist'></tbody>
                                     </table>
                                 </div>
                             </div>
@@ -45,18 +45,22 @@
             </div>
             <!-- /.container-fluid -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span class="text-black">Copyright &copy; Webradio - Stream - 2020</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Main Content -->
+
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span class="text-black">Copyright &copy; Webradio - Stream - 2020</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
 
 </div>
 <!-- End of Page Wrapper -->
@@ -67,6 +71,7 @@
 </a>
 
 {% include 'Dashboard/Signalements/script.html.twig' %}
+
 
 </body>
 

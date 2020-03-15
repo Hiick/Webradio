@@ -13,9 +13,27 @@ class SignalementsController extends BaseController {
     /**
      * @Route("/signalements", name="signalements")
      */
-    public function listReporting(): Response {
+    public function home(): Response {
         return $this->render('Dashboard/Signalements/base.html.twig');
     }
+
+    public function getUserSignal(): Response {
+
+        $signalJson = file_get_contents('../monks/signalements.json');
+        $listsignal = json_decode($signalJson);
+       
+        return $this->responseApi([$listsignal]);
+        
+        
+    }
+    public function listReporting(): Response { 
+
+        return $this->render('Dashboard/Signalements/ListSignalement.html.twig');
+    }
+
+
+    
+
 
 }
 

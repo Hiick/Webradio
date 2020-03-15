@@ -275,11 +275,11 @@ padding-right: 0px !important;
     font-weight: 100 !important;
 }
 #entete th:last-child {border-right: none !important;}
-#corps-table td{
+#corps-table td, #malist td{
     border-left: none !important;
     text-align: center;
 }
-#corps-table td:first-child {
+#corps-table td:first-child, #malist td:first-child{
     border-top: none !important;
 }
 .couleur-principal{

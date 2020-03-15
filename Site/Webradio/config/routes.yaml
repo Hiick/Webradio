@@ -34,6 +34,16 @@ listusers:
 signalements:
     path: /signalements
     methods: GET
+    controller: App\Controller\Administrateur\SignalementsController::home
+
+signalement_list:
+    path: /signalements/id
+    methods: GET
+    controller: App\Controller\Administrateur\SignalementsController::getUserSignal  
+    
+listSignal:
+    path: /listSignal/id
+    methods: GET
     controller: App\Controller\Administrateur\SignalementsController::listReporting
 
 chaines:
