@@ -13,49 +13,53 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <div class="mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Chaînes</h1>
-                </div>
 
-                <div class="card shadow mb-4">
-        <div class="card-header py-3">
-        </div>
-        <div class="card-body">
-            
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                     <thead>
-                    <tr>
-                    <th>Avatar</th>
-                    <th>Nom de la chaîne</th>
-                    <th>Propriétaire</th>
-                    <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><i class="fas fa-user-circle fa-2x text-gray-300"></i></td>
-                        <td>JeanSound</td>
-                        <td>Jean@gmail.com</td>
-                        <td>BANNI</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-user-circle fa-2x text-gray-300"></i></td>
-                        <td>PapaSound</td>
-                        <td>Pascal@gmail.com</td>
-                        <td>ACTIVE</td>
-                    </tr>
-            </tbody>    
-            </table>
-            <div class="row">
-                <div class="col-sm-12"><div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate"><ul class="pagination"><li class="paginate_button page-item previous" id="dataTable_previous"><a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item next" id="dataTable_next"><a href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li></ul></div>
-            </div>
-        </div>
-    </div>
+                 <div class="row mt-4 mb-2">
+                    <div class="col-xl-2">
+                        <h4 class="h4 text-gray-800">Chaînes</h4>
+                    </div>
+                    <div class="col-xl-10 d-flex"> 
+                        <!-- Search form -->
+                        <div class="form-group has-search user">
+                            <span class="fa fa-search form-control-feedback"></span>
+                            <input type="text" class="form-control text-dark" placeholder="Rechercher une radio">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- table -->
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="card shadow mb-4">
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="table" class"table table-bordered">
+                                    <thead>
+                                        <tr id='entete'>
+                                            <th scope='col'>Avatar</th>
+                                            <th scope='col'>Nom de la chaîne</th>
+                                            <th scope='col'>Propriétaire</th>
+                                            <th scope='col'>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id='corps-table'>
+
+                                    </tbody>
+                                    </table>
+                                    <div style="height: auto; text-align: center" class="chart-area" id="pagination_data">
+                                        <div id="users" class="mb-3"></div>
+                                        <div id="usersdesc" class="mb-3"></div>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                               
             </div>
             <!-- /.container-fluid -->
 
-        </div>
-        <!-- End of Main Content -->
+     
 
         <!-- Footer -->
         <footer class="sticky-footer bg-white">

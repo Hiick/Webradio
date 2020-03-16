@@ -19,7 +19,7 @@ class ChainesController extends BaseController {
 
     public function allchannels():Response {
 
-        $channelsJson = file_get_contents("../monks/channels.json");
+        $channelsJson = file_get_contents("../monks/channel_admin.json");
         $listchannels = json_decode($channelsJson);
 
         return $this->responseApi([$listchannels]);

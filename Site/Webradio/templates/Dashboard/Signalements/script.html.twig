@@ -20,7 +20,7 @@ $(document).ready(function() {
     
         listsignal = data[0]; 
         signalDetails= listsignal.signalements;
-        console.log(listsignal.listSignales);
+        console.log(listsignal.signalements);
         
                 table = $("#corps-table");
 
@@ -73,7 +73,7 @@ $(document).ready(function() {
                     function gotab(debut,limit){
                         console.log(debut,limit);
                         for(var y=debut;y<limit;y++){
-                                var tab1= "<tr><td><a href='#'>"+listsignal.listSignales[y].flux_audio
+                                var tab1= "<tr><td><a href='{{path('blank')}}' target='_blank'>"+listsignal.listSignales[y].flux_audio
                             +"</a></td><td>"+listsignal.listSignales[y].date_debutStream
                             +"</td><td>"+listsignal.listSignales[y].date_heureSignalement
                             +"</td><td>"+listsignal.listSignales[y].motif+"</td></tr>";              

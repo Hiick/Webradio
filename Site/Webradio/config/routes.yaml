@@ -46,6 +46,11 @@ listSignal:
     methods: GET
     controller: App\Controller\Administrateur\SignalementsController::listReporting
 
+blank:
+    path: /blank
+    methods: GET
+    controller: App\Controller\Administrateur\SignalementsController::blankPage
+
 chaines:
     path: /chaines
     methods: GET

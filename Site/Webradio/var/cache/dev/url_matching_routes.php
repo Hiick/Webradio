@@ -40,6 +40,7 @@ return [
         '/signalements' => [[['_route' => 'signalements', '_controller' => 'App\\Controller\\Administrateur\\SignalementsController::home'], null, ['GET' => 0], null, false, false, null]],
         '/signalements/id' => [[['_route' => 'signalement_list', '_controller' => 'App\\Controller\\Administrateur\\SignalementsController::getUserSignal'], null, ['GET' => 0], null, false, false, null]],
         '/listSignal/id' => [[['_route' => 'listSignal', '_controller' => 'App\\Controller\\Administrateur\\SignalementsController::listReporting'], null, ['GET' => 0], null, false, false, null]],
+        '/blank' => [[['_route' => 'blank', '_controller' => 'App\\Controller\\Administrateur\\SignalementsController::blankPage'], null, ['GET' => 0], null, false, false, null]],
         '/listchannels' => [[['_route' => 'listchannels', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::allchannels'], null, ['GET' => 0], null, false, false, null]],
         '/adduser' => [[['_route' => 'adduser', '_controller' => 'App\\Controller\\Administrateur\\CrudController::getUser'], null, ['GET' => 0], null, false, false, null]],
         '/newuser' => [[['_route' => 'newuser', '_controller' => 'App\\Controller\\Administrateur\\CrudController::addNewUser'], null, ['GET' => 0], null, false, false, null]],

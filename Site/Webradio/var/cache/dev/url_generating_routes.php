@@ -30,6 +30,7 @@ return [
     'signalements' => [[], ['_controller' => 'App\\Controller\\Administrateur\\SignalementsController::home'], [], [['text', '/signalements']], [], []],
     'signalement_list' => [[], ['_controller' => 'App\\Controller\\Administrateur\\SignalementsController::getUserSignal'], [], [['text', '/signalements/id']], [], []],
     'listSignal' => [[], ['_controller' => 'App\\Controller\\Administrateur\\SignalementsController::listReporting'], [], [['text', '/listSignal/id']], [], []],
+    'blank' => [[], ['_controller' => 'App\\Controller\\Administrateur\\SignalementsController::blankPage'], [], [['text', '/blank']], [], []],
     'chaines' => [[], ['_controller' => 'App\\Controller\\Administrateur\\ChainesController::home'], [], [['text', '/chaines']], [], []],
     'listchannels' => [[], ['_controller' => 'App\\Controller\\Administrateur\\ChainesController::allchannels'], [], [['text', '/listchannels']], [], []],
     'adduser' => [[], ['_controller' => 'App\\Controller\\Administrateur\\CrudController::getUser'], [], [['text', '/adduser']], [], []],

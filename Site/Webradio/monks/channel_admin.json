@@ -1,0 +1,39 @@
+{
+    "channels": [
+        {
+            "id": "1",
+            "avatar":"<i class='fas fa-user-circle fa-2x text-dark-300'></i>",
+            "nom_chaine":"MikySound",
+            "proprietaire":"mike.sylvestre@gmail.com",
+            "satuts":"ACTIVE"
+        },
+        {
+            "id": "2",
+            "avatar":"<i class='fas fa-user-circle fa-2x text-dark-300'></i>",
+            "nom_chaine":"AlexSound",
+            "proprietaire":"alexandre@gmail.com",
+            "satuts":"ACTIVE"
+        },
+        {
+            "id": "3",
+            "avatar":"<i class='fas fa-user-circle fa-2x text-dark-300'></i>",
+            "nom_chaine":"JeanSound",
+            "proprietaire":"jean@gmail.com",
+            "satuts":"ACTIVE"
+        },
+        {
+            "id": "4",
+            "avatar":"<i class='fas fa-user-circle fa-2x text-dark-300'></i>",
+            "nom_chaine":"PapaSound",
+            "proprietaire":"pascal@gmail.com",
+            "satuts":"ACTIVE"
+        },
+        {
+            "id": "5",
+            "avatar":"<i class='fas fa-user-circle fa-2x text-dark-300'></i>",
+            "nom_chaine":"EmeSound",
+            "proprietaire":"emerick@gmail.com",
+            "satuts":"ACTIVE"
+        }
+    ]
+}
