@@ -7,9 +7,11 @@ const express= require('express'),
     oAuth2Server = require('node-oauth2-server'),
     oAuthModel = require('./src/authorisation/accessTokenModel')(user, token),
     passport = require('passport'),
-    session = require('express-session'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
+    path = require('path'),
+    https = require('https'),
+    fs = require('fs'),
     app = express();
 
 app.oauth = oAuth2Server({
@@ -40,18 +42,26 @@ app.use(app.oauth.errorHandler());
 app.use('/auth', authRoutes);
 app.use('/authorized', restrictedAreaRoutes);
 
-require('./src/controllers/facebookLoginRegister')(app);
 mongoose.connect(process.env.CONNECT_URL, {
    useNewUrlParser: true,
    useUnifiedTopology: true
 }).then((database) => {
     console.log('Connected to MongoDB !');
-
     global.db = database
 });
 
-app.listen(3000, () => { console.log('App running on : https://localhost:3000/') });
+/**
+ * Uncomment this line for lunch scraping module
+ * --
+ * require('./src/utils/scraping');
+ */
+//require('./src/utils/scraping');
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html')
+    res.sendFile(path.join(__dirname + '/index.html'))
 });
+
+app.listen(3000, () => {
+    console.log('App listening on http://localhost:3000/')
+});
+

@@ -1,5 +1,3 @@
-const multer = require('multer'),
-    upload = multer();
 
 module.exports =  (router, app, restrictedAreaRoutesMethods) => {
 
@@ -29,8 +27,8 @@ module.exports =  (router, app, restrictedAreaRoutesMethods) => {
      * ALL ROUTES FOR STREAMS
      */
     router.get('/stream/record/:channel_id', restrictedAreaRoutesMethods.recordStream);
-    router.get('/stream/record/stop', restrictedAreaRoutesMethods.stopStream);
-    router.get('/stream/listen', restrictedAreaRoutesMethods.listenStream);
+    router.get('/stream/stop', restrictedAreaRoutesMethods.stopStream);
+    router.get('/stream/generate/:channel_id', restrictedAreaRoutesMethods.getFirstStream);
 
     return router
 
