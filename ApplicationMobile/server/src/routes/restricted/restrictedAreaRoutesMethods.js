@@ -1,31 +1,9 @@
-const {
-    registerSignalement,
-    getAllSignalements,
-    getSignalementsByID,
-    banishChannelByID
-} = require('../../database/signalements');
+const { registerSignalement, getAllSignalements, getSignalementsByID, banishChannelByID } = require('../../controller/signalements');
+const { getAllChannels, getChannel, updateChannelByID, getAllStreamChannels } = require('../../controller/channel');
+const { updateOneUser, updateOneUserPassword } = require('../../controller/user');
+const { recordVoice, stopRecordVoice } = require('../../controller/stream');
 
-const {
-    getAllChannels,
-    getChannel,
-    updateChannelByID,
-    getAllStreamChannels
-} = require('../../database/channel');
-
-const {
-    updateOneUser,
-    updateOneUserPassword
-} = require('../../database/user');
-
-const {
-    generateStreamChunks,
-    recordVoice,
-    stopRecordVoice
-} = require('../../database/stream');
-
-const ObjectID = require('mongodb').ObjectID;
 const Channel = require('../../models/channel'),
-    mongodb = require('mongodb'),
     TailingReadableStream = require('tailing-stream');
 
 /**
@@ -89,6 +67,8 @@ const getSignalementsByChannelID = async (req, res) => {
         });
     }
 };
+// Delete signalement
+// Update signalement
 /**
  * END SIGNALEMENTS METHODES
  */
@@ -176,13 +156,19 @@ const getStreamChannel = async (req, res) => {
         });
     }
 };
+// Delete one channel
 /**
  * END CHANNELS METHODES
  */
 
 /**
  * RADIOS METHODES
+ * Insert radio is on the scraping module
  */
+// Get All radios
+// Get One radio
+// Update One radio
+// Delete One radio
 /**
  * END RADIOS METHODES
  */
@@ -225,6 +211,10 @@ const updateUserPassword = async (req, res) => {
         });
     }
 };
+// Delete user
+// Get User
+// Get User by OAuth2 Token
+// Get Users
 /**
  * END USERS METHODES
  */
@@ -232,19 +222,32 @@ const updateUserPassword = async (req, res) => {
 /**
  * STREAM METHODES
  */
-const listenStream = (req, res) => {
+const getFirstStream = (req, res) => {
+    let channel = req.params.channel_id;
+    let radio = req.query.radio_id;
+
     res.set('content-type', 'audio/mp3');
     res.set('accept-ranges', 'bytes');
-    const stream = TailingReadableStream.createReadStream("record/Stream.mp3", { timeout: 0 });
+    try {
+        const stream = TailingReadableStream.createReadStream("Stream/Stream_"+channel+"_"+radio+".mp3", { timeout: 0 });
 
-    stream.on('data', buffer => {
-        res.write(buffer)
-    });
+        stream.on('data', buffer => {
+            res.write(buffer)
+        });
+    } catch (e) {
+        res.status(404).send(e);
+    }
 };
 const recordStream = async (req, res) => {
     let channel = req.params.channel_id;
+    let radio = req.query.radio_id;
+
     try {
-        const file = await recordVoice(channel);
+        await recordVoice(channel, radio);
+
+        res.status(200).send({
+            message: 'Record : On'
+        });
     } catch (err) {
         res.status(400).send({
             message: err
@@ -254,22 +257,30 @@ const recordStream = async (req, res) => {
 const stopStream = async (req, res) => {
     try {
         await stopRecordVoice();
+        res.status(200).send({
+            message: 'Record : Off'
+        });
     } catch (err) {
         res.status(400).send({
             message: err
         });
     }
 };
+// Don't forget to register stream
+// Mixe 2 stream
+// Diffuse mixed stream ?
 /**
  * END STREAM METHODES
  */
 
 /**
- * PAYMENT METHODES
+ * STATISTIQUES METHODES
  */
-
+// Get all appli statistiques
+// Get all statistiques for one channel
+// Get specific statistiques
 /**
- * END PAYMENT METHODES
+ * END STATISTIQUES METHODES
  */
 
 module.exports = {
@@ -286,7 +297,7 @@ module.exports = {
     updateUser: updateUser,
     updateUserPassword: updateUserPassword,
 
-    listenStream: listenStream,
+    getFirstStream: getFirstStream,
     recordStream: recordStream,
     stopStream: stopStream
 };

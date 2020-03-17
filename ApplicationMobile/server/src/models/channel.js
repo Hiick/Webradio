@@ -6,7 +6,6 @@ const ChannelSchema = new Schema({
     channel_name: String,
     avatar: String,
     Flux: [{
-        stream_url: String,
         first_source: {
             source_url: String,
             name: String,
@@ -25,6 +24,7 @@ const ChannelSchema = new Schema({
         direct_url: String,
         createdAt: Date,
     }],
+    Favoris: [JSON],
     radio: Boolean,
     status: String,
     live: Boolean,

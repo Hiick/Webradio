@@ -1,5 +1,6 @@
 const mongoose = require('mongoose'),
     Channel = require('../../models/channel');
+const { facebookUserLogin } = require('../../controller/user');
 
 let user;
 
@@ -8,7 +9,8 @@ module.exports = injectedUser => {
 
     return {
         register: register,
-        login: login
+        login: login,
+        facebookLogin: facebookLogin
     }
 };
 
@@ -87,3 +89,18 @@ function sendResponse(res, message, error) {
             'error': error,
         })
 }
+
+const facebookLogin = async (req, res) => {
+    try {
+        const profile = await facebookUserLogin(req.params.token);
+        res.status(200).send({
+            success: true,
+            profile: profile
+        })
+    } catch (e) {
+        res.status(400).send({
+            error: true,
+            message : e
+        })
+    }
+};
