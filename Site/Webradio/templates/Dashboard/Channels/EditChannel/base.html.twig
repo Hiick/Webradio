@@ -11,11 +11,40 @@
             {% include 'Dashboard/navigation.html.twig' %}
             <!-- Begin Page Content -->
             <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="">
-                    <h3 class="h3 mb-2 text-gray-800">Dashboard</h3>
-                </div>
+                <div>
+                    <div class="row mb-1">
+                        <div class="col-xl-6  usernameChannel">
+                            <span class="text-black">Username</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 d-flex">
+                            <a class="retour mt-auto mb-1" href="{{ path('chaines') }}" >
+                                <i id="fleche-retour" class="fas fa-long-arrow-alt-left"></i>
+                                <button id="bouton-retour" class="btn btn-sm rounded-pill">retour</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="main d-flex flex-column align-items-center justify-content-center">
+                        <!--img logo-->
+                        <div class="rounded-circle avatar with-default">
+                            <i class="fa-3x far fa-edit"></i>
+                        </div>
+                        <!--input-->
+                        <div class="row mb-1">
+                            <div class="col-sm">
+                                <div class="form-group editchannel" id="nomchaine">
+                                    <input type='text' class='form-control text-center text-black' placeholder='nom de la chaine' value=''>
+                                </div>
+                                <div class="form-group editchannel">
+                                    <input type="button" id="button-settingsAdmin" class="form-control border-0 font-weight-bold text-white"  style="background-color:#EF0051;" value="Enregistrer">
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+            </div>
+                <!--diviver -->
+               <hr class="sidebar-divider d-none d-md-block">
 
                     <!-- Content Row -->
                     <div class="row">
@@ -27,7 +56,7 @@
                             <div class="row">
                                 <div class="col mr-2 mb-2 d-flex flex-column align-items-center justify-content-center">
                                     <div class="text-principal justify-content-center">Nombre d’utilisateurs</div>
-                                    <div id="nombre_dutilisateurs" class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">98’578</div>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +70,7 @@
                             <div class="row">
                                 <div class="col mr-2 mb-2 d-flex flex-column align-items-center justify-content-center">
                                     <div class="text-bleue">Nombre d’abonnés</div>
-                                    <div id="nombre_dabonnes" class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">44’577</div>
                                 </div>
                             </div>
                         </div>
@@ -55,7 +84,7 @@
                             <div class="row">
                                 <div class="col mr-2 d-flex flex-column align-items-center justify-content-center">
                                     <div class="text-turquoise">Total d'écoutes</div>
-                                    <div id="total_decoutes" class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">453’987</div>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +98,7 @@
                             <div class="row">
                                 <div class="col mr-2  mb-2 d-flex flex-column align-items-center justify-content-center">
                                     <div class="text-purple">Nombre de chaînes créée</div>
-                                    <div id="nombre_chaines_creee" class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">24’767</div>
                                 </div>
                             </div>
                         </div>
@@ -134,7 +163,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Webradio - Stream - 2020</span>
+                    <span class="text-black">Copyright &copy; Webradio - Stream - 2020</span>
                 </div>
             </div>
         </footer>
@@ -151,7 +180,7 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-{% include 'Dashboard/script.html.twig' %}
+{% include 'Dashboard/Channels/EditChannel/script.html.twig' %}
 
 </body>
 

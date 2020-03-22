@@ -44,9 +44,28 @@ i.fas.fa-fw.far.fa-edit {
     border-radius: 0.9rem;
     padding: 0rem !important;
 }
-div.rounded-circle.avatar {
-    margin: 2rem;
+div.rounded-circle.avatar{
+    margin: 2rem auto;
+    height: 240px;
+    line-height: 0;
+    overflow: hidden;
+    position: relative;
+    width: 240px;   
 }
+
+.with-default{
+    background: url('../assets/element-1.png') center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.avatar i.fa-3x.far.fa-edit{
+    margin: 2rem auto;
+    line-height: 0;
+    position: relative;
+    width: 54px;
+    height: 54px;
+}
+
 /*@media (max-width: 992px)
 {
 #text-nav span#login1{ margin-left: -150px; margin-right: 0px !important;}
@@ -151,11 +170,13 @@ padding-right: 0px !important;
     font-weight: 100;
     height: 70px;
 }
-.modal-footer.addUser, .modal-footer.removeButton{
+.modal-footer.addUser, .modal-footer.removeButton, .modal-footer.bannirButton{
     padding: 0px;
     position: relative;
     top: 30px;
 }
+
+
 
 /*.conteneur, .row.recherche, .row.toutesRadio {
     width: 100%;
@@ -177,6 +198,12 @@ padding-right: 0px !important;
     position: relative;
     left: 30px;
 }
+
+.rounded-circle.img.imgBannir{
+    position: relative;
+    left: 30px;
+}
+
 
 .passwordLost .rounded-circle.img{
     width: 144.59px;
@@ -341,29 +368,31 @@ padding-right: 0px !important;
         font-weight: 100;
         font-size: 1.5em !important;
     }
-    div.rounded-circle.avatar{
+    div.rounded-circle.avatar {
         position: relative;
         left: 20px
     }
     .avatar i.fa-3x.far.fa-edit{
         position: absolute;
-        top: 60px;
-        right: 80px;
+        top: 90px;
+        right: 90px;
     }
-    .logo-addUser{
+    .logo-addUser, .logo-settingsAdmin, .logo-editchannel, .logo-notifications{
         position: relative;
          right: 20px;
     }
+
  }
  @media (max-width:575.98px){
-    div.rounded-circle.avatar{
+    div.rounded-circle.avatar {
         position: relative;
     }
     .avatar i.fa-3x.far.fa-edit{
         position: absolute;
-        top: 50px;
-        right: 50px;
+        top: 90px;
+        right: 90px;
     }
+
     .modal-dialog {
         width: 420px !important;
         position: absolute;
@@ -406,19 +435,19 @@ padding-right: 0px !important;
         font-weight: 100;
         font-size: 1.5em !important;
     }
-    .adduser {
+    .adduser, .settingsAdmin, .editchannel, .notifications {
         width: 60vh;
         margin-bottom: 1.94rem;
     }
-    .adduser .form-control{border-radius: .95rem !important; }
-    div.rounded-circle.avatar{
+    .adduser .form-control, .settingsAdmin .form-control, .editchannel .form-control, .notifications .form-control{border-radius: .95rem !important; }
+    div.rounded-circle.avatar {
         position: relative;
         left: 20px
     }
     .avatar i.fa-3x.far.fa-edit{
         position: absolute;
-        top: 60px;
-        right: 80px;
+        top: 90px;
+        right: 90px;
     }
     .modal-dialog {
         width: 420px !important;
@@ -448,12 +477,13 @@ padding-right: 0px !important;
         font-weight: 100;
         font-size: 1.5em !important;
     }
-    .adduser .form-control{border-radius: .95rem !important; }
-    div.rounded-circle.avatar{
+    .adduser .form-control, .settingsAdmin .form-control, .editchannel .form-control, .notifications .form-control{border-radius: .95rem !important; }
+    div.rounded-circle.avatar {
         position: relative;
         left: 20px
     }
-    .avatar i.fa-3x.far.fa-edit{position: absolute;top: 60px;right: 80px;}
+    .avatar i.fa-3x.far.fa-edit{position: absolute;top: 90px;right: 90px;}
+
  }
 
 /* Extra large devices (large desktops, 1200px and up)*/
@@ -476,18 +506,18 @@ padding-right: 0px !important;
         font-weight: 100;
         font-size: 1.5em !important;
     }
-    .logo-addUser {
+    .logo-addUser, .logo-settingsAdmin, .logo-editchannel, .logo-notifications {
         margin-left: 2.5rem;
     }
-    div.rounded-circle.avatar{
+    div.rounded-circle.avatar {
         position: relative;
         left: 0px
     }
-    .adduser {
+    .adduser, .settingsAdmin, .notifications {
         width: 90vh;
         margin-bottom: 1.94rem;
     }
-    .adduser .form-control{border-radius: .95rem !important; }
+    .adduser .form-control, .settingsAdmin .form-control, .notifications .form-control {border-radius: .95rem !important; }
     .modal-content.login {
         padding: 30px;
         width: 420px !important;
@@ -503,4 +533,22 @@ padding-right: 0px !important;
  select#sel1.form-control{
     text-align-last: center !important;
     padding-right: 2px;
+}
+
+/*edit*/
+a.fa-2x.far.fa-edit, a.far.fa-trash-alt.fa-2x{
+    color: black;
+    text-decoration: none;
+    text-decoration-line: none !important;
+}
+
+a.fa-2x.far.fa-edit :hover{
+    color: black;
+    text-decoration: none;
+    text-decoration-line: none !important;
+}
+a.far.fa-trash-alt.fa-2x :hover {
+    color: black;
+    text-decoration: none;
+    text-decoration-line: none !important;
 }

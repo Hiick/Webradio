@@ -16,10 +16,15 @@ adminuser:
     methods: GET
     controller: App\Controller\Administrateur\AdminUserController::home
 
+adminstatistics:
+    path: /statistics
+    methods: GET
+    controller: App\Controller\Administrateur\DashboardController::getStatistics
+
 settingsadmin:
     path: /settingsadmin
     methods: GET
-    controller: App\Controller\Administrateur\SettingsController::settings
+    controller: App\Controller\Administrateur\SettingsController::settings    
 
 utilisateurs:
     path: /utilisateurs
@@ -75,6 +80,16 @@ edituser:
     path: /edituser/id
     methods: GET
     controller: App\Controller\Administrateur\CrudController::editUser
+
+editChannel: 
+    path: /editChannel/id
+    methods: GET
+    controller: App\Controller\Administrateur\CrudController::editChannel
+
+notifications: 
+    path: /notifications
+    methods: GET
+    controller: App\Controller\Administrateur\NotificationsController::start
 
 userdashboard:
     path: /userdashboard

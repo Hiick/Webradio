@@ -32,4 +32,9 @@ class CrudController extends BaseController {
         return $this->render('Dashboard/EditUser/base.html.twig');
     }
 
+    public function editChannel(Request $request): Response {
+
+        return $this->render('Dashboard/Channels/EditChannel/base.html.twig');
+    }
+
 }

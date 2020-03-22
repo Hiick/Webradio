@@ -333,6 +333,13 @@
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Administrateur\DashboardController"/>
       </call>
     </service>
+    <service id="App\Controller\Administrateur\NotificationsController" class="App\Controller\Administrateur\NotificationsController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Administrateur\NotificationsController"/>
+      </call>
+    </service>
     <service id="App\Controller\Administrateur\SettingsController" class="App\Controller\Administrateur\SettingsController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -4630,6 +4637,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Administrateur\DashboardController" class="App\Controller\Administrateur\DashboardController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Administrateur\DashboardController" class="App\Controller\Administrateur\DashboardController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Administrateur\DashboardController" class="App\Controller\Administrateur\DashboardController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Administrateur\NotificationsController" class="App\Controller\Administrateur\NotificationsController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Administrateur\NotificationsController" class="App\Controller\Administrateur\NotificationsController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Administrateur\NotificationsController" class="App\Controller\Administrateur\NotificationsController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Administrateur\SettingsController" class="App\Controller\Administrateur\SettingsController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Administrateur\SettingsController" class="App\Controller\Administrateur\SettingsController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Administrateur\SettingsController" class="App\Controller\Administrateur\SettingsController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5149,6 +5159,12 @@
     <service id=".service_locator.pNNo5z3.App\Controller\Administrateur\DashboardController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\Administrateur\DashboardController"/>
       <argument>App\Controller\Administrateur\DashboardController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\Administrateur\NotificationsController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Administrateur\NotificationsController"/>
+      <argument>App\Controller\Administrateur\NotificationsController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>

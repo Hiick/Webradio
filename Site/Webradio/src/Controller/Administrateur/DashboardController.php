@@ -17,4 +17,10 @@ class DashboardController extends BaseController {
         return $this->render('Dashboard/base.html.twig');
     }
 
+    public function getStatistics() : Response {
+
+        $statistique = file_get_contents('../monks/adminStatistics.json');
+        $listStatistique = json_decode($statistique);
+        return $this->responseApi([$listStatistique]);
+    }
 }

@@ -36,7 +36,7 @@ $(document).ready(function() {
                         +"</td><td>"+getchannels.channels[x].nom_chaine
                         +"</td><td>"+getchannels.channels[x].proprietaire
                         +"</td><td>"+getchannels.channels[x].satuts
-                        +"</td><td><a href='#removeModal' data-toggle='modal' data-dismiss='modal' class='far fa-trash-alt fa-2x' id='remove"+getchannels.channels[x].id+"'></a><a href='{#{ path('') }#}' class='fa-2x far fa-edit' id='edit"+getchannels.channels[x].id+"'></a></tr>";              
+                        +"</td><td><a href='#removeModal' data-toggle='modal' data-dismiss='modal' class='far fa-trash-alt fa-2x' id='remove"+getchannels.channels[x].id+"'></a><a href='{{ path('editChannel') }}' class='fa-2x far fa-edit' id='edit"+getchannels.channels[x].id+"'></a></tr>";              
                      
                         $('#corps-table').append(tab);
 

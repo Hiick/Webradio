@@ -8,14 +8,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdminUserController extends BaseController {
+class NotificationsController extends BaseController {
 
-    /**
-     * @Route("/adminuser", name="adminuser")
-     */
-    public function home(): Response {
-        return $this->render('Dashboard/AdminUser/base.html.twig');
+    public function start(): Response {
+        
+        return $this->render('Dashboard/Notifications/base.html.twig');
     }
-
-
 }

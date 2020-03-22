@@ -28,7 +28,7 @@ class SignalementsController extends BaseController {
     }
     public function listReporting(): Response { 
 
-        return $this->render('Dashboard/Signalements/ListSignalement.html.twig');
+        return $this->render('Dashboard/Signalements/SignalList/ListSignalement.html.twig');
     }
 
     public function blankPage(): Response {
