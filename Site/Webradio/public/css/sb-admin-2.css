@@ -85,6 +85,7 @@ div.rounded-circle.avatar{
 .retour {
     width: 140px !important;
     height: 40 !important;
+    text-decoration-line: none !important;
 }
 
 .card-body.music{
@@ -146,22 +147,25 @@ div#col-text{
     width: 100%;
 }
 
-.modal-content.login, .modal-content.passwordLost, .modal-content.saveUser, .modal-content.removeUser {
-    border-radius: 10% !important;
+.modal-content.saveUser, .modal-content.removeUser {
+    border-radius: 20% !important;
 }
 
-.modal-content{ padding: 30px; }
+span.mt-2.text-black.d-lg-inline.text-center{
+    line-height: 2;
+    width: 200px;
+}
+
 .modal-content.saveUser, .modal-content.removeUser{
-padding-top: 30px;
-padding-bottom: 30px;
+padding-bottom: 10px;
 padding-left: 0px !important;
 padding-right: 0px !important;
 }
-.modal-body {padding: 0 !important;}
+
 /*
 *modal button
 */
-.close { position: absolute; right: 30px;}
+.close { position: absolute; right: 10px;}
 .oui{ color: #1DC88A; border: none; background-color: inherit; text-align: center; font-size: 1.5rem;}
 .non{ color: #C81D1D; border: none; background-color: inherit; text-align: center; font-size: 1.5rem;}
 .diviser-col{
@@ -184,26 +188,6 @@ padding-right: 0px !important;
 /*
 *je me suis arrete la 
 */
-.rounded-circle.img{
-    width: 164.59px;
-    height: 153.38px;
-    transform: translate(60%, -60%);
-    background-color: #fff;
-}
-.rounded-circle.img.imgadd{
-    position: relative;
-    left: 30px;
-}
-.rounded-circle.img.imgRemove{
-    position: relative;
-    left: 30px;
-}
-
-.rounded-circle.img.imgBannir{
-    position: relative;
-    left: 30px;
-}
-
 
 .passwordLost .rounded-circle.img{
     width: 144.59px;
@@ -225,7 +209,9 @@ padding-right: 0px !important;
     padding: 15px;
     border: none;
 }
-.bouton-password a:hover{ color: white;}
+.bouton-password a:hover{color: white;}
+a.btn.bouton-password{color: white; box-shadow: 0 6px 10px 0 #0000001a,0 1px 18px 0 #0000001a, 0 3px 5px -1px #0003;
+    transition: transform 0.3s;}
 .fas.fa-arrow-right{
     position: relative;
     font-size: 30px;
@@ -236,19 +222,23 @@ padding-right: 0px !important;
     border-radius: .95rem !important; 
     text-align: center; 
 }
+
 .form-group.champ-password{padding-bottom: 0px !important; margin-bottom:0px !important; }
 .img-logo-login, .img-logo-user, .img-logo-remove{transform: translate(30%, 50%);}
-.img-logo-password{transform: translate(20%, 50%); position: absolute;}
-.img-logo{width: 12vh}
+
+#img-logo{
+    background-repeat:no-repeat;
+    background-image: url('../assets/Groupe 8.png');
+    background-position:center;
+    background-size: 10vh;
+}
+.navbar-nav{margin: 0 0 0 auto;}
 #img-logo-nav{width: 100%;}
 #aside-nav{width: 100%;}
 
 
-.form-group.champ {margin-bottom: 1.75rem;}
+.form-group.champ {margin-bottom: 1.4rem;}
 .champ .form-control {border-radius: .95rem !important;}
-.modal-dialog {padding-top: 40px;}
-
-.modal {background: rgba(255, 255, 255, 0.54) !important; }
 
 .form-group.champ input.form-control {text-align: center !important;}
 .login-body{transform: translate(0%, -20%)}
@@ -257,18 +247,26 @@ padding-right: 0px !important;
 .setting{width: 90vh; margin-bottom: 1.94rem;}
 .setting .form-control{border-radius: .95rem !important; }
 
-.img-radio{
-    width: 93px !important;
-}
+.img-radio{width: 93px !important;}
 .tab td {
     border: none !important;
     padding: 10px;
     width: 14.29%;
     height: 20%;
 }
-.tab  {
+.tab {
   width: 100%;
   height: calc(100vh - 248px); 
+}
+.tabAccueil{
+    width: 400px;
+    height: calc(100vh - 248px);
+    position: relative;
+    margin: 0 auto;
+}
+.accueilTab td {
+    border: none !important;
+    padding: 10px;
 }
 /*
 * player pause css*/
@@ -282,9 +280,11 @@ padding-right: 0px !important;
     background-repeat:no-repeat;
     background-image: url('../assets/play.png');
     background-position:center;
-    background-size:20px;
+    background-size:15px;
     border-radius: 25px;
     padding: 20px;
+    box-shadow: 0 6px 10px 0 #0000001a,0 1px 18px 0 #0000001a, 0 3px 5px -1px #0003;
+    transition: transform 0.3s;
 }
 
 #play-pause.play {
@@ -381,6 +381,11 @@ padding-right: 0px !important;
         position: relative;
          right: 20px;
     }
+    .modal-dialog {
+        padding:20px;
+        width: 320px;
+    }
+
 
  }
  @media (max-width:575.98px){
@@ -393,12 +398,7 @@ padding-right: 0px !important;
         right: 90px;
     }
 
-    .modal-dialog {
-        width: 420px !important;
-        position: absolute;
-        top: 40px;
-        left: 80px
-    }
+   
     .rounded-circle.img{
         position: relative;
         right: 20px;
@@ -406,12 +406,7 @@ padding-right: 0px !important;
  }
  @media (min-width:576px) and (max-width:767px){
 
-    .modal-dialog {
-        width: 420px !important;
-        position: absolute;
-        top: 20px;
-        left: 80px
-    }
+   
 
  }
 
@@ -449,12 +444,7 @@ padding-right: 0px !important;
         top: 90px;
         right: 90px;
     }
-    .modal-dialog {
-        width: 420px !important;
-        position: relative;
-        top: 20px;
-        left: 10px;
-    }
+
  }
 
 /* Large devices (desktops, 992px and up)*/
@@ -518,15 +508,12 @@ padding-right: 0px !important;
         margin-bottom: 1.94rem;
     }
     .adduser .form-control, .settingsAdmin .form-control, .notifications .form-control {border-radius: .95rem !important; }
-    .modal-content.login {
-        padding: 30px;
-        width: 420px !important;
-    }
     .modal-content.passwordLost {
         padding-left: 25px;
         padding-right: 25px;
         width: 320px !important;  
     }
+
  }
 
  /*input select*/
@@ -552,3 +539,51 @@ a.far.fa-trash-alt.fa-2x :hover {
     text-decoration: none;
     text-decoration-line: none !important;
 }
+
+.modal-dialog {
+    padding:20px;
+    width: 320px;
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.014),0 1px 2px 0 rgba(255, 255, 255, 0.04),0 2px 1px -1px rgba(247, 247, 247, 0),0 1px 6px 0 rgba(255, 255, 255, 0);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgba(112, 112, 112, 0);
+    text-align: center;
+    box-sizing: border-box;
+}
+.rounded-circle.imgModal{
+    height: 140px;
+    line-height: 0;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 150px;
+    bottom: 70px;
+    background-color: #fff;
+}
+.imgModal{
+    background-repeat:no-repeat;
+    background-image: url('../assets/Groupe 8.png');
+    background-position:center;
+    background-size: 13vh;   
+}
+
+.modal-content {
+    border: none;
+    box-sizing: border-box;
+}
+
+
+

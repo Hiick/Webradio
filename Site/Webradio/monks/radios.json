@@ -4,28 +4,28 @@
             "id": "01",
             "avatar": "../assets/Image-3.png", 
             "nom": "Fun radio",
-            "url": "../assets/Jidenna_-_Little_Bit_More.mp3"
+            "url": "http://basichow.com/asserts/interlude.mp3"
         },
        
         {
             "id": "02",
             "avatar": "../assets/Image-4.png", 
             "nom": "NRJ",
-            "url": "../assets/Jidenna_-_Little_Bit_More.mp3"
+            "url": "http://basichow.com/asserts/interlude.mp3"
         },
 
         {
             "id": "03",
             "avatar": "../assets/Image-7.png", 
             "nom": "Skyrock",
-            "url": "../assets/Jidenna_-_Little_Bit_More.mp3"
+            "url": "http://basichow.com/asserts/interlude.mp3"
         },
 
         {
             "id": "04",
             "avatar": "../assets/Image-6.png", 
             "nom": "Europe 1",
-            "url": "../assets/Jidenna_-_Little_Bit_More.mp3"
+            "url": "http://basichow.com/asserts/interlude.mp3"
         }
     ]
 }
