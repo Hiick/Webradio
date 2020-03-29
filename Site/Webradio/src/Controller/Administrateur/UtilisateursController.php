@@ -11,13 +11,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class UtilisateursController extends BaseController {
 
     /**
-     * @Route("/listusers", name="listusers")
+     * @Route("/admin/user", name="admin.users.index")
      */
-    public function home(): Response {
+    public function index(): Response {
 
         return $this->render('Dashboard/Users/base.html.twig');
     }
 
+    /**
+     * @Route("/admin/users", name="admin.users.show")
+     */
     public function listUsers():Response {
 
         $userJson = file_get_contents('../monks/users-login.json');

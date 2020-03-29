@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center mt-5" href="{{ path('dashboard') }}">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center mt-5" href="{{ path('admin.dashboard.index') }}">
         <div class="sidebar-brand-text mx-3">Administrateur</div>
     </a>
 
@@ -11,7 +11,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('dashboard') }}">
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('admin.dashboard.index') }}">
             <span>Dashboard</span>
         </a>
     </li>
@@ -21,7 +21,7 @@
 
     <!-- Nav Item - Utilisateurs -->
     <li class="nav-item active">
-        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('utilisateurs') }}">
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('admin.users.index') }}">
             <span>Utilisateurs</span>
         </a>
     </li>    
@@ -31,7 +31,7 @@
 
     <!-- Nav Item - chaines -->
     <li class="nav-item active">
-        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('chaines') }}">
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('admin.channel.index') }}">
             <span>Chaînes</span>
         </a>
     </li>
@@ -40,14 +40,14 @@
 
     <!-- Nav Item - signalements -->
     <li class="nav-item active">
-        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('signalements') }}">
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('admin.signalement.index') }}">
             <span>Signalements</span>
         </a>
     </li>
    
       <!-- Nav Item - notifications -->
     <li class="nav-item active">
-        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('notifications') }}">
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('admin.notifications.index') }}">
             <span>Notifications</span>
         </a>
     </li>

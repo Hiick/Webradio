@@ -13,7 +13,7 @@
             <div class="container-fluid">
                 <div class="row mb-3">
                     <div class="col-xl-6 d-flex">
-                        <a class="retour mt-auto mb-1" href="{{ path('signalements') }}" >
+                        <a class="retour mt-auto mb-1" href="{{ path('admin.signalement.index') }}" >
                             <i id="fleche-retour" class="fas fa-long-arrow-alt-left"></i>
                             <button id="bouton-retour" class="btn btn-sm rounded-pill">retour</button>
                         </a>
@@ -70,7 +70,7 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-{% include 'Dashboard/Signalements/script.html.twig' %}
+{% include 'Dashboard/Signalements/SignalList/script.html.twig' %}
 
 </body>
 

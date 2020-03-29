@@ -10,7 +10,19 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class NotificationsController extends BaseController {
 
-    public function start(): Response {
+
+    /**
+     * @Route("/admin/notification", name="admin.notifications.index")
+     */
+    public function index(): Response {
+        
+        return $this->render('Dashboard/Notifications/base.html.twig');
+    }
+
+    /**
+     * @Route("/admin/notification/{id}", name="admin.notifications.sendnotif")
+     */
+    public function sendNotif(): Response {
         
         return $this->render('Dashboard/Notifications/base.html.twig');
     }

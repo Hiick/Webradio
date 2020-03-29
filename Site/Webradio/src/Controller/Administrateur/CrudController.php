@@ -11,12 +11,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class CrudController extends BaseController {
 
     /**
-     * @Route("/adminuser", name="adminuser")
+     * @Route("/admin/adminuser", name="admin.adminuser.index")
      */
     public function getUser(): Response {
-        return $this->render('Dashboard/AddUser/base.html.twig');
+        return $this->render('Dashboard/Users/AddUser/base.html.twig');
     }
 
+    /**
+     * @Route("/admin/adminuser/create", name="admin.adminuser.create")
+     */
     public function addNewUser(): Response {
         
         $userJson = file_get_contents('../monks/users-login.json');
@@ -25,16 +28,14 @@ class CrudController extends BaseController {
         return $this->responseApi([$listuser]);
     }
 
-    public function editUser(Request $request): Response {
+    /**
+     * @Route("/admin/user/edits", name="admin.adminuser.edit")
+     */
+    public function editUser(): Response {
 
-        $userId= $request->query->get('id', '1');
-
-        return $this->render('Dashboard/EditUser/base.html.twig');
+        return $this->render('Dashboard/Users/EditUser/base.html.twig');
     }
 
-    public function editChannel(Request $request): Response {
 
-        return $this->render('Dashboard/Channels/EditChannel/base.html.twig');
-    }
 
 }

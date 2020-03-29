@@ -16,13 +16,13 @@ $(document).ready(function() {
 
     $.ajax({
     method: "GET", 
-    url: "/listusers", 
+    url: "/admin/users", 
     async: true,
     success: function(data) {
     
         listusers = data[0]; 
         userDetails= listusers.users;
-        
+        console.log(listusers);
                 table = $("#corps-table");
 
 				var max_size=userDetails.length;
@@ -40,10 +40,10 @@ $(document).ready(function() {
                         +"</td><td>"+listusers.users[x].role
                         +"</td><td>"+listusers.users[x].status;
                         if(listusers.users[x].role=== "ADMIN"){
-                            tab +="</td><td><a href='{{ path('edituser') }}' class='fa-2x far fa-edit' id='edit"+listusers.users[x].id+"'></a></tr>";
+                            tab +="</td><td><a href='{{ path('admin.adminuser.edit') }}' class='fa-2x far fa-edit' id='edit"+listusers.users[x].id+"'></a></tr>";
                         }
                         else{
-                            tab +="</td><td><a href='#removeModal' data-toggle='modal' data-dismiss='modal' class='far fa-trash-alt fa-2x' id='remove"+listusers.users[x].id+"'></a><a href='{{ path('edituser') }}' class='fa-2x far fa-edit' id='edit"+listusers.users[x].id+"'></a></tr>";              
+                            tab +="</td><td><a href='#removeModal' data-toggle='modal' data-dismiss='modal' class='far fa-trash-alt fa-2x' id='remove"+listusers.users[x].id+"'></a><a href='{{ path('admin.adminuser.edit') }}' class='fa-2x far fa-edit' id='edit"+listusers.users[x].id+"'></a></tr>";              
                         }
                     
 

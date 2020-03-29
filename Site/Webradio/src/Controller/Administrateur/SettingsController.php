@@ -10,12 +10,20 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SettingsController extends BaseController {
 
-    public function settings():Response {
+    /**
+     * @Route("/admin/setting", name="admin.setting.index")
+     */
+    public function index():Response {
 
         return $this->render('Dashboard/Settings/base.html.twig');
     }
 
-    public function getData() {
+     /**
+     * @Route("/admin/setting/{id}", name="admin.setting.edit", methods="GET|POST")
+     */
+    public function editUser() {
         
     }
+
+    
 }

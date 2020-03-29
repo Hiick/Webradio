@@ -13,45 +13,34 @@ return [
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/chaines' => [
-            [['_route' => 'Chaines', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::home'], null, null, null, false, false, null],
-            [['_route' => 'chaines', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::home'], null, ['GET' => 0], null, false, false, null],
-        ],
-        '/home' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::home'], null, null, null, false, false, null]],
-        '/userdashboard' => [
-            [['_route' => 'stats', '_controller' => 'App\\Controller\\Users\\DashboardController::start'], null, null, null, false, false, null],
-            [['_route' => 'userdashboard', '_controller' => 'App\\Controller\\Users\\DashboardUserController::start'], null, ['GET' => 0], null, false, false, null],
-        ],
-        '/planning' => [
-            [['_route' => 'planification', '_controller' => 'App\\Controller\\Users\\PlanningController::start'], null, null, null, false, false, null],
-            [['_route' => 'planning', '_controller' => 'App\\Controller\\PlanningController::start'], null, ['GET' => 0], null, false, false, null],
-        ],
-        '/radios' => [
-            [['_route' => 'accueil', '_controller' => 'App\\Controller\\Users\\RadiosController::start'], null, null, null, false, false, null],
-            [['_route' => 'radios', '_controller' => 'App\\Controller\\Users\\RadiosController::start'], null, ['GET' => 0], null, false, false, null],
-        ],
-        '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\HomeController::home'], null, ['GET' => 0], null, false, false, null]],
-        '/logout' => [[['_route' => 'logout'], null, null, null, false, false, null]],
-        '/admindashboard' => [[['_route' => 'dashboard', '_controller' => 'App\\Controller\\Administrateur\\DashboardController::start'], null, ['GET' => 0], null, false, false, null]],
-        '/adminuser' => [[['_route' => 'adminuser', '_controller' => 'App\\Controller\\Administrateur\\AdminUserController::home'], null, ['GET' => 0], null, false, false, null]],
-        '/statistics' => [[['_route' => 'adminstatistics', '_controller' => 'App\\Controller\\Administrateur\\DashboardController::getStatistics'], null, ['GET' => 0], null, false, false, null]],
-        '/settingsadmin' => [[['_route' => 'settingsadmin', '_controller' => 'App\\Controller\\Administrateur\\SettingsController::settings'], null, ['GET' => 0], null, false, false, null]],
-        '/utilisateurs' => [[['_route' => 'utilisateurs', '_controller' => 'App\\Controller\\Administrateur\\UtilisateursController::home'], null, ['GET' => 0], null, false, false, null]],
-        '/listusers' => [[['_route' => 'listusers', '_controller' => 'App\\Controller\\Administrateur\\UtilisateursController::listUsers'], null, ['GET' => 0], null, false, false, null]],
-        '/signalements' => [[['_route' => 'signalements', '_controller' => 'App\\Controller\\Administrateur\\SignalementsController::home'], null, ['GET' => 0], null, false, false, null]],
-        '/signalements/id' => [[['_route' => 'signalement_list', '_controller' => 'App\\Controller\\Administrateur\\SignalementsController::getUserSignal'], null, ['GET' => 0], null, false, false, null]],
-        '/listSignal/id' => [[['_route' => 'listSignal', '_controller' => 'App\\Controller\\Administrateur\\SignalementsController::listReporting'], null, ['GET' => 0], null, false, false, null]],
-        '/blank' => [[['_route' => 'blank', '_controller' => 'App\\Controller\\Administrateur\\SignalementsController::blankPage'], null, ['GET' => 0], null, false, false, null]],
-        '/listchannels' => [[['_route' => 'listchannels', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::allchannels'], null, ['GET' => 0], null, false, false, null]],
-        '/adduser' => [[['_route' => 'adduser', '_controller' => 'App\\Controller\\Administrateur\\CrudController::getUser'], null, ['GET' => 0], null, false, false, null]],
-        '/newuser' => [[['_route' => 'newuser', '_controller' => 'App\\Controller\\Administrateur\\CrudController::addNewUser'], null, ['GET' => 0], null, false, false, null]],
-        '/edituser/id' => [[['_route' => 'edituser', '_controller' => 'App\\Controller\\Administrateur\\CrudController::editUser'], null, ['GET' => 0], null, false, false, null]],
-        '/editChannel/id' => [[['_route' => 'editChannel', '_controller' => 'App\\Controller\\Administrateur\\CrudController::editChannel'], null, ['GET' => 0], null, false, false, null]],
-        '/notifications' => [[['_route' => 'notifications', '_controller' => 'App\\Controller\\Administrateur\\NotificationsController::start'], null, ['GET' => 0], null, false, false, null]],
-        '/listradios' => [[['_route' => 'listradios', '_controller' => 'App\\Controller\\Users\\RadiosController::getAllRadio'], null, ['GET' => 0], null, false, false, null]],
-        '/settings' => [[['_route' => 'settings', '_controller' => 'App\\Controller\\Users\\SettingsController::accountSetting'], null, ['GET' => 0], null, false, false, null]],
-        '/musiclibrary' => [[['_route' => 'musiclibrary', '_controller' => 'App\\Controller\\Users\\MusicLibraryController::start'], null, ['GET' => 0], null, false, false, null]],
-        '/timeline' => [[['_route' => 'timeline', '_controller' => 'App\\Controller\\Users\\TimelineController::start'], null, ['GET' => 0], null, false, false, null]],
+        '/adminuser' => [[['_route' => 'adminuser.users.index', '_controller' => 'App\\Controller\\Administrateur\\AdminUserController::index'], null, null, null, false, false, null]],
+        '/adminuser/channel' => [[['_route' => 'adminuser.channel.show', '_controller' => 'App\\Controller\\Administrateur\\AdminUserController::getchannel'], null, null, null, false, false, null]],
+        '/adminuser/channel/edit' => [[['_route' => 'adminuser.channel.edit', '_controller' => 'App\\Controller\\Administrateur\\AdminUserController::editUser'], null, null, null, false, false, null]],
+        '/admin/channel' => [[['_route' => 'admin.channel.index', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::home'], null, null, null, false, false, null]],
+        '/admin/channel/userschannel' => [[['_route' => 'admin.channel.show', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::allchannels'], null, null, null, false, false, null]],
+        '/admin/channel/edit' => [[['_route' => 'admin.channel.edit', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::editChannel'], null, null, null, false, false, null]],
+        '/admin/adminuser' => [[['_route' => 'admin.adminuser.index', '_controller' => 'App\\Controller\\Administrateur\\CrudController::getUser'], null, null, null, false, false, null]],
+        '/admin/adminuser/create' => [[['_route' => 'admin.adminuser.create', '_controller' => 'App\\Controller\\Administrateur\\CrudController::addNewUser'], null, null, null, false, false, null]],
+        '/admin/user/edits' => [[['_route' => 'admin.adminuser.edit', '_controller' => 'App\\Controller\\Administrateur\\CrudController::editUser'], null, null, null, false, false, null]],
+        '/admin' => [[['_route' => 'admin.dashboard.index', '_controller' => 'App\\Controller\\Administrateur\\DashboardController::index'], null, null, null, false, false, null]],
+        '/admin/stats' => [[['_route' => 'admin.stats.show', '_controller' => 'App\\Controller\\Administrateur\\DashboardController::getStatistics'], null, null, null, false, false, null]],
+        '/admin/notification' => [[['_route' => 'admin.notifications.index', '_controller' => 'App\\Controller\\Administrateur\\NotificationsController::index'], null, null, null, false, false, null]],
+        '/admin/setting' => [[['_route' => 'admin.setting.index', '_controller' => 'App\\Controller\\Administrateur\\SettingsController::index'], null, null, null, false, false, null]],
+        '/admin/signalement' => [[['_route' => 'admin.signalement.index', '_controller' => 'App\\Controller\\Administrateur\\SignalementsController::index'], null, null, null, false, false, null]],
+        '/admin/signalement/users' => [[['_route' => 'admin.signalement.show', '_controller' => 'App\\Controller\\Administrateur\\SignalementsController::getUserSignal'], null, null, null, false, false, null]],
+        '/admin/signalement/listreporting' => [[['_route' => 'admin.signalement.listreporting', '_controller' => 'App\\Controller\\Administrateur\\SignalementsController::listReporting'], null, ['GET' => 0], null, false, false, null]],
+        '/admin/signalement/blankpage' => [[['_route' => 'admin.signalement.blankpage', '_controller' => 'App\\Controller\\Administrateur\\SignalementsController::blankPage'], null, ['GET' => 0], null, false, false, null]],
+        '/admin/user' => [[['_route' => 'admin.users.index', '_controller' => 'App\\Controller\\Administrateur\\UtilisateursController::index'], null, null, null, false, false, null]],
+        '/admin/users' => [[['_route' => 'admin.users.show', '_controller' => 'App\\Controller\\Administrateur\\UtilisateursController::listUsers'], null, null, null, false, false, null]],
+        '/' => [[['_route' => 'home.index', '_controller' => 'App\\Controller\\HomeController::home'], null, null, null, false, false, null]],
+        '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\LoginController::login'], null, null, null, false, false, null]],
+        '/user' => [[['_route' => 'user.dashboard.stats', '_controller' => 'App\\Controller\\Users\\DashboardController::index'], null, null, null, false, false, null]],
+        '/user/library' => [[['_route' => 'user.library.index', '_controller' => 'App\\Controller\\Users\\MusicLibraryController::index'], null, null, null, false, false, null]],
+        '/user/planning' => [[['_route' => 'user.planning.index', '_controller' => 'App\\Controller\\Users\\PlanningController::index'], null, null, null, false, false, null]],
+        '/user/radio' => [[['_route' => 'user.radios.index', '_controller' => 'App\\Controller\\Users\\RadiosController::start'], null, null, null, false, false, null]],
+        '/user/radios' => [[['_route' => 'user.radios.show', '_controller' => 'App\\Controller\\Users\\RadiosController::getAllRadio'], null, null, null, false, false, null]],
+        '/user/setting' => [[['_route' => 'user.setting.index', '_controller' => 'App\\Controller\\Users\\SettingsController::index'], null, null, null, false, false, null]],
+        '/user/save' => [[['_route' => 'user.save.index', '_controller' => 'App\\Controller\\Users\\TimelineController::start'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -70,6 +59,17 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
+                .'|/admin(?'
+                    .'|user/channel/([^/]++)(*:199)'
+                    .'|/(?'
+                        .'|channel/([^/]++)(*:227)'
+                        .'|notification/([^/]++)(*:256)'
+                        .'|setting/([^/]++)(*:280)'
+                    .')'
+                .')'
+                .'|/user/planning/([^/]++)(?'
+                    .'|(*:316)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -79,8 +79,14 @@ return [
         116 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        159 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        199 => [[['_route' => 'adminuser.channel.remove', '_controller' => 'App\\Controller\\Administrateur\\AdminUserController::removeUser'], ['id'], null, null, false, true, null]],
+        227 => [[['_route' => 'admin.channel.remove', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::removeChannel'], ['id'], null, null, false, true, null]],
+        256 => [[['_route' => 'admin.notifications.sendnotif', '_controller' => 'App\\Controller\\Administrateur\\NotificationsController::sendNotif'], ['id'], null, null, false, true, null]],
+        280 => [[['_route' => 'admin.setting.edit', '_controller' => 'App\\Controller\\Administrateur\\SettingsController::editUser'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        316 => [
+            [['_route' => 'user.planning.edit', '_controller' => 'App\\Controller\\Users\\PlanningController::edit'], ['id'], null, null, false, true, null],
+            [['_route' => 'user.planning.delete', '_controller' => 'App\\Controller\\Users\\PlanningController::delete'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

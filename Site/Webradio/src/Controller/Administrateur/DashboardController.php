@@ -11,12 +11,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class DashboardController extends BaseController {
 
     /**
-     * @Route("/dashboard", name="stats")
+     * @Route("/admin", name="admin.dashboard.index")
      */
-    public function start(): Response {
+    public function index(): Response {
         return $this->render('Dashboard/base.html.twig');
     }
 
+    /**
+     * @Route("/admin/stats", name="admin.stats.show")
+     */
     public function getStatistics() : Response {
 
         $statistique = file_get_contents('../monks/adminStatistics.json');

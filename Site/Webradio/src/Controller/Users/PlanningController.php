@@ -12,9 +12,23 @@ use Symfony\Component\Routing\Annotation\Route;
 class PlanningController extends BaseController {
 
     /**
-     * @Route("/planning", name="planification")
+     * @Route("/user/planning", name="user.planning.index")
      */
-    public function start(): Response {
+    public function index(): Response {
+        return $this->render('Users/Planificiation/base.html.twig');
+    }
+
+    /**
+     * @Route("/user/planning/{id}", name="user.planning.edit")
+     */
+    public function edit(): Response {
+        return $this->render('Users/Planificiation/base.html.twig');
+    }
+
+    /**
+     * @Route("/user/planning/{id}", name="user.planning.delete")
+     */
+    public function delete(): Response {
         return $this->render('Users/Planificiation/base.html.twig');
     }
 

@@ -11,9 +11,31 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminUserController extends BaseController {
 
     /**
-     * @Route("/adminuser", name="adminuser")
+     * @Route("/adminuser", name="adminuser.users.index")
      */
-    public function home(): Response {
+
+    public function index(): Response {
+        return $this->render('Dashboard/AdminUser/base.html.twig');
+    }
+
+    /**
+    * @Route("/adminuser/channel", name="adminuser.channel.show")
+    */
+    public function getchannel(): Response {
+        return $this->render('Dashboard/AdminUser/base.html.twig');
+    }
+
+        /**
+    * @Route("/adminuser/channel/edit", name="adminuser.channel.edit")
+    */
+    public function editUser(): Response {
+        return $this->render('Dashboard/AdminUser/base.html.twig');
+    }
+
+        /**
+    * @Route("/adminuser/channel/{id}", name="adminuser.channel.remove")
+    */
+    public function removeUser(): Response {
         return $this->render('Dashboard/AdminUser/base.html.twig');
     }
 

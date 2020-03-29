@@ -11,9 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class DashboardController extends BaseController {
 
     /**
-     * @Route("/userdashboard", name="stats")
+     * @Route("/user", name="user.dashboard.stats")
      */
-    public function start(): Response {
+    public function index(): Response {
         return $this->render('Users/base.html.twig');
     }
 

@@ -11,7 +11,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SettingsController extends BaseController {
 
-    public function accountSetting (): Response {
+    /**
+     * @Route("/user/setting", name="user.setting.index")
+     */
+    public function index(): Response {
 
         return $this->render('Users/Settings/base.html.twig');
     }

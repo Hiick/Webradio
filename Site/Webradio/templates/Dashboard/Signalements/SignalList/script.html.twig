@@ -1,13 +1,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Core plugin JavaScript-->
 <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
-<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="../js/sb-admin-2.min.js"></script>
+<script src="/js/sb-admin-2.min.js"></script>
 
 <script>
     $(document).ready(function() {
@@ -15,52 +15,13 @@
 
     $.ajax({
     method: "GET", 
-    url: "/signalements/id", 
+    url: "/admin/signalement/users", 
     async: true,
     success: function(data) {
     
         listsignal = data[0]; 
         signalDetails= listsignal.signalements;
         console.log(listsignal.signalements);
-        
-                table = $("#corps-table");
-
-				var max_size=signalDetails.length;
-				var sta = 0;
-				var elements_per_page = 5;
-				var limit = elements_per_page;
-				goFun(sta,limit);
-				function goFun(sta,limit){
-                    console.log(sta,limit);
-                    for(var x=sta;x<limit;x++){
-                            var tab= "<tr><td>"+listsignal.signalements[x].avatar
-                        +"</td><td>"+listsignal.signalements[x].nom_chaine
-                        +"</td><td>"+listsignal.signalements[x].nombre_signalement
-                        +"</td><td><a href='{{ path('listSignal') }}'  id='user"+listsignal.signalements[x].id+"'>"
-                        +listsignal.signalements[x].list_signalement
-                        +"</a></td><td><a href='#bannirModal' data-toggle='modal' data-dismiss='modal' class='text-danger'>"+listsignal.signalements[x].management+"</a></td></tr>";              
-                     
-                        $('#corps-table').append(tab);
-
-                    }
-                }
-                            
-                let  number = Math.round(listsignal.signalements.length / elements_per_page);
-                    console.log("number "+number+ "longueur "+ listsignal.signalements.length);
-                for(i=0;i<=number;i++) {
-                    $('#pagination_data').append('<button style="text-decoration: none; outline: none"  class="rounded-circle border-0 pagination_button">'+(i+1)+'</button>');
-                }
-                $('.pagination_button').click(function(){
-                    var start = $(this).text();
-                    table.empty();
-                    limit = 3*(parseInt(start)+1) > max_size ? max_size: 3*(parseInt(start)+1)
-                    goFun(start*3,limit); 
-                });
-
-                $('.fa-2x.far.fa-edit').click(function(){
-                    console.log($(this).attr("id"));
-                });
-
                 //function myClikedId(myId) { 
 
                     fluxSignal = listsignal.listSignales
@@ -74,7 +35,7 @@
                     function gotab(debut,limit){
                         console.log(debut,limit);
                         for(var y=debut;y<limit;y++){
-                                var tab1= "<tr><td><a href='{{path('blank')}}' target='_blank'>"+listsignal.listSignales[y].flux_audio
+                                var tab1= "<tr><td><a href='{{path('admin.signalement.blankpage')}}' target='_blank'>"+listsignal.listSignales[y].flux_audio
                             +"</a></td><td>"+listsignal.listSignales[y].date_debutStream
                             +"</td><td>"+listsignal.listSignales[y].date_heureSignalement
                             +"</td><td>"+listsignal.listSignales[y].motif+"</td></tr>";              

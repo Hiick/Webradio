@@ -11,6 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TimelineController extends BaseController {
 
+    /**
+     * @Route("/user/save", name="user.save.index")
+     */
     public function start (): Response {
 
         return $this->render('Users/Timeline/base.html.twig');

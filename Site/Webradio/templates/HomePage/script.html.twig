@@ -21,7 +21,7 @@ $(document).ready(function() {
     
     $.ajax({
         method: "GET",
-        url:"/listradios",
+        url:"/user/radios",
         async: true,
         success: function(data) {
             listradio = data[0];

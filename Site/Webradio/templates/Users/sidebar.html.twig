@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ path('settings') }}">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ path('user.setting.index') }}">
         <div class="sidebar-brand-text mx-3">MikeSylv</div>
         <i class="fas fa-fw far fa-edit"></i>
     </a>
@@ -19,19 +19,19 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('userdashboard') }}">
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('user.dashboard.stats') }}">
             <span>Dashboard</span>
         </a>
     </li>
     <!-- Nav Item - Planning -->
     <li class="nav-item active d-flex align-items-center justify-content-center">
-        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('planning') }}">
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('user.planning.index') }}">
             <span>Planification</span>
         </a>
     </li>
     <!-- Nav Item - radios -->
     <li class="nav-item active d-flex align-items-center justify-content-center">
-        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('radios') }}">
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('user.radios.index') }}">
             <span>Radios</span>
         </a>
     </li>
