@@ -15,3 +15,26 @@
 <!-- Page level custom scripts -->
 <script src="/js/demo/chart-area-demo.js"></script>
 <script src="/js/demo/chart-pie-demo.js"></script>
+<script>
+
+$(document).ready(function() {
+    
+     $.ajax({
+    method: "GET", 
+    url: "/admin/channel/user", 
+    async: true,
+    success: function(data) {
+    
+        listusers = data[0]; 
+        userDetails= listusers.users;
+
+        oneUser = userDetails[0];
+
+        $('#nom').html(oneUser.username);
+        $('#nomchaine').attr("value", oneUser.nom_chaine);
+       
+    }
+
+    });
+});
+</script>

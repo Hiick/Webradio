@@ -2,7 +2,7 @@
     "channels": [
         {
             "id": "1",
-            "avatar":"<i class='fas fa-user-circle fa-2x text-dark-300'></i>",
+            "avatar":"<img class='rounded-circle avatar-miky' src='../assets/artist image.png'/>",
             "nom_chaine":"MikySound",
             "proprietaire":"mike.sylvestre@gmail.com",
             "satuts":"ACTIVE"

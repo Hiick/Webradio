@@ -27,7 +27,7 @@
             "id": "3",
             "email": "mike.sylvestre@gmail.com",
             "username": "MikeSylv",
-            "avatar": "<i class='fas fa-user-circle fa-2x text-dark-300'></i>",
+            "avatar": "<img class='rounded-circle avatar-miky' src='../assets/artist image.png'/>",
             "nom_chaine" :"MikySound",
             "role":"ADMIN",
             "status": "Active",

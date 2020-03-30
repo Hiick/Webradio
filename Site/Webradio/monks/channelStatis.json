@@ -75,7 +75,7 @@
         {
             "id_user": "3", 
             "nom_chaine": "MikySound",
-            "avatar": "<i class='fas fa-user-circle fa-2x text-gray-300'></i>",
+            "avatar": "<img class='rounded-circle avatar-miky' src='../assets/artist image.png'/>",
             "nombreDeStream": "5",
             "nombreDeFavoris": "3",
             "totalDecoute": "10",

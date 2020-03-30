@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class RadiosController extends BaseController {
 
     /**
-     * @Route("/user/radio", name="user.radios.index")
+     * @Route("/profile/radio", name="profile.radios.index")
      */
     public function start(): Response {
         
@@ -20,7 +20,7 @@ class RadiosController extends BaseController {
     }
     
     /**
-     * @Route("/user/radios", name="user.radios.show")
+     * @Route("/profile/radios", name="profile.radios.show")
      */
     public function getAllRadio(): Response {
         $radioJson = file_get_contents('../monks/radios.json');

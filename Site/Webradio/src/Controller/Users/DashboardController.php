@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DashboardController extends BaseController {
 
     /**
-     * @Route("/user", name="user.dashboard.stats")
+     * @Route("/profile", name="profile.index")
      */
     public function index(): Response {
         return $this->render('Users/base.html.twig');

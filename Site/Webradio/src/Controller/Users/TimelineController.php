@@ -12,9 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class TimelineController extends BaseController {
 
     /**
-     * @Route("/user/save", name="user.save.index")
+     * @Route("/profile/save", name="profile.save.index")
      */
-    public function start (): Response {
+    public function index (): Response {
 
         return $this->render('Users/Timeline/base.html.twig');
     }

@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MusicLibraryController extends BaseController {
 
      /**
-     * @Route("/user/library", name="user.library.index")
+     * @Route("/profile/library", name="profile.library.index")
      */
     public function index(): Response {
         return $this->render('Users/MusicLibrary/base.html.twig');

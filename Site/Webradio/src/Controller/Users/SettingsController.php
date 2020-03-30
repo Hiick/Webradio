@@ -12,10 +12,20 @@ use Symfony\Component\Routing\Annotation\Route;
 class SettingsController extends BaseController {
 
     /**
-     * @Route("/user/setting", name="user.setting.index")
+     * @Route("/profile/setting", name="profile.setting.index")
      */
     public function index(): Response {
 
         return $this->render('Users/Settings/base.html.twig');
+    }
+
+    /**
+     * @Route("/profile/setting/show", name="profile.setting.show")
+     */
+    public function showUser(): Response {
+        $userJson = file_get_contents('../monks/profile.json');
+        $listUser = json_decode($userJson);
+       
+        return $this->responseApi([$listUser]);
     }
 }

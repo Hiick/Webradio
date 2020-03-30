@@ -8,3 +8,26 @@
 
 <!-- Custom scripts for all pages-->
 <script src="../js/sb-admin-2.min.js"></script>
+<script>
+
+$(document).ready(function() {
+    
+     $.ajax({
+    method: "GET", 
+    url: "/profile/setting/show", 
+    async: true,
+    success: function(data) {
+    
+        listusers = data[0]; 
+        userDetails= listusers.users;
+
+        oneUser = userDetails[0];
+
+        $('#nom').attr("value", oneUser.username);
+        $('#nomChaine').attr("value", oneUser.nom_chaine);
+        $('#mdp').attr("value", oneUser.password);
+    }
+
+    });
+});
+</script>

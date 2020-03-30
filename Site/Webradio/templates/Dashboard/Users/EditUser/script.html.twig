@@ -22,15 +22,13 @@ $(document).ready(function() {
         userDetails= listusers.users;
 
         oneUser = userDetails[3];
-
-        $("#name").html("<input type='text' class='form-control text-center text-black' value='"+oneUser.username+"'>");
-        $("#nomchaine").html("<input type='text' class='form-control text-center text-black' value='"+oneUser.nom_chaine+"'>");
+        $("#name").attr("value", oneUser.username);
+        $("#nomchaine").attr("value", oneUser.nom_chaine);
 
         $("#editUserB").click(function(){
             $("#editModal").modal('show');
         });
  
-
     }
 
     });

@@ -35,6 +35,15 @@ class ChainesController extends BaseController {
 
         return $this->render('Dashboard/Channels/EditChannel/base.html.twig');
     }
+    /**
+     * @Route("/admin/channel/user", name="admin.channel.user")
+     */
+    public function getOneUser(): Response {
+        $userJson = file_get_contents('../monks/profile.json');
+        $listUser = json_decode($userJson);
+       
+        return $this->responseApi([$listUser]);
+    }
 
     /**
      * @Route("/admin/channel/{id}", name="admin.channel.remove")

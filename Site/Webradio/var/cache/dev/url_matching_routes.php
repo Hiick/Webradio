@@ -19,6 +19,7 @@ return [
         '/admin/channel' => [[['_route' => 'admin.channel.index', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::home'], null, null, null, false, false, null]],
         '/admin/channel/userschannel' => [[['_route' => 'admin.channel.show', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::allchannels'], null, null, null, false, false, null]],
         '/admin/channel/edit' => [[['_route' => 'admin.channel.edit', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::editChannel'], null, null, null, false, false, null]],
+        '/admin/channel/user' => [[['_route' => 'admin.channel.user', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::getOneUser'], null, null, null, false, false, null]],
         '/admin/adminuser' => [[['_route' => 'admin.adminuser.index', '_controller' => 'App\\Controller\\Administrateur\\CrudController::getUser'], null, null, null, false, false, null]],
         '/admin/adminuser/create' => [[['_route' => 'admin.adminuser.create', '_controller' => 'App\\Controller\\Administrateur\\CrudController::addNewUser'], null, null, null, false, false, null]],
         '/admin/user/edits' => [[['_route' => 'admin.adminuser.edit', '_controller' => 'App\\Controller\\Administrateur\\CrudController::editUser'], null, null, null, false, false, null]],
@@ -34,13 +35,16 @@ return [
         '/admin/users' => [[['_route' => 'admin.users.show', '_controller' => 'App\\Controller\\Administrateur\\UtilisateursController::listUsers'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home.index', '_controller' => 'App\\Controller\\HomeController::home'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\LoginController::login'], null, null, null, false, false, null]],
-        '/user' => [[['_route' => 'user.dashboard.stats', '_controller' => 'App\\Controller\\Users\\DashboardController::index'], null, null, null, false, false, null]],
-        '/user/library' => [[['_route' => 'user.library.index', '_controller' => 'App\\Controller\\Users\\MusicLibraryController::index'], null, null, null, false, false, null]],
-        '/user/planning' => [[['_route' => 'user.planning.index', '_controller' => 'App\\Controller\\Users\\PlanningController::index'], null, null, null, false, false, null]],
-        '/user/radio' => [[['_route' => 'user.radios.index', '_controller' => 'App\\Controller\\Users\\RadiosController::start'], null, null, null, false, false, null]],
-        '/user/radios' => [[['_route' => 'user.radios.show', '_controller' => 'App\\Controller\\Users\\RadiosController::getAllRadio'], null, null, null, false, false, null]],
-        '/user/setting' => [[['_route' => 'user.setting.index', '_controller' => 'App\\Controller\\Users\\SettingsController::index'], null, null, null, false, false, null]],
-        '/user/save' => [[['_route' => 'user.save.index', '_controller' => 'App\\Controller\\Users\\TimelineController::start'], null, null, null, false, false, null]],
+        '/profile' => [[['_route' => 'profile.index', '_controller' => 'App\\Controller\\Users\\DashboardController::index'], null, null, null, false, false, null]],
+        '/profile/library' => [[['_route' => 'profile.library.index', '_controller' => 'App\\Controller\\Users\\MusicLibraryController::index'], null, null, null, false, false, null]],
+        '/profile/planning' => [[['_route' => 'profile.planning.index', '_controller' => 'App\\Controller\\Users\\PlanningController::index'], null, null, null, false, false, null]],
+        '/profile/planning/edit' => [[['_route' => 'profile.planning.edit', '_controller' => 'App\\Controller\\Users\\PlanningController::edit'], null, null, null, false, false, null]],
+        '/profile/planning/delete' => [[['_route' => 'profile.planning.delete', '_controller' => 'App\\Controller\\Users\\PlanningController::delete'], null, null, null, false, false, null]],
+        '/profile/radio' => [[['_route' => 'profile.radios.index', '_controller' => 'App\\Controller\\Users\\RadiosController::start'], null, null, null, false, false, null]],
+        '/profile/radios' => [[['_route' => 'profile.radios.show', '_controller' => 'App\\Controller\\Users\\RadiosController::getAllRadio'], null, null, null, false, false, null]],
+        '/profile/setting' => [[['_route' => 'profile.setting.index', '_controller' => 'App\\Controller\\Users\\SettingsController::index'], null, null, null, false, false, null]],
+        '/profile/setting/show' => [[['_route' => 'profile.setting.show', '_controller' => 'App\\Controller\\Users\\SettingsController::showUser'], null, null, null, false, false, null]],
+        '/profile/save' => [[['_route' => 'profile.save.index', '_controller' => 'App\\Controller\\Users\\TimelineController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -67,9 +71,6 @@ return [
                         .'|setting/([^/]++)(*:280)'
                     .')'
                 .')'
-                .'|/user/planning/([^/]++)(?'
-                    .'|(*:316)'
-                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -83,10 +84,8 @@ return [
         199 => [[['_route' => 'adminuser.channel.remove', '_controller' => 'App\\Controller\\Administrateur\\AdminUserController::removeUser'], ['id'], null, null, false, true, null]],
         227 => [[['_route' => 'admin.channel.remove', '_controller' => 'App\\Controller\\Administrateur\\ChainesController::removeChannel'], ['id'], null, null, false, true, null]],
         256 => [[['_route' => 'admin.notifications.sendnotif', '_controller' => 'App\\Controller\\Administrateur\\NotificationsController::sendNotif'], ['id'], null, null, false, true, null]],
-        280 => [[['_route' => 'admin.setting.edit', '_controller' => 'App\\Controller\\Administrateur\\SettingsController::editUser'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        316 => [
-            [['_route' => 'user.planning.edit', '_controller' => 'App\\Controller\\Users\\PlanningController::edit'], ['id'], null, null, false, true, null],
-            [['_route' => 'user.planning.delete', '_controller' => 'App\\Controller\\Users\\PlanningController::delete'], ['id'], null, null, false, true, null],
+        280 => [
+            [['_route' => 'admin.setting.edit', '_controller' => 'App\\Controller\\Administrateur\\SettingsController::editUser'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
