@@ -14,7 +14,7 @@ class RadiosController extends BaseController {
     /**
      * @Route("/profile/radio", name="profile.radios.index")
      */
-    public function start(): Response {
+    public function index(): Response {
         
         return $this->render('Users/Radios/base.html.twig');
     }
@@ -27,6 +27,14 @@ class RadiosController extends BaseController {
         $listRadio = json_decode($radioJson);
        
         return $this->responseApi([$listRadio]);
+    }
+
+    /**
+     * @Route("/profile/banni/radios", name="profile.banni.radios")
+     */
+    public function startHome(): Response {
+        
+        return $this->render('Users/Banni/radios.html.twig');
     }
 
 }

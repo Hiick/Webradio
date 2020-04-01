@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     {% include 'Dashboard/head.html.twig' %}
+    {% include 'Dashboard/Users/script.html.twig' %}
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -26,14 +27,16 @@
                 </div>
                 <div class="row">
                     <!-- table -->
-                    <div class="col-xl-12 col-lg-12">
+                    <div class="col-xl-12">
                         <div class="card shadow mb-4">
                             <!-- Card Body -->
                             <div class="card-body">
-                                <div class="mb-3">
-                                    <table id="table" class"table table-bordered">
+                                <div class="row col-sm-12">
+                                    <div class="table-responsive">
+                                
+                                    <table id="table" class"table table-bordered w-100" role="grid">
                                     <thead>
-                                        <tr id='entete'>
+                                        <tr id='entete' role="row">
                                             <th scope='col'>Avatar</th>
                                             <th scope='col'>Username</th>
                                             <th scope='col'>Email</th>
@@ -50,15 +53,9 @@
                                     <div style="height: auto; text-align: center" class="chart-area" id="pagination_data">
                                         <div id="users" class="mb-3"></div>
                                         <div id="usersdesc" class="mb-3"></div>
-                                        <!--<button style="text-decoration: none; outline: none" class="rounded-circle border-0" id="nextValue">
-                                            <b>&laquo;</b>
-                                        </button>
-                                    
-                                        <button style="text-decoration: none; outline: none" class="rounded-circle border-0 pagination_button" id="">
-                                            <b>&raquo;</b>   
-                                        </button>-->
                                     </div>
                                     <a href="{{path('admin.adminuser.index')}}" class="btn add_user">+</a>
+                                  </div>
                                 </div>                                
                             </div>
                         </div>
@@ -89,9 +86,6 @@
     <i class="fas fa-angle-up"></i>
 </a>
 {% include 'Dashboard/Users/RemoveUser/modal.html.twig' %}
-{% include 'Dashboard/Users/script.html.twig' %}
-
-
 
 </body>
 

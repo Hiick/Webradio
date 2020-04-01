@@ -10,7 +10,7 @@
     <!--Avatar-->
     <a class="nav-link d-flex flex-column align-items-center" href="#">
         <div class="nav-item">
-            <img class="rounded-circle logo-setting" src="../assets/artist image.png"/>
+            <img class="rounded-circle logo-setting" src="../../../assets/artist image.png"/>
         </div>
     </a>
 
@@ -19,19 +19,13 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('profile.index') }}">
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('profile.banni') }}">
             <span>Dashboard</span>
-        </a>
-    </li>
-    <!-- Nav Item - Planning -->
-    <li class="nav-item active d-flex align-items-center justify-content-center">
-        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('profile.planning.index') }}">
-            <span>Planification</span>
         </a>
     </li>
     <!-- Nav Item - radios -->
     <li class="nav-item active d-flex align-items-center justify-content-center">
-        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('profile.radios.index') }}">
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('profile.banni.radios') }}">
             <span>Radios</span>
         </a>
     </li>
@@ -41,11 +35,15 @@
 
         <!-- Nav Item -status -->
     <li class="nav-item active">
-        <a class="nav-link d-flex align-items-center justify-content-center" href="#">
-            <span>Status de la chaîne : Active</span>
+        <span class="nav-link d-flex align-items-center justify-content-center" href="#">
+            Status de la chaîne : Banni 
+        </span>
+    </li>
+    <li class="nav-item active d-flex align-items-center justify-content-center">
+        <a class="nav-link d-flex align-items-center justify-content-center" href="{{ path('profile.page') }}">
+            <span>Pourquoi ?</span>
         </a>
     </li>
-
     <hr class="sidebar-divider d-none d-md-block" id="deconnexion">
     
     <!-- Nav Item - deconexion -->
