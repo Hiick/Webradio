@@ -593,5 +593,12 @@ table {
     clear: both;
 }
 
+.calendar1{
+    position: relative;
+}
+.calendar__table{
+    width: 100%;
+    height: 350px;
+}
 
 

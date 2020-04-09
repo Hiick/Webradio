@@ -305,6 +305,8 @@
     <service id="EasyCorp\EasyLog\EasyLogHandler" class="EasyCorp\EasyLog\EasyLogHandler" public="false">
       <argument>H:\Jalon\Webradio\Site\Webradio\var\log/dev.log</argument>
     </service>
+    <service id="App\Calendar\Month" class="App\Calendar\Month" autowire="true" autoconfigure="true"/>
+    <service id="App\Calendar\index" class="App\Calendar\index" autowire="true" autoconfigure="true"/>
     <service id="App\Controller\Administrateur\AdminUserController" class="App\Controller\Administrateur\AdminUserController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>

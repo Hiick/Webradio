@@ -39,7 +39,10 @@ return [
         '/profile/banni' => [[['_route' => 'profile.banni', '_controller' => 'App\\Controller\\Users\\AdminUserController::getUser'], null, null, null, false, false, null]],
         '/profile/page' => [[['_route' => 'profile.page', '_controller' => 'App\\Controller\\Users\\AdminUserController::messagePage'], null, null, null, false, false, null]],
         '/profile/library' => [[['_route' => 'profile.library.index', '_controller' => 'App\\Controller\\Users\\MusicLibraryController::index'], null, null, null, false, false, null]],
-        '/profile/planning' => [[['_route' => 'profile.planning.index', '_controller' => 'App\\Controller\\Users\\PlanningController::index'], null, null, null, false, false, null]],
+        '/profile/planning' => [
+            [['_route' => 'profile.planning.index', '_controller' => 'App\\Controller\\Users\\PlanningController::index'], null, null, null, false, false, null],
+            [['_route' => 'profile.planning.nextMonth', '_controller' => 'App\\Controller\\Users\\PlanningController::nextMonth'], null, null, null, false, false, null],
+        ],
         '/profile/planning/edit' => [[['_route' => 'profile.planning.edit', '_controller' => 'App\\Controller\\Users\\PlanningController::edit'], null, null, null, false, false, null]],
         '/profile/planning/delete' => [[['_route' => 'profile.planning.delete', '_controller' => 'App\\Controller\\Users\\PlanningController::delete'], null, null, null, false, false, null]],
         '/profile/radio' => [[['_route' => 'profile.radios.index', '_controller' => 'App\\Controller\\Users\\RadiosController::index'], null, null, null, false, false, null]],

@@ -48,6 +48,7 @@ return [
     'profile.planning.index' => [[], ['_controller' => 'App\\Controller\\Users\\PlanningController::index'], [], [['text', '/profile/planning']], [], []],
     'profile.planning.edit' => [[], ['_controller' => 'App\\Controller\\Users\\PlanningController::edit'], [], [['text', '/profile/planning/edit']], [], []],
     'profile.planning.delete' => [[], ['_controller' => 'App\\Controller\\Users\\PlanningController::delete'], [], [['text', '/profile/planning/delete']], [], []],
+    'profile.planning.nextMonth' => [[], ['_controller' => 'App\\Controller\\Users\\PlanningController::nextMonth'], [], [['text', '/profile/planning']], [], []],
     'profile.radios.index' => [[], ['_controller' => 'App\\Controller\\Users\\RadiosController::index'], [], [['text', '/profile/radio']], [], []],
     'profile.radios.show' => [[], ['_controller' => 'App\\Controller\\Users\\RadiosController::getAllRadio'], [], [['text', '/profile/radios']], [], []],
     'profile.banni.radios' => [[], ['_controller' => 'App\\Controller\\Users\\RadiosController::startHome'], [], [['text', '/profile/banni/radios']], [], []],
