@@ -17,7 +17,7 @@ class MyCalendar {
 
         $end = $start->modify('+'.(6 + 7 * ($weeks - 1)).'days'); 
     
-        $calendar = "<div class='calendar'>";
+        $calendar = "<div class='calendar1'>";
 
         $calendar.="<table class='calendar__table calendar__table--".$weeks."weeks'>";
        
@@ -38,13 +38,13 @@ class MyCalendar {
                 if($i === 0) {
                     $calendar.= "<div class='calendar__weekday'>".$day."</div>";
                 }
-                $calendar.="<a class='calendar__day' href=''>".$date->format('d')."</a></td>";
+                $calendar.="<a class='calendar__day' id='mydateEvent' href=''>".$date->format('d')."</a></td>";
             }
             $calendar.="</tr>";
         }
         $calendar.="</table>";
 
-        $calendar.="<a href='#' class='calendar__button'>+</a></div>";
+        $calendar.="<a href='#' id='addEvent' class='calendar__button'>+</a></div>";
 
         return $calendar;
     }

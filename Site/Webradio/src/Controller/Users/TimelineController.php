@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TimelineController extends BaseController {
 
     /**
-     * @Route("/profile/save", name="profile.save.index")
+     * @Route("/profile/timeline", name="profile.timeline.index")
      */
     public function index (): Response {
 

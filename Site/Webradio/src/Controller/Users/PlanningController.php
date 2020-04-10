@@ -24,7 +24,7 @@ class PlanningController extends BaseController {
         $month = $dateComponents['mon'];
         $year = $dateComponents['year'];
        
-        $monthName = $dateComponents['mon'];
+        $monthName = $dateComponents['month'];
 
         $calendar = $cal->myCalen($month, $year);
 
