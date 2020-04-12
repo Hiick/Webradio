@@ -19,25 +19,7 @@
 
 $(document).ready(function() {
     
-    $.ajax({
-        method: "GET",
-        url:"/profile/radios",
-        async: true,
-        success: function(data) {
-            listradio = data[0];
-
-            console.log(listradio.radios[0].nom)
-
-            let mytab = $("#list-radio");
-            for(i=0; i<listradio.radios.length; i++)
-            {
-                mytab += "<tr><td><img class='img-radio' src='"+listradio.radios[i].avatar+"'</td><td>" +listradio.radios[i].nom+ "</td><td><audio class='myaudio' id='track'><source src='"
-                +listradio.radios[i].url+"' type='audio/mp3' />Rien</audio><div id='player-container'><div id='play-pause' class='play'>Play</div></div></td></tr>";    
-            }
-             $("#list-radio").append(mytab);
-            
-
-            let track =  document.getElementById("track");
+    let track =  document.getElementById("track");
             function playPause () {
                 if(track.paused) {
 
@@ -53,8 +35,6 @@ $(document).ready(function() {
             $('#play-pause').click(function() {
                 playPause();
             });
-        }
-    })
-}) 
+});
 
 </script>

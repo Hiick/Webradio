@@ -18,6 +18,8 @@
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
+      <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
+      <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -63,6 +65,14 @@
       <parameter key="MakerBundle" type="collection">
         <parameter key="path">H:\Jalon\Webradio\Site\Webradio\vendor\symfony\maker-bundle\src</parameter>
         <parameter key="namespace">Symfony\Bundle\MakerBundle</parameter>
+      </parameter>
+      <parameter key="KnpPaginatorBundle" type="collection">
+        <parameter key="path">H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle</parameter>
+        <parameter key="namespace">Knp\Bundle\PaginatorBundle</parameter>
+      </parameter>
+      <parameter key="DoctrineFixturesBundle" type="collection">
+        <parameter key="path">H:\Jalon\Webradio\Site\Webradio\vendor\doctrine\doctrine-fixtures-bundle</parameter>
+        <parameter key="namespace">Doctrine\Bundle\FixturesBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -217,6 +227,10 @@
     <parameter key="security.authentication.session_strategy.strategy">migrate</parameter>
     <parameter key="security.access.always_authenticate_before_granting">false</parameter>
     <parameter key="security.authentication.hide_user_not_found">true</parameter>
+    <parameter key="knp_paginator.template.pagination">@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig</parameter>
+    <parameter key="knp_paginator.template.filtration">@KnpPaginator/Pagination/filtration.html.twig</parameter>
+    <parameter key="knp_paginator.template.sortable">@KnpPaginator/Pagination/sortable_link.html.twig</parameter>
+    <parameter key="knp_paginator.page_range">5</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -307,62 +321,6 @@
     </service>
     <service id="App\Calendar\Month" class="App\Calendar\Month" autowire="true" autoconfigure="true"/>
     <service id="App\Calendar\index" class="App\Calendar\index" autowire="true" autoconfigure="true"/>
-    <service id="App\Controller\Administrateur\AdminUserController" class="App\Controller\Administrateur\AdminUserController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Administrateur\AdminUserController"/>
-      </call>
-    </service>
-    <service id="App\Controller\Administrateur\ChainesController" class="App\Controller\Administrateur\ChainesController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Administrateur\ChainesController"/>
-      </call>
-    </service>
-    <service id="App\Controller\Administrateur\CrudController" class="App\Controller\Administrateur\CrudController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Administrateur\CrudController"/>
-      </call>
-    </service>
-    <service id="App\Controller\Administrateur\DashboardController" class="App\Controller\Administrateur\DashboardController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Administrateur\DashboardController"/>
-      </call>
-    </service>
-    <service id="App\Controller\Administrateur\NotificationsController" class="App\Controller\Administrateur\NotificationsController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Administrateur\NotificationsController"/>
-      </call>
-    </service>
-    <service id="App\Controller\Administrateur\SettingsController" class="App\Controller\Administrateur\SettingsController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Administrateur\SettingsController"/>
-      </call>
-    </service>
-    <service id="App\Controller\Administrateur\SignalementsController" class="App\Controller\Administrateur\SignalementsController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Administrateur\SignalementsController"/>
-      </call>
-    </service>
-    <service id="App\Controller\Administrateur\UtilisateursController" class="App\Controller\Administrateur\UtilisateursController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Administrateur\UtilisateursController"/>
-      </call>
-    </service>
     <service id="App\Controller\BaseController" class="App\Controller\BaseController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -373,6 +331,8 @@
     <service id="App\Controller\HomeController" class="App\Controller\HomeController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="App\Repository\RadioRepository"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\HomeController"/>
       </call>
@@ -382,6 +342,13 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\LoginController"/>
+      </call>
+    </service>
+    <service id="App\Controller\RadioController" class="App\Controller\RadioController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\RadioController"/>
       </call>
     </service>
     <service id="App\Controller\Users\AdminUserController" class="App\Controller\Users\AdminUserController" public="true" autowire="true" autoconfigure="true">
@@ -405,13 +372,6 @@
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Users\PlanningController"/>
       </call>
     </service>
-    <service id="App\Controller\Users\RadiosController" class="App\Controller\Users\RadiosController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Users\RadiosController"/>
-      </call>
-    </service>
     <service id="App\Controller\Users\SettingsController" class="App\Controller\Users\SettingsController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -425,6 +385,22 @@
       <call method="setContainer">
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Users\TimelineController"/>
       </call>
+    </service>
+    <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\RadioFixture" class="App\DataFixtures\RadioFixture" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\Form\RadioSearchType" class="App\Form\RadioSearchType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\RadioType" class="App\Form\RadioType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Repository\RadioRepository" class="App\Repository\RadioRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory" public="false"/>
     <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener" public="false">
@@ -822,9 +798,12 @@
       <argument type="service" id="form.registry"/>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type</argument>
+        <argument>App\Form</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\RadioSearchType</argument>
+        <argument>App\Form\RadioType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1146,7 +1125,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.SFX6J7Y"/>
+      <argument type="service" id=".service_locator.xN.RFx_"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -1524,6 +1503,7 @@
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.ar.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.ar.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ar.xliff</argument>
           </argument>
           <argument key="az" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.az.xlf</argument>
@@ -1539,6 +1519,7 @@
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.bg.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.bg.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.bg.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.bg.xliff</argument>
           </argument>
           <argument key="ca" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.ca.xlf</argument>
@@ -1549,6 +1530,7 @@
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.cs.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.cs.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.cs.xliff</argument>
           </argument>
           <argument key="cy" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.cy.xlf</argument>
@@ -1557,11 +1539,13 @@
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.da.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.da.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.da.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.da.xliff</argument>
           </argument>
           <argument key="de" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.de.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.de.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.de.xliff</argument>
           </argument>
           <argument key="el" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.el.xlf</argument>
@@ -1572,11 +1556,13 @@
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.en.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.en.xliff</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.es.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.es.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.es.xliff</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.et.xlf</argument>
@@ -1586,11 +1572,13 @@
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.eu.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.eu.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.eu.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.eu.xliff</argument>
           </argument>
           <argument key="fa" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.fa.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.fa.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.fa.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.fa.xliff</argument>
           </argument>
           <argument key="fi" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.fi.xlf</argument>
@@ -1600,6 +1588,7 @@
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.fr.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.fr.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.fr.xliff</argument>
           </argument>
           <argument key="gl" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.gl.xlf</argument>
@@ -1620,6 +1609,7 @@
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.hu.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.hu.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.hu.xliff</argument>
           </argument>
           <argument key="hy" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.hy.xlf</argument>
@@ -1629,16 +1619,19 @@
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.id.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.id.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.id.xliff</argument>
           </argument>
           <argument key="it" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.it.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.it.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.it.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.it.xliff</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.ja.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.ja.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.ja.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ja.xliff</argument>
           </argument>
           <argument key="lb" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.lb.xlf</argument>
@@ -1649,6 +1642,7 @@
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.lt.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.lt.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.lt.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.lt.xliff</argument>
           </argument>
           <argument key="lv" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.lv.xlf</argument>
@@ -1668,6 +1662,7 @@
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.nl.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.nl.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.nl.xliff</argument>
           </argument>
           <argument key="nn" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.nn.xlf</argument>
@@ -1678,11 +1673,13 @@
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.no.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.no.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.no.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.no.xliff</argument>
           </argument>
           <argument key="pl" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.pl.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.pl.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.pl.xliff</argument>
           </argument>
           <argument key="pt" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
@@ -1692,16 +1689,19 @@
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.pt_BR.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.pt_BR.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.pt_BR.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.pt_BR.xliff</argument>
           </argument>
           <argument key="ro" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.ro.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.ro.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.ro.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ro.xliff</argument>
           </argument>
           <argument key="ru" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.ru.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.ru.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.ru.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ru.xliff</argument>
           </argument>
           <argument key="sk" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.sk.xlf</argument>
@@ -1730,6 +1730,7 @@
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.sv.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.sv.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.sv.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.sv.xliff</argument>
           </argument>
           <argument key="th" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.th.xlf</argument>
@@ -1749,6 +1750,7 @@
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.uk.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.uk.xlf</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.uk.xliff</argument>
           </argument>
           <argument key="vi" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations\validators.vi.xlf</argument>
@@ -1766,11 +1768,18 @@
           <argument key="pt_PT" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations\security.pt_PT.xlf</argument>
           </argument>
+          <argument key="ky" type="collection">
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ky.xliff</argument>
+          </argument>
+          <argument key="sw" type="collection">
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.sw.xliff</argument>
+          </argument>
         </argument>
         <argument key="scanned_directories" type="collection">
           <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations</argument>
           <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations</argument>
           <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations</argument>
+          <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations</argument>
           <argument>H:\Jalon\Webradio\Site\Webradio/translations</argument>
           <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\framework-bundle/translations</argument>
           <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\twig-bundle/translations</argument>
@@ -1783,12 +1792,14 @@
           <argument>H:\Jalon\Webradio\Site\Webradio\vendor\sensio\framework-extra-bundle\src/translations</argument>
           <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-bundle/translations</argument>
           <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\maker-bundle\src/translations</argument>
+          <argument>H:\Jalon\Webradio\Site\Webradio\vendor\doctrine\doctrine-fixtures-bundle/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\validator/Resources/translations</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\form/Resources/translations</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-core/Resources/translations</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/translations</argument>
             <argument>translations</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\framework-bundle/translations</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\twig-bundle/translations</argument>
@@ -1801,6 +1812,7 @@
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\sensio\framework-extra-bundle\src/translations</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-bundle/translations</argument>
             <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\maker-bundle\src/translations</argument>
+            <argument>H:\Jalon\Webradio\Site\Webradio\vendor\doctrine\doctrine-fixtures-bundle/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -2243,6 +2255,14 @@
         <argument>0</argument>
       </call>
       <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.response</argument>
         <argument type="collection">
           <argument type="service" id="response_listener"/>
@@ -2641,6 +2661,46 @@
           <argument>onConsoleTerminate</argument>
         </argument>
         <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.paginate"/>
+          <argument>before</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.paginate"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sortable"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.filtration"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>1</argument>
       </call>
     </service>
     <service id="debug.controller_resolver" class="Symfony\Component\HttpKernel\Controller\TraceableControllerResolver" public="false">
@@ -3068,6 +3128,9 @@
       <call method="addExtension">
         <argument type="service" id="doctrine.twig.doctrine_extension"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="knp_paginator.twig.extension.pagination"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -3160,6 +3223,14 @@
       <call method="addPath">
         <argument>H:\Jalon\Webradio\Site\Webradio\vendor\symfony\security-bundle/Resources/views</argument>
         <argument>!Security</argument>
+      </call>
+      <call method="addPath">
+        <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/templates</argument>
+        <argument>KnpPaginator</argument>
+      </call>
+      <call method="addPath">
+        <argument>H:\Jalon\Webradio\Site\Webradio\vendor\knplabs\knp-paginator-bundle/templates</argument>
+        <argument>!KnpPaginator</argument>
       </call>
       <call method="addPath">
         <argument>H:\Jalon\Webradio\Site\Webradio/templates</argument>
@@ -3637,7 +3708,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.I3K77mT"/>
+      <argument type="service" id=".service_locator.dYtcR3w"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4655,30 +4726,71 @@
       <tag name="maker.command"/>
       <argument>H:\Jalon\Webradio\Site\Webradio</argument>
     </service>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Administrateur\AdminUserController" class="App\Controller\Administrateur\AdminUserController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Administrateur\AdminUserController" class="App\Controller\Administrateur\AdminUserController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\Administrateur\AdminUserController" class="App\Controller\Administrateur\AdminUserController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Administrateur\ChainesController" class="App\Controller\Administrateur\ChainesController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Administrateur\ChainesController" class="App\Controller\Administrateur\ChainesController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\Administrateur\ChainesController" class="App\Controller\Administrateur\ChainesController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Administrateur\CrudController" class="App\Controller\Administrateur\CrudController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Administrateur\CrudController" class="App\Controller\Administrateur\CrudController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\Administrateur\CrudController" class="App\Controller\Administrateur\CrudController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Administrateur\DashboardController" class="App\Controller\Administrateur\DashboardController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Administrateur\DashboardController" class="App\Controller\Administrateur\DashboardController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\Administrateur\DashboardController" class="App\Controller\Administrateur\DashboardController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Administrateur\NotificationsController" class="App\Controller\Administrateur\NotificationsController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Administrateur\NotificationsController" class="App\Controller\Administrateur\NotificationsController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\Administrateur\NotificationsController" class="App\Controller\Administrateur\NotificationsController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Administrateur\SettingsController" class="App\Controller\Administrateur\SettingsController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Administrateur\SettingsController" class="App\Controller\Administrateur\SettingsController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\Administrateur\SettingsController" class="App\Controller\Administrateur\SettingsController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Administrateur\SignalementsController" class="App\Controller\Administrateur\SignalementsController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Administrateur\SignalementsController" class="App\Controller\Administrateur\SignalementsController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\Administrateur\SignalementsController" class="App\Controller\Administrateur\SignalementsController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Administrateur\UtilisateursController" class="App\Controller\Administrateur\UtilisateursController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Administrateur\UtilisateursController" class="App\Controller\Administrateur\UtilisateursController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\Administrateur\UtilisateursController" class="App\Controller\Administrateur\UtilisateursController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="knp_paginator" class="Knp\Component\Pager\Paginator" public="true" lazy="true">
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="service" id="request_stack"/>
+      <call method="setDefaultPaginatorOptions">
+        <argument type="collection">
+          <argument key="pageParameterName">page</argument>
+          <argument key="sortFieldParameterName">sort</argument>
+          <argument key="sortDirectionParameterName">direction</argument>
+          <argument key="filterFieldParameterName">filterField</argument>
+          <argument key="filterValueParameterName">filterValue</argument>
+          <argument key="distinct">true</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="knp_paginator.subscriber.paginate" class="Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sortable" class="Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.filtration" class="Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sliding_pagination" class="Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <tag name="container.hot_path"/>
+      <argument type="collection">
+        <argument key="defaultPaginationTemplate">@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig</argument>
+        <argument key="defaultSortableTemplate">@KnpPaginator/Pagination/sortable_link.html.twig</argument>
+        <argument key="defaultFiltrationTemplate">@KnpPaginator/Pagination/filtration.html.twig</argument>
+        <argument key="defaultPageRange">5</argument>
+      </argument>
+    </service>
+    <service id="knp_paginator.helper.processor" class="Knp\Bundle\PaginatorBundle\Helper\Processor">
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="translator.data_collector"/>
+    </service>
+    <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="knp_paginator.helper.processor"/>
+    </service>
+    <service id="doctrine.fixtures_load_command" class="Doctrine\Bundle\FixturesBundle\Command\LoadDataFixturesDoctrineCommand">
+      <tag name="console.command" command="doctrine:fixtures:load"/>
+      <argument type="service" id="doctrine.fixtures.loader"/>
+      <argument type="service" id="doctrine"/>
+      <call method="setName">
+        <argument>doctrine:fixtures:load</argument>
+      </call>
+    </service>
+    <service id="doctrine.fixtures.loader" class="Doctrine\Bundle\FixturesBundle\Loader\SymfonyFixturesLoader" public="false">
+      <argument type="service" id="service_container"/>
+      <call method="addFixtures">
+        <argument type="collection">
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\AppFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\RadioFixture"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+        </argument>
+      </call>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BaseController" class="App\Controller\BaseController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BaseController" class="App\Controller\BaseController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\BaseController" class="App\Controller\BaseController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4688,6 +4800,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\LoginController" class="App\Controller\LoginController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\LoginController" class="App\Controller\LoginController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\LoginController" class="App\Controller\LoginController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RadioController" class="App\Controller\RadioController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RadioController" class="App\Controller\RadioController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\RadioController" class="App\Controller\RadioController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Users\AdminUserController" class="App\Controller\Users\AdminUserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Users\AdminUserController" class="App\Controller\Users\AdminUserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Users\AdminUserController" class="App\Controller\Users\AdminUserController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4697,15 +4812,22 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Users\PlanningController" class="App\Controller\Users\PlanningController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Users\PlanningController" class="App\Controller\Users\PlanningController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Users\PlanningController" class="App\Controller\Users\PlanningController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Users\RadiosController" class="App\Controller\Users\RadiosController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Users\RadiosController" class="App\Controller\Users\RadiosController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\Users\RadiosController" class="App\Controller\Users\RadiosController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Users\SettingsController" class="App\Controller\Users\SettingsController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Users\SettingsController" class="App\Controller\Users\SettingsController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Users\SettingsController" class="App\Controller\Users\SettingsController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Users\TimelineController" class="App\Controller\Users\TimelineController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Users\TimelineController" class="App\Controller\Users\TimelineController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Users\TimelineController" class="App\Controller\Users\TimelineController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\RadioFixture" class="App\DataFixtures\RadioFixture" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\RadioFixture" class="App\DataFixtures\RadioFixture" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RadioSearchType" class="App\Form\RadioSearchType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\RadioSearchType" class="App\Form\RadioSearchType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RadioType" class="App\Form\RadioType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\RadioType" class="App\Form\RadioType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RadioRepository" class="App\Repository\RadioRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\RadioRepository" class="App\Repository\RadioRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.CmORmuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4889,9 +5011,34 @@
         <argument>make:migration</argument>
       </call>
     </service>
-    <service id=".service_locator.I3K77mT" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.CY_hMZh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="paginator" type="service" id="knp_paginator"/>
+      </argument>
+    </service>
+    <service id=".service_locator.IsWxVyS" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="radioRepository" type="service" id="App\Repository\RadioRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.6Q_SyOK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="radio" type="service" id=".errored..service_locator.6Q_SyOK.App\Entity\Radio"/>
+      </argument>
+    </service>
+    <service id=".service_locator.QMW9pZS" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\HomeController::index" type="service" id=".service_locator.CY_hMZh"/>
+        <argument key="App\Controller\RadioController::index" type="service" id=".service_locator.IsWxVyS"/>
+        <argument key="App\Controller\RadioController::show" type="service" id=".service_locator.6Q_SyOK"/>
+        <argument key="App\Controller\HomeController:index" type="service" id=".service_locator.CY_hMZh"/>
+        <argument key="App\Controller\RadioController:index" type="service" id=".service_locator.IsWxVyS"/>
+        <argument key="App\Controller\RadioController:show" type="service" id=".service_locator.6Q_SyOK"/>
+      </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -4952,9 +5099,11 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.SFX6J7Y" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.xN.RFx_" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\RadioSearchType" type="service" id="App\Form\RadioSearchType"/>
+        <argument key="App\Form\RadioType" type="service" id="App\Form\RadioType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service" id="form.type.file"/>
@@ -5120,6 +5269,12 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
+    <service id=".service_locator.dYtcR3w" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Repository\RadioRepository" type="service" id="App\Repository\RadioRepository"/>
+      </argument>
+    </service>
     <service id="debug.security.voter.security.access.authenticated_voter" class="Symfony\Component\Security\Core\Authorization\Voter\TraceableVoter">
       <argument type="service" id="security.access.authenticated_voter"/>
       <argument type="service" id="debug.event_dispatcher"/>
@@ -5168,54 +5323,6 @@
         <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\Administrateur\AdminUserController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\Administrateur\AdminUserController"/>
-      <argument>App\Controller\Administrateur\AdminUserController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\Administrateur\ChainesController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\Administrateur\ChainesController"/>
-      <argument>App\Controller\Administrateur\ChainesController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\Administrateur\CrudController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\Administrateur\CrudController"/>
-      <argument>App\Controller\Administrateur\CrudController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\Administrateur\DashboardController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\Administrateur\DashboardController"/>
-      <argument>App\Controller\Administrateur\DashboardController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\Administrateur\NotificationsController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\Administrateur\NotificationsController"/>
-      <argument>App\Controller\Administrateur\NotificationsController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\Administrateur\SettingsController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\Administrateur\SettingsController"/>
-      <argument>App\Controller\Administrateur\SettingsController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\Administrateur\SignalementsController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\Administrateur\SignalementsController"/>
-      <argument>App\Controller\Administrateur\SignalementsController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\Administrateur\UtilisateursController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\Administrateur\UtilisateursController"/>
-      <argument>App\Controller\Administrateur\UtilisateursController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
     <service id=".service_locator.pNNo5z3.App\Controller\BaseController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\BaseController"/>
       <argument>App\Controller\BaseController</argument>
@@ -5234,6 +5341,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\RadioController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\RadioController"/>
+      <argument>App\Controller\RadioController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
     <service id=".service_locator.pNNo5z3.App\Controller\Users\AdminUserController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\Users\AdminUserController"/>
       <argument>App\Controller\Users\AdminUserController</argument>
@@ -5249,12 +5362,6 @@
     <service id=".service_locator.pNNo5z3.App\Controller\Users\PlanningController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\Users\PlanningController"/>
       <argument>App\Controller\Users\PlanningController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\Users\RadiosController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\Users\RadiosController"/>
-      <argument>App\Controller\Users\RadiosController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
@@ -5409,12 +5516,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.I3K77mT"/>
+      <argument type="service" id=".service_locator.QMW9pZS"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.I3K77mT"/>
+      <argument type="service" id=".service_locator.QMW9pZS"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5424,8 +5531,9 @@
       </call>
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
+    <service id=".errored..service_locator.6Q_SyOK.App\Entity\Radio" class="App\Entity\Radio"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator.ozNWYfC"/>
+      <argument type="service" id=".service_locator.cmKf87z"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -5488,6 +5596,7 @@
         <argument key="doctrine:migrations:up-to-date">doctrine_migrations.up_to_date_command</argument>
         <argument key="doctrine:migrations:version">doctrine_migrations.version_command</argument>
         <argument key="security:encode-password">security.command.user_password_encoder</argument>
+        <argument key="doctrine:fixtures:load">doctrine.fixtures_load_command</argument>
         <argument key="make:auth">maker.auto_command.make_auth</argument>
         <argument key="make:command">maker.auto_command.make_command</argument>
         <argument key="make:controller">maker.auto_command.make_controller</argument>
@@ -5508,7 +5617,7 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator.ozNWYfC" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.cmKf87z" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service" id="console.command.about"/>
@@ -5548,6 +5657,7 @@
         <argument key="doctrine.database_drop_command" type="service" id="doctrine.database_drop_command"/>
         <argument key="doctrine.database_import_command" type="service" id="doctrine.database_import_command"/>
         <argument key="doctrine.ensure_production_settings_command" type="service" id="doctrine.ensure_production_settings_command"/>
+        <argument key="doctrine.fixtures_load_command" type="service" id="doctrine.fixtures_load_command"/>
         <argument key="doctrine.mapping_convert_command" type="service" id="doctrine.mapping_convert_command"/>
         <argument key="doctrine.mapping_import_command" type="service" id="doctrine.mapping_import_command"/>
         <argument key="doctrine.mapping_info_command" type="service" id="doctrine.mapping_info_command"/>
@@ -5782,9 +5892,10 @@
     <service id="security.authentication.session_strategy.main" alias="security.authentication.session_strategy"/>
     <service id="security.user_checker.main" alias="security.user_checker" public="false"/>
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
+    <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.I3K77mT"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.QMW9pZS"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
