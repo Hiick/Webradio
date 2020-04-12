@@ -16,9 +16,7 @@ class RadioFixture extends Fixture
         //dump($data['radios'][0]["id"]);
 
         foreach($data['radios'] as $result)
-        {
-            dump($result["nom"]);
-           
+        {       
             $radio = new Radio();
             $radio->setAvatar($result['avatar']);
             $radio->setNameRadio($result['nom']);
