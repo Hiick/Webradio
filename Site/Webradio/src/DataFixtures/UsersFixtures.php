@@ -26,7 +26,7 @@ class UsersFixtures extends Fixture
             $users->setUsername($result['username']);
             $users->setAvatar($result['avatar']);
             $users->setNomChaine($result['nom_chaine']);
-            $users->setRoles($result['role']);
+            $users->setRoleUser($result['role']);
             $users->setStatus($result['status']);
             $users->setPassword($result['password']);
 

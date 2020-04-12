@@ -18,7 +18,7 @@ class UsersType extends AbstractType
                 'required' => false,
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Nom d\'utilisateur',
+                    'placeholder' => 'email',
                     'class' => 'form-control'
                 ]
             ])
@@ -34,15 +34,15 @@ class UsersType extends AbstractType
                 'required' => false,
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Nom d\'utilisateur',
+                    'placeholder' => 'avatar',
                     'class' => 'form-control'
                 ]
             ])
-            ->add('nom_chaine', TextType::class, [
+            ->add('nomChaine', TextType::class, [
                 'required' => false,
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Nom d\'utilisateur',
+                    'placeholder' => 'nom de la chaine',
                     'class' => 'form-control'
                 ]
             ])
@@ -54,19 +54,14 @@ class UsersType extends AbstractType
                     'USER' => 'USER',
                 ],
                 'attr' => [
-                    'placeholder' => 'Nom d\'utilisateur',
                     'class' => 'form-control'
                 ]
             ])
-            ->add('status', TextType::class, [
+            ->add('status', ChoiceType::class, [
                 'required' => false,
                 'label' => false,
-                'choices' => [
-                    'Active' => true,
-                    'Inactive' => false,
-                ],
+                'choices' => $this->getChoices(),
                 'attr' => [
-                    'placeholder' => 'Nom d\'utilisateur',
                     'class' => 'form-control'
                 ]
             ])
@@ -74,7 +69,7 @@ class UsersType extends AbstractType
                 'required' => false,
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Nom d\'utilisateur',
+                    'placeholder' => 'password',
                     'class' => 'form-control'
                 ]
             ])
@@ -86,5 +81,15 @@ class UsersType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Users::class,
         ]);
+    }
+
+    private function getChoices()
+    {
+        $choices = Users::DefaultStatus;
+        $output = [];
+        foreach($choices as $k => $v) {
+            $output[$v] = $k;
+        }
+        return $output;
     }
 }

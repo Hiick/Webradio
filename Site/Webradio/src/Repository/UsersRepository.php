@@ -3,8 +3,11 @@
 namespace App\Repository;
 
 use App\Entity\Users;
+use App\Entity\UserSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query;
+use Doctrine\ORM\QueryBuilder as ORMQueryBuilder;
 
 /**
  * @method Users|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,32 +22,40 @@ class UsersRepository extends ServiceEntityRepository
         parent::__construct($registry, Users::class);
     }
 
-    // /**
-    //  * @return Users[] Returns an array of Users objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findAllVisibleQuery(UserSearch $search): Query
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $query = $this->findVisibleQuery();
 
-    /*
-    public function findOneBySomeField($value): ?Users
+        if($search->getUsername()){
+            $query = $query
+                ->andWhere('u.username = :username')
+                ->setParameter(':username', $search->getUsername());
+        }
+
+        if($search->getNomChaine()) {
+            $query = $query
+                ->andWhere('u.nomChaine = :nomChaine')
+                ->setParameter(':nomChaine', $search->getNomChaine());
+        }
+
+        return $query->setMaxResults(4)
+                ->getQuery();
+    }
+
+    /**
+     * @return Users[]
+     */
+    public function findLastest() :array
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+        return $this->findVisibleQuery()
+        ->setMaxResults(4)
+        ->getQuery()
+        ->getResult()
         ;
     }
-    */
+
+    private function findVisibleQuery() :ORMQueryBuilder
+    {
+        return $this->createQueryBuilder('u');       
+    }
 }

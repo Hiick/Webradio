@@ -41,16 +41,16 @@ class Users implements UserInterface, Serializable
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $nom_chaine;
+    private $nomChaine;
 
    /**
-     * @ORM\Column(type="string", length=255, options={"default": "USER"} )
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $roles;
+    private $roleUser;
 
 
     /**
-     * @ORM\Column(type="boolean", options={"default": false}, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $status;
 
@@ -104,22 +104,22 @@ class Users implements UserInterface, Serializable
 
     public function getNomChaine(): ?string
     {
-        return $this->nom_chaine;
+        return $this->nomChaine;
     }
 
-    public function setNomChaine(string $nom_chaine): self
+    public function setNomChaine(string $nomChaine): self
     {
-        $this->nom_chaine = $nom_chaine;
+        $this->nomChaine = $nomChaine;
 
         return $this;
     }
 
-    public function getStatus(): ?bool
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
-    public function setStatus(bool $status): self
+    public function setStatus(string $status): self
     {
         $this->status = $status;
 
@@ -166,8 +166,8 @@ class Users implements UserInterface, Serializable
      *
      * @return string The username
      */
-    public function getUsername(){
-        return null;
+    public function getUsername() : ?string {
+        return $this->username;
     }
 
     /**
@@ -211,9 +211,13 @@ class Users implements UserInterface, Serializable
         return $this;
     }
 
-    public function setRoles(string $roles): self
+    public function getRoleUser():  ?string
     {
-        $this->roles = $roles;
+        return $this->roleUser;
+    }
+    public function setroleUser(string $roleUser): self
+    {
+        $this->roleUser = $roleUser;
 
         return $this;
     }

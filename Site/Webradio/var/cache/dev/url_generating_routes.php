@@ -31,6 +31,9 @@ return [
     'profile.index' => [[], ['_controller' => 'App\\Controller\\Users\\UserController::index'], [], [['text', '/profile']], [], []],
     'superadmin.index' => [[], ['_controller' => 'App\\Controller\\superAdmin\\SuperAdminDashController::index'], [], [['text', '/superadmin']], [], []],
     'superadmin.stats.show' => [[], ['_controller' => 'App\\Controller\\superAdmin\\SuperAdminDashController::getStatistics'], [], [['text', '/superadmin/stats']], [], []],
-    'superadmin.users.index' => [[], ['_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::index'], [], [['text', '/superadmin/users']], [], []],
+    'superadmin.users.index' => [[], ['_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::index'], [], [['text', '/superadmin/users/']], [], []],
+    'superadmin.users.new' => [[], ['_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::new'], [], [['text', '/superadmin/users/new']], [], []],
+    'superadmin.users.edit' => [['id'], ['_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/superadmin/users']], [], []],
+    'superadmin.users.delete' => [['id'], ['_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/superadmin/users']], [], []],
     'logout' => [[], [], [], [['text', '/logout']], [], []],
 ];

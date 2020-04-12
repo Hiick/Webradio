@@ -11,7 +11,7 @@ class UserSearch {
     /**
     * @var string|null
     */
-    private $nom_chaine;
+    private $nomChaine;
 
 
     public function getUsername(): ?string
@@ -27,12 +27,12 @@ class UserSearch {
 
     public function getNomChaine(): ?string
     {
-        return $this->nom_chaine;
+        return $this->nomChaine;
     }
 
-    public function setNomChaine(string $nom_chaine): UserSearch
+    public function setNomChaine(string $nomChaine): UserSearch
     {
-        $this->nom_chaine = $nom_chaine;
+        $this->nomChaine = $nomChaine;
         return $this;
     }
 
