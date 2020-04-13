@@ -13,7 +13,7 @@ class UserSearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', TextType::class, [
+            ->add('nomChaine', TextType::class, [
                 'required' => false,
                 'label' => false,
                 'attr' => [

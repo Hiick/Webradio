@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     {% include 'superAdmin/head.html.twig' %}
-    {% include 'superAdmin/users/script.html.twig' %}
+    {% include 'superAdmin/channel/script.html.twig' %}
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -15,7 +15,7 @@
 
                 <div class="row mt-4 mb-2">
                     <div class="col-xl-2">
-                        <h4 class="h4 text-gray-800">Utilisateurs</h4>
+                        <h4 class="h4 text-gray-800">Chaînes</h4>
                     </div>
                     <div class="col-xl-10 d-flex"> 
 
@@ -41,45 +41,27 @@
                                     <thead>
                                         <tr id='entete' role="row">
                                             <th scope='col'>Avatar</th>
-                                            <th scope='col'>Username</th>
-                                            <th scope='col'>Email</th>
-                                            <th scope='col'>Chaîne</th>
-                                            <th scope='col'>Rôle</th>
+                                            <th scope='col'>Nom de la chaîne</th>
+                                            <th scope='col'>Propriétaire</th>
                                             <th scope='col'>Status</th>
                                             <th scope='col'>Management</th>
                                         </tr>
                                     </thead>
                                     <tbody id='corps-table'>
-                                         {% for user in users %}
+                                         {% for channel in channels %}
                                             <tr>
-                                                <td>{{ user.avatar|raw }}</td>
-                                                <td>{{ user.username }}</td>
-                                                <td>{{ user.email }}</td>
-                                                <td>{{ user.nomChaine }}</td>
-                                                <td>{{ user.roleUser }}</td>
-                                                <td>{{ user.status }}
-                                                    {% if user.roleUser == "ADMIN" %}
-                                                        </td><td>
-                                                            <a href='{#{ path('') }#}' class='fa-2x far fa-edit' id=''></a>
-                                                        </tr>
-                                                        {% else %}
-                                                            </td><td>
-                                                                <a href='#removeModal' data-toggle='modal' data-dismiss='modal' class='far fa-trash-alt fa-2x' id=''></a><a href='{#{ path('') }#}' class='fa-2x far fa-edit' id=''></a>
-                                                            </tr>
-                                                    {% endif %}
-                                                </td>
+                                                <td>{{ channel.avatar|raw }}</td>
+                                                <td>{{ channel.nomChaine }}</td>
+                                                <td>{{ channel.proprietaire }}</td>
+                                                <td>{{ channel.status }}</td>
+                                                <td><a href='#removeModal' data-toggle='modal' data-dismiss='modal' class='far fa-trash-alt fa-2x' id=''></a><a href='{#{ path('') }#}' class='fa-2x far fa-edit' id=''></a></td>
                                             </tr>
                                          {% endfor %}
                                     </tbody>
                                     </table>
                                     <div class="pagination mt-2 d-flex justify-content-center" id="pagination_data">
-                                        {{ knp_pagination_render(users) }}
-                                    </div>
-                                    <div style="height: auto; text-align: center" class="chart-area" id="pagination_data">
-                                        <div id="users" class="mb-3"></div>
-                                        <div id="usersdesc" class="mb-3"></div>
-                                    </div>
-                                    <a href="{#{path('')}#}" class="btn add_user">+</a>
+                                        {{ knp_pagination_render(channels) }}
+                                    </div>      
                                   </div>
                                 </div>                                
                             </div>

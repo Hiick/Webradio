@@ -386,6 +386,15 @@
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Users\UserController"/>
       </call>
     </service>
+    <service id="App\Controller\superAdmin\ChannelAdminController" class="App\Controller\superAdmin\ChannelAdminController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="App\Repository\ChannelsRepository"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\superAdmin\ChannelAdminController"/>
+      </call>
+    </service>
     <service id="App\Controller\superAdmin\SuperAdminDashController" class="App\Controller\superAdmin\SuperAdminDashController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -405,11 +414,17 @@
     <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
     </service>
+    <service id="App\DataFixtures\ChannelsFixtures" class="App\DataFixtures\ChannelsFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
     <service id="App\DataFixtures\RadioFixture" class="App\DataFixtures\RadioFixture" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
     </service>
     <service id="App\DataFixtures\UsersFixtures" class="App\DataFixtures\UsersFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\Form\ChannelsType" class="App\Form\ChannelsType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
     </service>
     <service id="App\Form\RadioSearchType" class="App\Form\RadioSearchType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
@@ -422,6 +437,10 @@
     </service>
     <service id="App\Form\UsersType" class="App\Form\UsersType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+    </service>
+    <service id="App\Repository\ChannelsRepository" class="App\Repository\ChannelsRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\RadioRepository" class="App\Repository\RadioRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
@@ -831,6 +850,7 @@
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\ChannelsType</argument>
         <argument>App\Form\RadioSearchType</argument>
         <argument>App\Form\RadioType</argument>
         <argument>App\Form\UserSearchType</argument>
@@ -1156,7 +1176,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.i2hNBMY"/>
+      <argument type="service" id=".service_locator..iJFtxm"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -3739,7 +3759,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.Y8RrwHY"/>
+      <argument type="service" id=".service_locator.I46zLYy"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4816,6 +4836,10 @@
             <argument key="groups" type="collection"/>
           </argument>
           <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\ChannelsFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
             <argument key="fixture" type="service" id="App\DataFixtures\RadioFixture"/>
             <argument key="groups" type="collection"/>
           </argument>
@@ -4853,6 +4877,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Users\UserController" class="App\Controller\Users\UserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Users\UserController" class="App\Controller\Users\UserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Users\UserController" class="App\Controller\Users\UserController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\superAdmin\ChannelAdminController" class="App\Controller\superAdmin\ChannelAdminController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\superAdmin\ChannelAdminController" class="App\Controller\superAdmin\ChannelAdminController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\superAdmin\ChannelAdminController" class="App\Controller\superAdmin\ChannelAdminController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\superAdmin\SuperAdminDashController" class="App\Controller\superAdmin\SuperAdminDashController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\superAdmin\SuperAdminDashController" class="App\Controller\superAdmin\SuperAdminDashController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\superAdmin\SuperAdminDashController" class="App\Controller\superAdmin\SuperAdminDashController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4861,10 +4888,14 @@
     <service id=".abstract.instanceof.App\Controller\superAdmin\UsersAdminController" class="App\Controller\superAdmin\UsersAdminController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\ChannelsFixtures" class="App\DataFixtures\ChannelsFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\ChannelsFixtures" class="App\DataFixtures\ChannelsFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\RadioFixture" class="App\DataFixtures\RadioFixture" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\RadioFixture" class="App\DataFixtures\RadioFixture" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\UsersFixtures" class="App\DataFixtures\UsersFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\UsersFixtures" class="App\DataFixtures\UsersFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ChannelsType" class="App\Form\ChannelsType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ChannelsType" class="App\Form\ChannelsType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RadioSearchType" class="App\Form\RadioSearchType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RadioSearchType" class="App\Form\RadioSearchType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RadioType" class="App\Form\RadioType" autowire="true" abstract="true"/>
@@ -4873,6 +4904,8 @@
     <service id=".abstract.instanceof.App\Form\UserSearchType" class="App\Form\UserSearchType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UsersType" class="App\Form\UsersType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UsersType" class="App\Form\UsersType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ChannelsRepository" class="App\Repository\ChannelsRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ChannelsRepository" class="App\Repository\ChannelsRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RadioRepository" class="App\Repository\RadioRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\RadioRepository" class="App\Repository\RadioRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UsersRepository" class="App\Repository\UsersRepository" autowire="true" abstract="true"/>
@@ -5084,18 +5117,20 @@
         <argument key="user" type="service" id=".errored..service_locator.UXONjG5.App\Entity\Users"/>
       </argument>
     </service>
-    <service id=".service_locator..UftkMC" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.hP3BndM" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\HomeController::index" type="service" id=".service_locator.CY_hMZh"/>
         <argument key="App\Controller\RadioController::index" type="service" id=".service_locator.IsWxVyS"/>
         <argument key="App\Controller\RadioController::show" type="service" id=".service_locator.6Q_SyOK"/>
+        <argument key="App\Controller\superAdmin\ChannelAdminController::index" type="service" id=".service_locator.CY_hMZh"/>
         <argument key="App\Controller\superAdmin\UsersAdminController::delete" type="service" id=".service_locator.UXONjG5"/>
         <argument key="App\Controller\superAdmin\UsersAdminController::edit" type="service" id=".service_locator.UXONjG5"/>
         <argument key="App\Controller\superAdmin\UsersAdminController::index" type="service" id=".service_locator.CY_hMZh"/>
         <argument key="App\Controller\HomeController:index" type="service" id=".service_locator.CY_hMZh"/>
         <argument key="App\Controller\RadioController:index" type="service" id=".service_locator.IsWxVyS"/>
         <argument key="App\Controller\RadioController:show" type="service" id=".service_locator.6Q_SyOK"/>
+        <argument key="App\Controller\superAdmin\ChannelAdminController:index" type="service" id=".service_locator.CY_hMZh"/>
         <argument key="App\Controller\superAdmin\UsersAdminController:delete" type="service" id=".service_locator.UXONjG5"/>
         <argument key="App\Controller\superAdmin\UsersAdminController:edit" type="service" id=".service_locator.UXONjG5"/>
         <argument key="App\Controller\superAdmin\UsersAdminController:index" type="service" id=".service_locator.CY_hMZh"/>
@@ -5160,9 +5195,10 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.i2hNBMY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator..iJFtxm" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\ChannelsType" type="service" id="App\Form\ChannelsType"/>
         <argument key="App\Form\RadioSearchType" type="service" id="App\Form\RadioSearchType"/>
         <argument key="App\Form\RadioType" type="service" id="App\Form\RadioType"/>
         <argument key="App\Form\UserSearchType" type="service" id="App\Form\UserSearchType"/>
@@ -5332,9 +5368,10 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.Y8RrwHY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.I46zLYy" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Repository\ChannelsRepository" type="service" id="App\Repository\ChannelsRepository"/>
         <argument key="App\Repository\RadioRepository" type="service" id="App\Repository\RadioRepository"/>
         <argument key="App\Repository\UsersRepository" type="service" id="App\Repository\UsersRepository"/>
       </argument>
@@ -5438,6 +5475,12 @@
     <service id=".service_locator.pNNo5z3.App\Controller\Users\UserController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\Users\UserController"/>
       <argument>App\Controller\Users\UserController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\superAdmin\ChannelAdminController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\superAdmin\ChannelAdminController"/>
+      <argument>App\Controller\superAdmin\ChannelAdminController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
@@ -5592,12 +5635,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator..UftkMC"/>
+      <argument type="service" id=".service_locator.hP3BndM"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator..UftkMC"/>
+      <argument type="service" id=".service_locator.hP3BndM"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5972,7 +6015,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator..UftkMC"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.hP3BndM"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
