@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SignalementsRepository")
@@ -61,6 +62,11 @@ class Signalements
     public function getNomChaine(): ?string
     {
         return $this->nomChaine;
+    }
+
+    public function getSlug() :string
+    {
+        return (new Slugify())->slugify($this->nomChaine); 
     }
 
     public function setNomChaine(string $nomChaine): self

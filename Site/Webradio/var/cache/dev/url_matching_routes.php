@@ -28,6 +28,7 @@ return [
         '/profile' => [[['_route' => 'profile.index', '_controller' => 'App\\Controller\\Users\\UserController::index'], null, null, null, false, false, null]],
         '/superadmin/channel' => [[['_route' => 'superadmin.channel.index', '_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::index'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
         '/superadmin/signal' => [[['_route' => 'superadmin.Signalements.index', '_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::index'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
+        '/superadmin/signal/blankpage' => [[['_route' => 'superadmin.Signalements.blankpage', '_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::blankPage'], null, ['GET' => 0], null, false, false, null]],
         '/superadmin' => [[['_route' => 'superadmin.index', '_controller' => 'App\\Controller\\superAdmin\\SuperAdminDashController::index'], null, null, null, false, false, null]],
         '/superadmin/stats' => [[['_route' => 'superadmin.stats.show', '_controller' => 'App\\Controller\\superAdmin\\SuperAdminDashController::getStatistics'], null, null, null, false, false, null]],
         '/superadmin/users' => [[['_route' => 'superadmin.users.index', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::index'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
@@ -52,9 +53,12 @@ return [
                     .')'
                 .')'
                 .'|/radio/([^/]++)(*:184)'
-                .'|/superadmin/users/([^/]++)(?'
-                    .'|/edit(*:226)'
-                    .'|(*:234)'
+                .'|/superadmin/(?'
+                    .'|signal/([a-z0-9\\-]*)\\-([^/]++)(*:237)'
+                    .'|users/([^/]++)(?'
+                        .'|/edit(*:267)'
+                        .'|(*:275)'
+                    .')'
                 .')'
             .')/?$}sDu',
     ],
@@ -67,8 +71,9 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         184 => [[['_route' => 'radio.show', '_controller' => 'App\\Controller\\RadioController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        226 => [[['_route' => 'superadmin.users.edit', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        234 => [
+        237 => [[['_route' => 'superadmin.Signalements.show', '_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::show'], ['slug', 'id'], null, null, false, true, null]],
+        267 => [[['_route' => 'superadmin.users.edit', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        275 => [
             [['_route' => 'superadmin.users.delete', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

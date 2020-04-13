@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\ListSignals;
 use App\Entity\Signalements;
 use App\Entity\UserSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -35,7 +36,7 @@ class SignalementsRepository extends ServiceEntityRepository
         return $query->setMaxResults(4)
                 ->getQuery();
     }
-
+    
     /**
      * @return Users[]
      */
@@ -51,5 +52,10 @@ class SignalementsRepository extends ServiceEntityRepository
     private function findVisibleQuery() :ORMQueryBuilder
     {
         return $this->createQueryBuilder('s');       
+    }
+
+    public function channelName(): ORMQueryBuilder {
+        return $this->createQueryBuilder('s')
+                    ->select('s.nomChaine');  
     }
 }

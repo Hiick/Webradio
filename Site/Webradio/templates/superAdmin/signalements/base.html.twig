@@ -53,7 +53,7 @@
                                                 <td>{{ Signalement.avatar|raw }}</td>
                                                 <td>{{ Signalement.nomChaine }}</td>
                                                 <td>{{ Signalement.nombreSignal }}</td>
-                                                <td><a href='{#{ path('') }#}' >{{ Signalement.listSignal }}</a></td>
+                                                <td><a href='{{ path('superadmin.Signalements.show', {slug: Signalement.slug, id: Signalement.id}) }}' >{{ Signalement.listSignal }}</a></td>
                                                 <td><a href='#bannirModal' data-toggle='modal' data-dismiss='modal' class='text-danger'>{{ Signalement.management }}</a></td>
                                             </tr>
                                          {% endfor %}

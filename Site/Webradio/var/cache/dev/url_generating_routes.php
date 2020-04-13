@@ -31,6 +31,8 @@ return [
     'profile.index' => [[], ['_controller' => 'App\\Controller\\Users\\UserController::index'], [], [['text', '/profile']], [], []],
     'superadmin.channel.index' => [[], ['_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::index'], [], [['text', '/superadmin/channel/']], [], []],
     'superadmin.Signalements.index' => [[], ['_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::index'], [], [['text', '/superadmin/signal/']], [], []],
+    'superadmin.Signalements.show' => [['slug', 'id'], ['_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::show'], ['slug' => '[a-z0-9\\-]*'], [['variable', '-', '[^/]++', 'id', true], ['variable', '/', '[a-z0-9\\-]*', 'slug', true], ['text', '/superadmin/signal']], [], []],
+    'superadmin.Signalements.blankpage' => [[], ['_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::blankPage'], [], [['text', '/superadmin/signal/blankpage']], [], []],
     'superadmin.index' => [[], ['_controller' => 'App\\Controller\\superAdmin\\SuperAdminDashController::index'], [], [['text', '/superadmin']], [], []],
     'superadmin.stats.show' => [[], ['_controller' => 'App\\Controller\\superAdmin\\SuperAdminDashController::getStatistics'], [], [['text', '/superadmin/stats']], [], []],
     'superadmin.users.index' => [[], ['_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::index'], [], [['text', '/superadmin/users/']], [], []],
