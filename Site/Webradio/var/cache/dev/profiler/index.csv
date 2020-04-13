@@ -212,3 +212,17 @@ f4b630,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/,1586738317,,500
 46f64a,127.0.0.1,POST,http://127.0.0.1:8000/superadmin/channel/,1586738689,,200
 55ed65,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/,1586738694,,200
 6706d4,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/,1586738697,,200
+061d92,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/,1586741121,,200
+11e694,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/signal/,1586741128,435746,500
+435746,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/signal/,1586741128,,500
+416113,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/,1586741294,,200
+f00077,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/signal/,1586741298,,200
+c015fb,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/assets/artist%20image.png,1586741300,a74721,404
+a74721,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/assets/artist%20image.png,1586741300,,404
+b08d6e,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/signal/,1586741332,,200
+74d981,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/signal/,1586741508,,200
+fbb3b8,127.0.0.1,POST,http://127.0.0.1:8000/superadmin/signal/,1586741521,,200
+5a6328,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/signal/,1586741530,,200
+840f11,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/users/,1586741543,,200
+225e29,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/users/,1586741543,,200
+ff3b5b,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/users/,1586741547,,200

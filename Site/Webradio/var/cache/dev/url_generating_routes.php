@@ -30,6 +30,7 @@ return [
     'profile.timeline.index' => [[], ['_controller' => 'App\\Controller\\Users\\TimelineController::index'], [], [['text', '/profile/timeline']], [], []],
     'profile.index' => [[], ['_controller' => 'App\\Controller\\Users\\UserController::index'], [], [['text', '/profile']], [], []],
     'superadmin.channel.index' => [[], ['_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::index'], [], [['text', '/superadmin/channel/']], [], []],
+    'superadmin.Signalements.index' => [[], ['_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::index'], [], [['text', '/superadmin/signal/']], [], []],
     'superadmin.index' => [[], ['_controller' => 'App\\Controller\\superAdmin\\SuperAdminDashController::index'], [], [['text', '/superadmin']], [], []],
     'superadmin.stats.show' => [[], ['_controller' => 'App\\Controller\\superAdmin\\SuperAdminDashController::getStatistics'], [], [['text', '/superadmin/stats']], [], []],
     'superadmin.users.index' => [[], ['_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::index'], [], [['text', '/superadmin/users/']], [], []],

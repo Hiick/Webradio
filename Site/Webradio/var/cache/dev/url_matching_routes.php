@@ -27,6 +27,7 @@ return [
         '/profile/timeline' => [[['_route' => 'profile.timeline.index', '_controller' => 'App\\Controller\\Users\\TimelineController::index'], null, null, null, false, false, null]],
         '/profile' => [[['_route' => 'profile.index', '_controller' => 'App\\Controller\\Users\\UserController::index'], null, null, null, false, false, null]],
         '/superadmin/channel' => [[['_route' => 'superadmin.channel.index', '_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::index'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
+        '/superadmin/signal' => [[['_route' => 'superadmin.Signalements.index', '_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::index'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
         '/superadmin' => [[['_route' => 'superadmin.index', '_controller' => 'App\\Controller\\superAdmin\\SuperAdminDashController::index'], null, null, null, false, false, null]],
         '/superadmin/stats' => [[['_route' => 'superadmin.stats.show', '_controller' => 'App\\Controller\\superAdmin\\SuperAdminDashController::getStatistics'], null, null, null, false, false, null]],
         '/superadmin/users' => [[['_route' => 'superadmin.users.index', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::index'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
