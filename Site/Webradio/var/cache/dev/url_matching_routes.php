@@ -54,10 +54,14 @@ return [
                 .')'
                 .'|/radio/([^/]++)(*:184)'
                 .'|/superadmin/(?'
-                    .'|signal/([a-z0-9\\-]*)\\-([^/]++)(*:237)'
+                    .'|channel/([^/]++)(?'
+                        .'|/edit(*:231)'
+                        .'|(*:239)'
+                    .')'
+                    .'|signal/([a-z0-9\\-]*)\\-([^/]++)(*:278)'
                     .'|users/([^/]++)(?'
-                        .'|/edit(*:267)'
-                        .'|(*:275)'
+                        .'|/edit(*:308)'
+                        .'|(*:316)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -71,9 +75,11 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         184 => [[['_route' => 'radio.show', '_controller' => 'App\\Controller\\RadioController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        237 => [[['_route' => 'superadmin.Signalements.show', '_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::show'], ['slug', 'id'], null, null, false, true, null]],
-        267 => [[['_route' => 'superadmin.users.edit', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        275 => [
+        231 => [[['_route' => 'superadmin.channel.edit', '_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        239 => [[['_route' => 'superadmin.channel.delete', '_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        278 => [[['_route' => 'superadmin.Signalements.show', '_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::show'], ['slug', 'id'], null, null, false, true, null]],
+        308 => [[['_route' => 'superadmin.users.edit', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        316 => [
             [['_route' => 'superadmin.users.delete', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

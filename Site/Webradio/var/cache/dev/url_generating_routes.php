@@ -30,6 +30,8 @@ return [
     'profile.timeline.index' => [[], ['_controller' => 'App\\Controller\\Users\\TimelineController::index'], [], [['text', '/profile/timeline']], [], []],
     'profile.index' => [[], ['_controller' => 'App\\Controller\\Users\\UserController::index'], [], [['text', '/profile']], [], []],
     'superadmin.channel.index' => [[], ['_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::index'], [], [['text', '/superadmin/channel/']], [], []],
+    'superadmin.channel.edit' => [['id'], ['_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/superadmin/channel']], [], []],
+    'superadmin.channel.delete' => [['id'], ['_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/superadmin/channel']], [], []],
     'superadmin.Signalements.index' => [[], ['_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::index'], [], [['text', '/superadmin/signal/']], [], []],
     'superadmin.Signalements.show' => [['slug', 'id'], ['_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::show'], ['slug' => '[a-z0-9\\-]*'], [['variable', '-', '[^/]++', 'id', true], ['variable', '/', '[a-z0-9\\-]*', 'slug', true], ['text', '/superadmin/signal']], [], []],
     'superadmin.Signalements.blankpage' => [[], ['_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::blankPage'], [], [['text', '/superadmin/signal/blankpage']], [], []],
