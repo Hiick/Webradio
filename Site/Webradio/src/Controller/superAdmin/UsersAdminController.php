@@ -112,4 +112,12 @@ class UsersAdminController extends BaseController{
         return $this->render('superAdmin/notifications/base.html.twig');
     }
 
+         /**
+     * @Route("/setting", name="superadmin.setting.index", methods={"GET"})
+     */
+    public function settings(): Response {
+
+        return $this->render('superAdmin/settings/base.html.twig');
+    }
+
 }

@@ -65,6 +65,7 @@ return [
                             .'|(*:319)'
                         .')'
                         .'|notifications(*:341)'
+                        .'|setting(*:356)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -83,8 +84,9 @@ return [
         278 => [[['_route' => 'superadmin.Signalements.show', '_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::show'], ['slug', 'id'], null, null, false, true, null]],
         311 => [[['_route' => 'superadmin.users.edit', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         319 => [[['_route' => 'superadmin.users.delete', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        341 => [
-            [['_route' => 'superadmin.notifications.index', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::notification'], [], ['GET' => 0], null, false, false, null],
+        341 => [[['_route' => 'superadmin.notifications.index', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::notification'], [], ['GET' => 0], null, false, false, null]],
+        356 => [
+            [['_route' => 'superadmin.setting.index', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::settings'], [], ['GET' => 0], null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

@@ -42,5 +42,6 @@ return [
     'superadmin.users.edit' => [['id'], ['_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/superadmin/users']], [], []],
     'superadmin.users.delete' => [['id'], ['_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/superadmin/users']], [], []],
     'superadmin.notifications.index' => [[], ['_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::notification'], [], [['text', '/superadmin/users/notifications']], [], []],
+    'superadmin.setting.index' => [[], ['_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::settings'], [], [['text', '/superadmin/users/setting']], [], []],
     'logout' => [[], [], [], [['text', '/logout']], [], []],
 ];

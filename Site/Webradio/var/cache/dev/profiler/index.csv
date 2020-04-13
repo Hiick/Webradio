@@ -515,3 +515,17 @@ b85eb4,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/231/edit,158680925
 502e59,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/vendor/jquery-easing/jquery.easing.min.js,1586809252,ddfc78,404
 ddfc78,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/vendor/jquery-easing/jquery.easing.min.js,1586809252,,404
 51a94c,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/,1586809261,,200
+8bbd5a,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/,1586809624,,200
+66b07c,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/,1586809631,,200
+b88a76,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/,1586809632,,200
+9c2285,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/setting,1586809641,eb1e80,404
+eb1e80,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/setting,1586809641,,404
+062bbd,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/users/setting,1586809675,,200
+971950,127.0.0.1,GET,http://127.0.0.1:8000/superadmin,1586809683,,200
+d60048,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/stats,1586809686,,200
+89d1d1,127.0.0.1,GET,http://127.0.0.1:8000/superadmin,1586809772,,200
+6814df,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/stats,1586809775,,200
+0a44b9,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/users/setting,1586809777,,200
+70e91f,127.0.0.1,GET,http://127.0.0.1:8000/superadmin,1586809780,,200
+00d820,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/stats,1586809785,,200
+1dd06e,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/users/notifications,1586809786,,200
