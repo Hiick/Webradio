@@ -15,6 +15,12 @@ class Users implements UserInterface, Serializable
         0 => 'Inactive',
         1 => 'Active'
     ];
+
+    const DefaultRole = [
+        '0' => 'ADMIN',
+        '1' => 'USER'
+    ];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -44,7 +50,7 @@ class Users implements UserInterface, Serializable
     private $nomChaine;
 
    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true, options={"default": "USER"})
      */
     private $roleUser;
 
@@ -131,6 +137,11 @@ class Users implements UserInterface, Serializable
         return self::DefaultStatus[$this->status];
     }
 
+    public function getDefaultRole(): string 
+    {
+        return self::DefaultRole[$this->roleUser];
+    }
+
     /**
      * Returns the roles granted to the user.
      *
@@ -146,7 +157,7 @@ class Users implements UserInterface, Serializable
      * @return string[] The user roles
      */
     public function getRoles(){
-        return ['USER', 'ADMIN'];
+        return ['ADMIN'];
     }
 
     /**

@@ -60,11 +60,11 @@
                                                 <td>{{ user.status }}
                                                     {% if user.roleUser == "ADMIN" %}
                                                         </td><td>
-                                                            <a href='{#{ path('') }#}' class='fa-2x far fa-edit' id=''></a>
+                                                            <a href='{{ path('superadmin.users.edit', {id: user.id}) }}' class='fa-2x far fa-edit' id=''></a>
                                                         </tr>
                                                         {% else %}
                                                             </td><td>
-                                                                <a href='#removeModal' data-toggle='modal' data-dismiss='modal' class='far fa-trash-alt fa-2x' id=''></a><a href='{#{ path('') }#}' class='fa-2x far fa-edit' id=''></a>
+                                                                <a href='#removeModal' data-toggle='modal' data-dismiss='modal' class='far fa-trash-alt fa-2x' id=''></a><a href='{{ path('superadmin.users.edit', {id: user.id}) }}' class='fa-2x far fa-edit' id=''></a>
                                                             </tr>
                                                     {% endif %}
                                                 </td>
@@ -79,7 +79,7 @@
                                         <div id="users" class="mb-3"></div>
                                         <div id="usersdesc" class="mb-3"></div>
                                     </div>
-                                    <a href="{#{path('')}#}" class="btn add_user">+</a>
+                                    <a href="{{path('superadmin.users.new')}}" class="btn add_user">+</a>
                                   </div>
                                 </div>                                
                             </div>
@@ -110,7 +110,7 @@
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
-{#% include 'superAdmin/Users/RemoveUser/modal.html.twig' %#}
+
 
 </body>
 

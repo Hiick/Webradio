@@ -64,7 +64,7 @@ class UsersAdminController extends BaseController{
             return $this->redirectToRoute('superadmin.users.index');
         }
 
-        return $this->render('superadmin/users/newUser.html.twig', [
+        return $this->render('superadmin/users/addUser/newUser.html.twig', [
             'users' => $user,
             'form' => $form->createView(),
         ]);
@@ -84,7 +84,7 @@ class UsersAdminController extends BaseController{
             return $this->redirectToRoute('superadmin.users.index');
         }
 
-        return $this->render('superAdmin/users/editUser.html.twig', [
+        return $this->render('superAdmin/users/editUser/editUser.html.twig', [
             'users' => $user,
             'form' => $form->createView(),
         ]);

@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UsersType extends AbstractType
@@ -18,8 +19,8 @@ class UsersType extends AbstractType
                 'required' => false,
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'email',
-                    'class' => 'form-control'
+                    'placeholder' => 'Email',
+                    'class' => 'form-control text-center text-black'
                 ]
             ])
             ->add('username', TextType::class, [
@@ -27,50 +28,24 @@ class UsersType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Nom d\'utilisateur',
-                    'class' => 'form-control'
-                ]
-            ])
-            ->add('avatar', TextType::class, [
-                'required' => false,
-                'label' => false,
-                'attr' => [
-                    'placeholder' => 'avatar',
-                    'class' => 'form-control'
+                    'class' => 'form-control text-center text-black'
                 ]
             ])
             ->add('nomChaine', TextType::class, [
                 'required' => false,
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'nom de la chaine',
-                    'class' => 'form-control'
+                    'placeholder' => 'Chaîne',
+                    'class' => 'form-control text-center text-black'
                 ]
             ])
-            ->add('roles', ChoiceType::class, [
+            ->add('roleUser', ChoiceType::class, [
                 'required' => false,
                 'label' => false,
-                'choices' => [
-                    'ADMIN' => 'ADMIN',
-                    'USER' => 'USER',
-                ],
+                'choices' => $this->getRoleChoices(),
                 'attr' => [
-                    'class' => 'form-control'
-                ]
-            ])
-            ->add('status', ChoiceType::class, [
-                'required' => false,
-                'label' => false,
-                'choices' => $this->getChoices(),
-                'attr' => [
-                    'class' => 'form-control'
-                ]
-            ])
-            ->add('password', TextType::class, [
-                'required' => false,
-                'label' => false,
-                'attr' => [
-                    'placeholder' => 'password',
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'id'    => 'sel1',
                 ]
             ])
         ;
@@ -91,5 +66,15 @@ class UsersType extends AbstractType
             $output[$v] = $k;
         }
         return $output;
+    }
+
+    private function getRoleChoices()
+    {
+        $choicesRole = Users::DefaultRole;
+        foreach($choicesRole as $k => $v) {
+            $output[$v] = $k;
+        }
+        return $output;
+
     }
 }
