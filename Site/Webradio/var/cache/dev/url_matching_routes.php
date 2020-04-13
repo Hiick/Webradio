@@ -26,11 +26,16 @@ return [
         '/profile/setting/show' => [[['_route' => 'profile.setting.show', '_controller' => 'App\\Controller\\Users\\SettingsController::showUser'], null, null, null, false, false, null]],
         '/profile/timeline' => [[['_route' => 'profile.timeline.index', '_controller' => 'App\\Controller\\Users\\TimelineController::index'], null, null, null, false, false, null]],
         '/profile' => [[['_route' => 'profile.index', '_controller' => 'App\\Controller\\Users\\UserController::index'], null, null, null, false, false, null]],
+        '/admin/channel' => [[['_route' => 'admin.channel.index', '_controller' => 'App\\Controller\\admin\\ChannelAController::index'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
+        '/admin' => [[['_route' => 'admin.index', '_controller' => 'App\\Controller\\admin\\adminDashController::index'], null, null, null, false, false, null]],
+        '/admin/stats' => [[['_route' => 'admin.stats.show', '_controller' => 'App\\Controller\\admin\\adminDashController::getStatistics'], null, null, null, false, false, null]],
+        '/admin/setting' => [[['_route' => 'admin.setting.index', '_controller' => 'App\\Controller\\admin\\adminDashController::settings'], null, ['GET' => 0], null, false, false, null]],
         '/superadmin/channel' => [[['_route' => 'superadmin.channel.index', '_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::index'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
         '/superadmin/signal' => [[['_route' => 'superadmin.Signalements.index', '_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::index'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
         '/superadmin/signal/blankpage' => [[['_route' => 'superadmin.Signalements.blankpage', '_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::blankPage'], null, ['GET' => 0], null, false, false, null]],
         '/superadmin' => [[['_route' => 'superadmin.index', '_controller' => 'App\\Controller\\superAdmin\\SuperAdminDashController::index'], null, null, null, false, false, null]],
         '/superadmin/stats' => [[['_route' => 'superadmin.stats.show', '_controller' => 'App\\Controller\\superAdmin\\SuperAdminDashController::getStatistics'], null, null, null, false, false, null]],
+        '/superadmin/setting' => [[['_route' => 'superadmin.setting.index', '_controller' => 'App\\Controller\\superAdmin\\SuperAdminDashController::settings'], null, ['GET' => 0], null, false, false, null]],
         '/superadmin/users' => [[['_route' => 'superadmin.users.index', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::index'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
         '/superadmin/users/new' => [[['_route' => 'superadmin.users.new', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/logout' => [[['_route' => 'logout'], null, null, null, false, false, null]],
@@ -53,19 +58,22 @@ return [
                     .')'
                 .')'
                 .'|/radio/([^/]++)(*:184)'
+                .'|/admin/channel/([^/]++)(?'
+                    .'|/edit(*:223)'
+                    .'|(*:231)'
+                .')'
                 .'|/superadmin/(?'
                     .'|channel/([^/]++)(?'
-                        .'|/edit(*:231)'
-                        .'|(*:239)'
+                        .'|/edit(*:279)'
+                        .'|(*:287)'
                     .')'
-                    .'|signal/([a-z0-9\\-]*)\\-([^/]++)(*:278)'
+                    .'|signal/([a-z0-9\\-]*)\\-([^/]++)(*:326)'
                     .'|users/(?'
                         .'|([^/]++)(?'
-                            .'|/edit(*:311)'
-                            .'|(*:319)'
+                            .'|/edit(*:359)'
+                            .'|(*:367)'
                         .')'
-                        .'|notifications(*:341)'
-                        .'|setting(*:356)'
+                        .'|notifications(*:389)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -79,14 +87,15 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         184 => [[['_route' => 'radio.show', '_controller' => 'App\\Controller\\RadioController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        231 => [[['_route' => 'superadmin.channel.edit', '_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        239 => [[['_route' => 'superadmin.channel.delete', '_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        278 => [[['_route' => 'superadmin.Signalements.show', '_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::show'], ['slug', 'id'], null, null, false, true, null]],
-        311 => [[['_route' => 'superadmin.users.edit', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        319 => [[['_route' => 'superadmin.users.delete', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        341 => [[['_route' => 'superadmin.notifications.index', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::notification'], [], ['GET' => 0], null, false, false, null]],
-        356 => [
-            [['_route' => 'superadmin.setting.index', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::settings'], [], ['GET' => 0], null, false, false, null],
+        223 => [[['_route' => 'admin.channel.edit', '_controller' => 'App\\Controller\\admin\\ChannelAController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        231 => [[['_route' => 'admin.channel.delete', '_controller' => 'App\\Controller\\admin\\ChannelAController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        279 => [[['_route' => 'superadmin.channel.edit', '_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        287 => [[['_route' => 'superadmin.channel.delete', '_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        326 => [[['_route' => 'superadmin.Signalements.show', '_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::show'], ['slug', 'id'], null, null, false, true, null]],
+        359 => [[['_route' => 'superadmin.users.edit', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        367 => [[['_route' => 'superadmin.users.delete', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        389 => [
+            [['_route' => 'superadmin.notifications.index', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::notification'], [], ['GET' => 0], null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

@@ -386,6 +386,22 @@
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Users\UserController"/>
       </call>
     </service>
+    <service id="App\Controller\admin\ChannelAController" class="App\Controller\admin\ChannelAController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="App\Repository\ChannelsRepository"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\admin\ChannelAController"/>
+      </call>
+    </service>
+    <service id="App\Controller\admin\adminDashController" class="App\Controller\admin\adminDashController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\admin\adminDashController"/>
+      </call>
+    </service>
     <service id="App\Controller\superAdmin\ChannelAdminController" class="App\Controller\superAdmin\ChannelAdminController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -4908,6 +4924,12 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Users\UserController" class="App\Controller\Users\UserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Users\UserController" class="App\Controller\Users\UserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Users\UserController" class="App\Controller\Users\UserController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\admin\ChannelAController" class="App\Controller\admin\ChannelAController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\admin\ChannelAController" class="App\Controller\admin\ChannelAController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\admin\ChannelAController" class="App\Controller\admin\ChannelAController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\admin\adminDashController" class="App\Controller\admin\adminDashController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\admin\adminDashController" class="App\Controller\admin\adminDashController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\admin\adminDashController" class="App\Controller\admin\adminDashController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\superAdmin\ChannelAdminController" class="App\Controller\superAdmin\ChannelAdminController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\superAdmin\ChannelAdminController" class="App\Controller\superAdmin\ChannelAdminController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\superAdmin\ChannelAdminController" class="App\Controller\superAdmin\ChannelAdminController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5172,12 +5194,15 @@
         <argument key="user" type="service" id=".errored..service_locator.UXONjG5.App\Entity\Users"/>
       </argument>
     </service>
-    <service id=".service_locator.0OkJ1Oa" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.k32ErLN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\HomeController::index" type="service" id=".service_locator.CY_hMZh"/>
         <argument key="App\Controller\RadioController::index" type="service" id=".service_locator.IsWxVyS"/>
         <argument key="App\Controller\RadioController::show" type="service" id=".service_locator.6Q_SyOK"/>
+        <argument key="App\Controller\admin\ChannelAController::delete" type="service" id=".service_locator.hFDgbZ4"/>
+        <argument key="App\Controller\admin\ChannelAController::edit" type="service" id=".service_locator.hFDgbZ4"/>
+        <argument key="App\Controller\admin\ChannelAController::index" type="service" id=".service_locator.CY_hMZh"/>
         <argument key="App\Controller\superAdmin\ChannelAdminController::delete" type="service" id=".service_locator.hFDgbZ4"/>
         <argument key="App\Controller\superAdmin\ChannelAdminController::edit" type="service" id=".service_locator.hFDgbZ4"/>
         <argument key="App\Controller\superAdmin\ChannelAdminController::index" type="service" id=".service_locator.CY_hMZh"/>
@@ -5189,6 +5214,9 @@
         <argument key="App\Controller\HomeController:index" type="service" id=".service_locator.CY_hMZh"/>
         <argument key="App\Controller\RadioController:index" type="service" id=".service_locator.IsWxVyS"/>
         <argument key="App\Controller\RadioController:show" type="service" id=".service_locator.6Q_SyOK"/>
+        <argument key="App\Controller\admin\ChannelAController:delete" type="service" id=".service_locator.hFDgbZ4"/>
+        <argument key="App\Controller\admin\ChannelAController:edit" type="service" id=".service_locator.hFDgbZ4"/>
+        <argument key="App\Controller\admin\ChannelAController:index" type="service" id=".service_locator.CY_hMZh"/>
         <argument key="App\Controller\superAdmin\ChannelAdminController:delete" type="service" id=".service_locator.hFDgbZ4"/>
         <argument key="App\Controller\superAdmin\ChannelAdminController:edit" type="service" id=".service_locator.hFDgbZ4"/>
         <argument key="App\Controller\superAdmin\ChannelAdminController:index" type="service" id=".service_locator.CY_hMZh"/>
@@ -5543,6 +5571,18 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\admin\ChannelAController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\admin\ChannelAController"/>
+      <argument>App\Controller\admin\ChannelAController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\admin\adminDashController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\admin\adminDashController"/>
+      <argument>App\Controller\admin\adminDashController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
     <service id=".service_locator.pNNo5z3.App\Controller\superAdmin\ChannelAdminController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\superAdmin\ChannelAdminController"/>
       <argument>App\Controller\superAdmin\ChannelAdminController</argument>
@@ -5706,12 +5746,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.0OkJ1Oa"/>
+      <argument type="service" id=".service_locator.k32ErLN"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.0OkJ1Oa"/>
+      <argument type="service" id=".service_locator.k32ErLN"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6088,7 +6128,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.0OkJ1Oa"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.k32ErLN"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

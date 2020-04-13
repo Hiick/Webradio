@@ -27,4 +27,12 @@ class SuperAdminDashController extends BaseController{
         dump($listStatistique);
         return $this->responseApi([$listStatistique]);
     }
+
+    /**
+     * @Route("/superadmin/setting", name="superadmin.setting.index", methods={"GET"})
+     */
+    public function settings(): Response {
+
+        return $this->render('superAdmin/settings/base.html.twig');
+    }
 }
