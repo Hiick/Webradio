@@ -504,3 +504,14 @@ b59854,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/232/edit,158680856
 7d7077,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/vendor/jquery-easing/jquery.easing.min.js,1586808568,186e1e,404
 186e1e,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/vendor/jquery-easing/jquery.easing.min.js,1586808568,,404
 8339b9,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/,1586808579,,200
+672554,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/,1586809111,,200
+6877d0,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/,1586809158,,200
+7f319d,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/users/notifications,1586809161,626a31,405
+626a31,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/users/notifications,1586809162,,405
+91ee10,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/users/notifications,1586809187,,200
+345fd0,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/signal/,1586809196,,200
+5cb74d,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/,1586809199,,200
+b85eb4,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/231/edit,1586809251,,200
+502e59,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/vendor/jquery-easing/jquery.easing.min.js,1586809252,ddfc78,404
+ddfc78,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/vendor/jquery-easing/jquery.easing.min.js,1586809252,,404
+51a94c,127.0.0.1,GET,http://127.0.0.1:8000/superadmin/channel/,1586809261,,200

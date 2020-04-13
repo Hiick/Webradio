@@ -90,7 +90,7 @@ class UsersAdminController extends BaseController{
         ]);
     }
 
-        /**
+    /**
      * @Route("/{id}", name="superadmin.users.delete", methods={"DELETE"})
      */
     public function delete(Request $request, Users $user): Response
@@ -102,6 +102,14 @@ class UsersAdminController extends BaseController{
         }
 
         return $this->redirectToRoute('superadmin.users.index');
+    }
+
+     /**
+     * @Route("/notifications", name="superadmin.notifications.index", methods={"GET"})
+     */
+    public function notification(): Response {
+
+        return $this->render('superAdmin/notifications/base.html.twig');
     }
 
 }
