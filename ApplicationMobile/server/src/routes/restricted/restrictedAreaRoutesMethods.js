@@ -1,6 +1,7 @@
-const { registerSignalement, getAllSignalements, getSignalementsByID, banishChannelByID } = require('../../controller/signalements');
-const { getAllChannels, getChannel, updateChannelByID, getAllStreamChannels } = require('../../controller/channel');
-const { updateOneUser, updateOneUserPassword } = require('../../controller/user');
+const { registerSignalement, getAllSignalements, getSignalementsByID, deleteSignalementByID, updateSignalementByID, banishChannelByID } = require('../../controller/signalements');
+const { getAllChannels, getChannel, updateChannelByID, getAllStreamChannels, deleteChannelByID, getAllBanishChannels } = require('../../controller/channel');
+const { updateOneUser, updateOneUserPassword, getAllUsers, updateUserById, getAllActiveUsers, getAllInactiveUsers, deleteUserById } = require('../../controller/user');
+const { addNewRadio, getAllRadios, getRadioByID, updateRadioByID, deleteRadioByID } = require('../../controller/radio');
 const { recordVoice, stopRecordVoice } = require('../../controller/stream');
 
 const Channel = require('../../models/channel'),
@@ -67,8 +68,40 @@ const getSignalementsByChannelID = async (req, res) => {
         });
     }
 };
-// Delete signalement
-// Update signalement
+const deleteSignalement = async (req, res) => {
+    let signalement = {
+        signalement_id: req.params.id
+    };
+
+    try {
+        const signal = await deleteSignalementByID(signalement);
+
+        res.status(200).send({
+            signal,
+        });
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const updateSignalement = async (req, res) => {
+    let data = {
+        id: req.params.id,
+        motif: req.body.motif
+    };
+
+    try {
+        await updateSignalementByID(data);
+
+        res.status(200).send({
+            message: 'Signalement mis à jour',
+            update: data
+        })
+    } catch (err) {
+        res.status(400).send(err);
+    }
+};
 /**
  * END SIGNALEMENTS METHODES
  */
@@ -105,6 +138,34 @@ const banishChannel = async (req, res) => {
 
     })
 
+};
+const unbanChannel = async (req, res) => {
+    let channel = {
+        channel_id: req.params.id
+    };
+
+    Channel.findById(channel, () => {
+
+        try {
+            banishChannelByID(channel).then(async () => {
+                return await Channel.updateOne({ _id: req.params.id },{
+                    $set: {
+                        status: "ACTIVE"
+                    }
+                });
+            });
+
+            res.status(200).send({
+                message: 'La chaîne n\'est plus bannie.',
+                banish: channel,
+            });
+        } catch (err) {
+            res.status(400).send({
+                message: err
+            });
+        }
+
+    })
 };
 const getChannels = async (req, res) => {
     try {
@@ -156,19 +217,111 @@ const getStreamChannel = async (req, res) => {
         });
     }
 };
-// Delete one channel
+const deleteChannel = async (req, res) => {
+    try {
+        await deleteChannelByID(req.params.id);
+
+        res.status(200).send({
+            message: 'Chaîne supprimée'
+        });
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const getBanishChannels = async (req, res) => {
+    try {
+        let channels = await getAllBanishChannels();
+
+        res.status(200).send(channels)
+    } catch (err) {
+        res.status(400).send(err);
+    }
+};
 /**
  * END CHANNELS METHODES
  */
 
 /**
  * RADIOS METHODES
- * Insert radio is on the scraping module
  */
-// Get All radios
-// Get One radio
-// Update One radio
-// Delete One radio
+const addRadio = async (req, res) => {
+    let radio = {
+        radio_name: req.body.radio_name,
+        logo: req.body.logo,
+        direct_url: req.body.direct_url
+    };
+
+    try {
+       let newRadio = await addNewRadio(radio);
+
+        res.status(200).send(newRadio);
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const getRadios = async (req, res) => {
+    try {
+        let radios = await getAllRadios();
+
+        res.status(200).send(radios);
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const getOneRadio = async (req, res) => {
+    try {
+        let radio = await getRadioByID(req.params.id);
+
+        res.status(200).send(radio);
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const updateOneRadio = async (req, res) => {
+    let newRadio = {
+        radio_name: req.body.radio_name,
+        logo: req.body.logo,
+        direct_url: req.body.direct_url
+    };
+
+    try {
+        let radio = await updateRadioByID(newRadio, req.params.id);
+
+        if (radio) {
+            res.status(200).send({
+                message: 'Radio mise à jour avec succès !',
+                data: newRadio
+            });
+        }
+    } catch (err) {
+        res.status(400).send({
+            message: 'La radio n\'existe pas'
+        });
+    }
+};
+const deleteOneRadio = async (req, res) => {
+    try {
+        const deleted = await deleteRadioByID(req.params.id);
+
+        if (deleted) {
+            res.status(200).send({
+                message: 'Chaîne supprimée'
+            });
+        }
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
 /**
  * END RADIOS METHODES
  */
@@ -211,10 +364,63 @@ const updateUserPassword = async (req, res) => {
         });
     }
 };
-// Delete user
-// Get User
-// Get User by OAuth2 Token
-// Get Users
+const getUsers = async (req, res) => {
+    try {
+        const users = await getAllUsers();
+
+        res.status(200).send(users);
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const getOneUser = async (req, res) => {
+    try {
+        const user = await updateUserById(req.params.id);
+
+        res.status(200).send(user);
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const getActiveUser = async (req, res) => {
+    try {
+        const users = await getAllActiveUsers();
+
+        res.status(200).send(users);
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const getInactiveUser = async (req, res) => {
+    try {
+        const users = await getAllInactiveUsers();
+
+        res.status(200).send(users);
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const deleteUser = async (req, res) => {
+    try {
+        await deleteUserById(req.params.id);
+
+        res.status(200).send({
+            message: "Utilisateur supprimé avec succès !"
+        });
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
 /**
  * END USERS METHODES
  */
@@ -285,17 +491,33 @@ const stopStream = async (req, res) => {
 
 module.exports = {
     newSignalement: newSignalement,
-    banishChannel: banishChannel,
     getSignalements: getSignalements,
     getSignalementsByChannelID: getSignalementsByChannelID,
+    deleteSignalement: deleteSignalement,
+    updateSignalement: updateSignalement,
 
+    banishChannel: banishChannel,
+    unbanChannel: unbanChannel,
     getChannels: getChannels,
     getOneChannel: getOneChannel,
     updateChannel: updateChannel,
     getStreamChannel: getStreamChannel,
+    deleteChannel: deleteChannel,
+    getBanishChannels: getBanishChannels,
+
+    addRadio: addRadio,
+    getRadios:getRadios,
+    getOneRadio:getOneRadio,
+    updateOneRadio: updateOneRadio,
+    deleteOneRadio: deleteOneRadio,
 
     updateUser: updateUser,
     updateUserPassword: updateUserPassword,
+    getUsers: getUsers,
+    getOneUser: getOneUser,
+    getActiveUser: getActiveUser,
+    getInactiveUser: getInactiveUser,
+    deleteUser: deleteUser,
 
     getFirstStream: getFirstStream,
     recordStream: recordStream,

@@ -10,9 +10,14 @@ const express= require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     path = require('path'),
-    https = require('https'),
-    fs = require('fs'),
     app = express();
+
+/**
+ * Uncomment this line for lunch scraping module
+ * --
+ * require('./src/utils/scraping');
+ */
+//require('./src/utils/scraping');
 
 app.oauth = oAuth2Server({
     model: oAuthModel,
@@ -49,13 +54,6 @@ mongoose.connect(process.env.CONNECT_URL, {
     console.log('Connected to MongoDB !');
     global.db = database
 });
-
-/**
- * Uncomment this line for lunch scraping module
- * --
- * require('./src/utils/scraping');
- */
-//require('./src/utils/scraping');
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/index.html'))

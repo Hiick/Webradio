@@ -70,6 +70,38 @@ const getSignalementsByID = (data) => {
     });
 };
 
+const deleteSignalementByID = (data) => {
+    return new Promise((resolve, reject) => {
+        const query = `DELETE FROM signalements WHERE signalement_id = ${JSON.stringify(data.signalement_id)}`;
+
+        pool.query(query, async (err, rows) => {
+            if (err) reject(err);
+            if (rows && rows.length === 0 || !rows) {
+                reject('Aucun signalements trouvé')
+            }
+            resolve(rows);
+        });
+    });
+};
+
+const updateSignalementByID = (data) => {
+    return new Promise((resolve, reject) => {
+        const query = `
+        UPDATE signalements
+        SET
+        motif = '${data.motif}'
+        WHERE signalement_id = ${data.id}`;
+
+        pool.query(query, async (err, rows) => {
+            if (err) throw err;
+            if (rows && rows.length === 0 || !rows) {
+                reject('Aucun utilisateur trouvé')
+            }
+            resolve(rows);
+        });
+    });
+};
+
 const banishChannelByID = (data) => {
     return new Promise((resolve, reject) => {
         const query = `DELETE FROM signalements WHERE channel_id = ${JSON.stringify(data.channel_id)}`;
@@ -88,5 +120,7 @@ module.exports = {
     registerSignalement,
     getAllSignalements,
     getSignalementsByID,
+    deleteSignalementByID,
+    updateSignalementByID,
     banishChannelByID
 };
