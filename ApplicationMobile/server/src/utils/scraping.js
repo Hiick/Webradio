@@ -6,7 +6,6 @@ const cheerio = require('cheerio'),
 const name = [],
     logo = [],
     url = [],
-    result = [],
     redirect_url = [];
 
 const fetchData = async (url) => {
@@ -30,7 +29,7 @@ const fetchData = async (url) => {
             url: $(element).attr('href')
         });
     });
-//redirect_url.length
+
     for (let i = 0; i < redirect_url.length; i++) {
         console.log(i + ': En cours');
         let flux_url = await fetchData(redirect_url[i].url);

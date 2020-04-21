@@ -12,6 +12,7 @@ const RadioSchema = new Schema({
     },
     Favoris: [JSON],
     radio: Boolean,
+    nbr_ecoute: String,
     status: String,
     createdAt: Date
 });

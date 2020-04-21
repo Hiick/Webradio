@@ -28,6 +28,9 @@ const ChannelSchema = new Schema({
     radio: Boolean,
     status: String,
     live: Boolean,
+    stream_cree: String,
+    nbr_ecoute: String,
+    nbr_planification: String,
     createdAt: Date
 });
 

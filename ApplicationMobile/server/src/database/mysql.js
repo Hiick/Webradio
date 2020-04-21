@@ -1,5 +1,5 @@
 require('dotenv').config();
-const mySql = require('mysql');
+const mySql = require('server/src/database/mysql');
 
 let connection = null;
 

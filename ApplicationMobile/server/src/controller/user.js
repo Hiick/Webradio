@@ -148,9 +148,115 @@ const facebookUserLogin = async (token) => {
     });
 };
 
+const getAllUsers = () => {
+    return new Promise((resolve, reject) => {
+        const query = `
+            SELECT *
+            FROM users`;
+
+        pool.query(query, async (err, rows) => {
+            if (err) throw err;
+            if (rows && rows.length === 0 || !rows) {
+                reject('Aucun utilisateur trouvé')
+            }
+            resolve(rows);
+        });
+    })
+};
+
+const getUserById = (id) => {
+    return new Promise((resolve, reject) => {
+        const query = `
+            SELECT *
+            FROM users
+            WHERE user_id = ${id}`;
+
+        pool.query(query, async (err, rows) => {
+            if (err) throw err;
+            if (rows && rows.length === 0 || !rows) {
+                reject('Aucun utilisateur trouvé')
+            }
+            resolve(rows);
+        });
+    })
+};
+
+const getUserWithOAuthToken = (token) => {
+    return new Promise((resolve, reject) => {
+        const query = `
+            SELECT *
+            FROM users
+            WHERE oauth_access_token = ${JSON.stringify(token)}`;
+
+        pool.query(query, async (err, rows) => {
+            if (err) throw err;
+            if (rows && rows.length === 0 || !rows) {
+                reject('Aucun utilisateur trouvé')
+            }
+            resolve(rows);
+        });
+    })
+};
+
+const getAllActiveUsers = () => {
+    return new Promise((resolve, reject) => {
+        const query = `
+            SELECT *
+            FROM users
+            WHERE status = 'ACTIVE' AND status = 'ACTIVE '`;
+
+        pool.query(query, async (err, rows) => {
+            if (err) throw err;
+            if (rows && rows.length === 0 || !rows) {
+                reject('Aucun utilisateur trouvé')
+            }
+            resolve(rows);
+        });
+    })
+};
+
+const getAllInactiveUsers = () => {
+    return new Promise((resolve, reject) => {
+        const query = `
+            SELECT *
+            FROM users
+            WHERE status = 'INACTIVE'`;
+
+        pool.query(query, async (err, rows) => {
+            if (err) throw err;
+            if (rows && rows.length === 0 || !rows) {
+                reject('Aucun utilisateur trouvé')
+            }
+            resolve(rows);
+        });
+    })
+};
+
+const deleteUserById = async (id) => {
+    return new Promise((resolve, reject) => {
+        const query = `
+        DELETE FROM users 
+        WHERE user_id = ${id}`;
+
+        pool.query(query, async (err, rows) => {
+            if (err) reject(err);
+            if (rows && rows.length === 0 || !rows) {
+                reject('Aucun utilisateur trouvé')
+            }
+            resolve(rows);
+        });
+    });
+};
+
 module.exports = {
     generateOAuth2Token,
     updateOneUser,
     updateOneUserPassword,
-    facebookUserLogin
+    facebookUserLogin,
+    getAllUsers,
+    getUserById,
+    getUserWithOAuthToken,
+    getAllActiveUsers,
+    getAllInactiveUsers,
+    deleteUserById
 };
