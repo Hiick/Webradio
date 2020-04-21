@@ -27,7 +27,7 @@ const deleteChannelByID = async (channel_id) => {
 };
 
 const getAllBanishChannels = async () => {
-    return await Channel.find({ status: "BANISH " })
+    return await Channel.find({ status: "BANISH" })
 };
 
 module.exports = {

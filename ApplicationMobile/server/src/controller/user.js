@@ -164,12 +164,29 @@ const getAllUsers = () => {
     })
 };
 
-const updateUserById = (id) => {
+const getUserById = (id) => {
     return new Promise((resolve, reject) => {
         const query = `
             SELECT *
             FROM users
             WHERE user_id = ${id}`;
+
+        pool.query(query, async (err, rows) => {
+            if (err) throw err;
+            if (rows && rows.length === 0 || !rows) {
+                reject('Aucun utilisateur trouvé')
+            }
+            resolve(rows);
+        });
+    })
+};
+
+const getUserWithOAuthToken = (token) => {
+    return new Promise((resolve, reject) => {
+        const query = `
+            SELECT *
+            FROM users
+            WHERE oauth_access_token = ${JSON.stringify(token)}`;
 
         pool.query(query, async (err, rows) => {
             if (err) throw err;
@@ -237,7 +254,8 @@ module.exports = {
     updateOneUserPassword,
     facebookUserLogin,
     getAllUsers,
-    updateUserById,
+    getUserById,
+    getUserWithOAuthToken,
     getAllActiveUsers,
     getAllInactiveUsers,
     deleteUserById

@@ -1,8 +1,67 @@
-const { registerSignalement, getAllSignalements, getSignalementsByID, deleteSignalementByID, updateSignalementByID, banishChannelByID } = require('../../controller/signalements');
-const { getAllChannels, getChannel, updateChannelByID, getAllStreamChannels, deleteChannelByID, getAllBanishChannels } = require('../../controller/channel');
-const { updateOneUser, updateOneUserPassword, getAllUsers, updateUserById, getAllActiveUsers, getAllInactiveUsers, deleteUserById } = require('../../controller/user');
-const { addNewRadio, getAllRadios, getRadioByID, updateRadioByID, deleteRadioByID } = require('../../controller/radio');
-const { recordVoice, stopRecordVoice } = require('../../controller/stream');
+const {
+    registerSignalement,
+    getAllSignalements,
+    getSignalementsByID,
+    deleteSignalementByID,
+    updateSignalementByID,
+    banishChannelByID
+} = require('../../controller/signalements');
+
+const {
+    getAllChannels,
+    getChannel,
+    updateChannelByID,
+    getAllStreamChannels,
+    deleteChannelByID,
+    getAllBanishChannels
+} = require('../../controller/channel');
+
+const {
+    updateOneUser,
+    updateOneUserPassword,
+    getAllUsers,
+    getUserById,
+    getAllActiveUsers,
+    getAllInactiveUsers,
+    deleteUserById,
+    getUserWithOAuthToken
+} = require('../../controller/user');
+
+const {
+    addNewRadio,
+    getAllRadios,
+    getRadioByID,
+    updateRadioByID,
+    deleteRadioByID
+} = require('../../controller/radio');
+
+const {
+    recordVoice,
+    stopRecordVoice
+} = require('../../controller/stream');
+
+const {
+    costAllUsers,
+    costAllSubscribers,
+    costAllListen,
+    costAllStreamsListen,
+    costAllRadiosListen,
+    costAllActiveChannels,
+    costAllRadios,
+    costAllCreatedStream,
+    costAllCreatedStreamByUser,
+    costAllFavoriteForUser,
+    costAllListenForUser,
+    costAllSignalementsForUser,
+    costAllSignalements,
+    costAllActiveUsers,
+    costAllInactiveUsers,
+    costAllInactiveChannels,
+    costAllBanishChannels,
+    costAllRegisteredThisMonth,
+    costAllPlanStreamForUser,
+    costAllPlan
+} = require('../../controller/statistique');
 
 const Channel = require('../../models/channel'),
     TailingReadableStream = require('tailing-stream');
@@ -377,7 +436,25 @@ const getUsers = async (req, res) => {
 };
 const getOneUser = async (req, res) => {
     try {
-        const user = await updateUserById(req.params.id);
+        const user = await getUserById(req.params.id);
+
+        res.status(200).send(user);
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const getUserWithOAuth = async (req, res) => {
+    try {
+        let token = req.headers.authorization;
+        const [bearer, receivedToken] = token.split(" ");
+
+        if (bearer !== "Bearer") {
+            res.status(400).send('Unauthorized');
+        }
+
+        const user = await getUserWithOAuthToken(receivedToken);
 
         res.status(200).send(user);
     } catch (err) {
@@ -482,9 +559,252 @@ const stopStream = async (req, res) => {
 /**
  * STATISTIQUES METHODES
  */
-// Get all appli statistiques
-// Get all statistiques for one channel
-// Get specific statistiques
+const costUsers = async (req, res) => {
+    try {
+        let users = await costAllUsers();
+
+        res.status(200).send(users);
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costSubscribe = async (req, res) => {
+    try {
+        let users = await costAllSubscribers();
+
+        res.status(200).send(users);
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costListen = async (req, res) => {
+    try {
+        let listen = await costAllListen();
+
+        res.status(200).send({
+            total_ecoute: listen
+        });
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costStreamsListen = async (req, res) => {
+    try {
+        let listen = await costAllStreamsListen();
+
+        res.status(200).send({
+            total_ecoute_stream: listen
+        });
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costRadiosListen = async (req, res) => {
+    try {
+        let listen = await costAllRadiosListen();
+
+        res.status(200).send({
+            total_ecoute_radios: listen
+        });
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costRadios = async (req, res) => {
+    try {
+        let radios = await costAllRadios();
+
+        res.status(200).send({
+            nombre_radios: radios
+        });
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costCreatedStream = async (req, res) => {
+    try {
+        let created_stream = await costAllCreatedStream();
+
+        res.status(200).send({
+            stream_crée: created_stream
+        });
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costCreatedStreamForUser = async (req, res) => {
+    try {
+        let created_stream = await costAllCreatedStreamByUser(req.params.id);
+
+        res.status(200).send({
+            stream_crée: created_stream
+        });
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costFavoriteForUser = async (req, res) => {
+    try {
+        let favoris = await costAllFavoriteForUser(req.params.id);
+
+        res.status(200).send({
+            favoris: favoris
+        });
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costListenForUser = async (req, res) => {
+    try {
+        let listen = await costAllListenForUser(req.params.id);
+
+        res.status(200).send({
+            nombre_ecoutes: listen
+        });
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costSignalementsForUser = async (req, res) => {
+    try {
+        let signalements = await costAllSignalementsForUser(req.params.channel_id);
+
+        res.status(200).send(signalements);
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costSignalements = async (req, res) => {
+    try {
+        let signalements = await costAllSignalements();
+
+        res.status(200).send(signalements);
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costActiveUsers = async (req, res) => {
+    try {
+        let users = await costAllActiveUsers();
+
+        res.status(200).send(users);
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costInactiveUsers = async (req, res) => {
+    try {
+        let users = await costAllInactiveUsers();
+
+        res.status(200).send(users);
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costActiveChannels = async (req, res) => {
+    try {
+        let channels = await costAllActiveChannels();
+
+        res.status(200).send({
+            nombre_chaines_active: channels
+        });
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costInactiveChannels = async (req, res) => {
+    try {
+        let channels = await costAllInactiveChannels();
+
+        res.status(200).send({
+            nombre_chaines_inactive: channels
+        });
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costBanishChannels = async (req, res) => {
+    try {
+        let channels = await costAllBanishChannels();
+
+        res.status(200).send({
+            nombre_chaines_bannie: channels
+        });
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costRegisteredThisMonth = async (req, res) => {
+    try {
+        let registered = await costAllRegisteredThisMonth();
+
+        res.status(200).send(registered);
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costPlanStreamForUser = async (req, res) => {
+    try {
+        let plan = await costAllPlanStreamForUser(req.params.id);
+
+        res.status(200).send({
+            nombre_plannification: plan
+        });
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
+const costPlan = async (req, res) => {
+    try {
+        let plan = await costAllPlan();
+
+        res.status(200).send({
+            nombre_plannification: plan
+        });
+    } catch (err) {
+        res.status(400).send({
+            message: err
+        });
+    }
+};
 /**
  * END STATISTIQUES METHODES
  */
@@ -515,11 +835,33 @@ module.exports = {
     updateUserPassword: updateUserPassword,
     getUsers: getUsers,
     getOneUser: getOneUser,
+    getUserWithOAuth: getUserWithOAuth,
     getActiveUser: getActiveUser,
     getInactiveUser: getInactiveUser,
     deleteUser: deleteUser,
 
     getFirstStream: getFirstStream,
     recordStream: recordStream,
-    stopStream: stopStream
+    stopStream: stopStream,
+
+    costUsers: costUsers,
+    costSubscribe: costSubscribe,
+    costListen: costListen,
+    costStreamsListen: costStreamsListen,
+    costRadiosListen: costRadiosListen,
+    costActiveChannels: costActiveChannels,
+    costRadios: costRadios,
+    costCreatedStream: costCreatedStream,
+    costCreatedStreamForUser: costCreatedStreamForUser,
+    costFavoriteForUser: costFavoriteForUser,
+    costListenForUser: costListenForUser,
+    costSignalementsForUser: costSignalementsForUser,
+    costSignalements: costSignalements,
+    costActiveUsers: costActiveUsers,
+    costInactiveUsers: costInactiveUsers,
+    costInactiveChannels: costInactiveChannels,
+    costBanishChannels: costBanishChannels,
+    costRegisteredThisMonth: costRegisteredThisMonth,
+    costPlanStreamForUser: costPlanStreamForUser,
+    costPlan: costPlan
 };
