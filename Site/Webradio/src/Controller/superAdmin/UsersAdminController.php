@@ -3,11 +3,11 @@
 namespace App\Controller\superAdmin;
 
 use App\Controller\BaseController;
-use App\Entity\Users;
+use App\Entity\User;
 use App\Entity\UserSearch;
 use App\Form\UserSearchType;
-use App\Form\UsersType;
-use App\Repository\UsersRepository;
+use App\Form\UserType;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,17 +23,17 @@ class UsersAdminController extends BaseController{
 
     private $em;
 
-    public function __construct(UsersRepository $repository, EntityManagerInterface $em)
+    public function __construct(UserRepository $repository, EntityManagerInterface $em)
     {
         $this->repository = $repository;
         $this->em = $em;
     }
-
+    
     /**
      * @Route("/", name="superadmin.users.index", methods={"GET","POST"})
      */
-    public function index(PaginatorInterface $paginator, Request $request) {
-        
+    public function index(PaginatorInterface $paginator, Request $request): Response
+    {
         $search = new UserSearch();
         $form = $this->createForm(UserSearchType::class, $search);
         $form->handleRequest($request);
@@ -41,10 +41,14 @@ class UsersAdminController extends BaseController{
         $user = $paginator->paginate($this->repository->findAllVisibleQuery($search),
         $request->query->getInt('page', 1), 5);
 
-        return $this->render('superadmin/users/base.html.twig', [
+        return $this->render('superadmin/user/index.html.twig', [
             'users' => $user,
             'form' => $form->createView(),
         ]);
+
+        /*return $this->render('user/index.html.twig', [
+            'users' => $userRepository->findAll(),
+        ]);*/
     }
 
     /**
@@ -52,8 +56,8 @@ class UsersAdminController extends BaseController{
      */
     public function new(Request $request): Response
     {
-        $user = new Users();
-        $form = $this->createForm(UsersType::class, $user);
+        $user = new User();
+        $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -64,18 +68,28 @@ class UsersAdminController extends BaseController{
             return $this->redirectToRoute('superadmin.users.index');
         }
 
-        return $this->render('superadmin/users/addUser/newUser.html.twig', [
-            'users' => $user,
+        return $this->render('superadmin/user/new/new.html.twig', [
+            'user' => $user,
             'form' => $form->createView(),
         ]);
     }
 
     /**
+     * @Route("/{id}", name="superadmin.users.show", methods={"GET"})
+     */
+    /*public function show(User $user): Response
+    {
+        return $this->render('superadmin/user/show.html.twig', [
+            'user' => $user,
+        ]);
+    }*/
+
+    /**
      * @Route("/{id}/edit", name="superadmin.users.edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Users $user): Response
+    public function edit(Request $request, User $user): Response
     {
-        $form = $this->createForm(UsersType::class, $user);
+        $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -84,16 +98,16 @@ class UsersAdminController extends BaseController{
             return $this->redirectToRoute('superadmin.users.index');
         }
 
-        return $this->render('superAdmin/users/editUser/editUser.html.twig', [
-            'users' => $user,
+        return $this->render('superAdmin/user/edit/edit.html.twig', [
+            'user' => $user,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="superadmin.users.delete", methods={"DELETE"})
+     * @Route("/{id}", name="superadmin.user.delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Users $user): Response
+    public function delete(Request $request, User $user): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -103,8 +117,11 @@ class UsersAdminController extends BaseController{
 
         return $this->redirectToRoute('superadmin.users.index');
     }
-
-     /**
+    
+    
+    
+    
+    /**
      * @Route("/notifications", name="superadmin.notifications.index", methods={"GET"})
      */
     public function notification(): Response {

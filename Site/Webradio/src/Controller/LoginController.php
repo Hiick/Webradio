@@ -7,20 +7,24 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class LoginController extends BaseController {
 
     /**
-     * @Route("/login", name="login")
+     * @Route("", name="login")
      */
-    public function login(): Response {
+    public function login(AuthenticationUtils $authenticationUtils): Response {
 
-        $radioJson = file_get_contents('../monks/radios.json');
-        $listRadio = json_decode($radioJson);
-       
-    //return $this->responseApi([$listRadio]);
-    return $this->render('LoginPage/base.html.twig');
+        $error = $authenticationUtils->getLastAuthenticationError();
+
+        $lastUsername =  $authenticationUtils->getLastUsername();
+   
+        return $this->render('pages/home.html.twig', [
+            'last_username' => $lastUsername,
+            'error'         => $error,
+        ]);
+
     }
 
 }

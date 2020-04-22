@@ -27,10 +27,10 @@ class SignalementsRepository extends ServiceEntityRepository
     {
         $query = $this->findVisibleQuery();
 
-        if($search->getNomChaine()) {
+        if($search->getChannels()) {
             $query = $query
                 ->andWhere('s.nomChaine = :nomChaine')
-                ->setParameter(':nomChaine', $search->getNomChaine());
+                ->setParameter(':nomChaine', $search->getChannels());
         }
 
         return $query->setMaxResults(4)

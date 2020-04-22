@@ -9,6 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Channels
 {
+    const DefaultStatus = [
+        1 => 'Active',
+        0 => 'Inactive',
+    ];
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -87,5 +91,10 @@ class Channels
         $this->status = $status;
 
         return $this;
+    }
+
+    public function getDefaultStatus(): string
+    {
+        return self::DefaultStatus[$this->status];
     }
 }

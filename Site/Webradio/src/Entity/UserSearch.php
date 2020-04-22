@@ -11,7 +11,7 @@ class UserSearch {
     /**
     * @var string|null
     */
-    private $nomChaine;
+    private $channels;
 
 
     public function getUsername(): ?string
@@ -25,14 +25,14 @@ class UserSearch {
         return $this;
     }
 
-    public function getNomChaine(): ?string
+    public function getChannels(): ?string
     {
-        return $this->nomChaine;
+        return $this->channels;
     }
 
-    public function setNomChaine(string $nomChaine): UserSearch
+    public function setChannels(string $channels): UserSearch
     {
-        $this->nomChaine = $nomChaine;
+        $this->channels = $channels;
         return $this;
     }
 

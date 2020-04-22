@@ -2,14 +2,23 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Users;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UsersFixtures extends Fixture
 {
-   
+   /**
+     * @var UserPasswordEncoderInterface
+     */
+    private $encoder;
+
+    public function __construct(UserPasswordEncoderInterface $encoder)
+    {
+        $this->encoder = $encoder;
+    }
+    
     public function load(ObjectManager $manager)
     {
         $usersJson = file_get_contents(dirname(__DIR__).'/monks/users-login.json');
@@ -21,16 +30,17 @@ class UsersFixtures extends Fixture
         {
             //dump($result["nom_chaine"]);
            
-            $users = new Users();
-            $users->setEmail($result['email']);
-            $users->setUsername($result['username']);
-            $users->setAvatar($result['avatar']);
-            $users->setNomChaine($result['nom_chaine']);
-            $users->setRoleUser($result['role']);
-            $users->setStatus($result['status']);
-            $users->setPassword($result['password']);
+            $user = new User();
+            $user->setAvatar($result['avatar']);
+            $user->setEmail($result['email']);
+            $user->setUsername($result['username']);
+            $user->setChannels($result['nom_chaine']);
+            $user->setRoles($result['role']);
+            $user->setStatus($result['status']);
+            $hash = $this->encoder->encodePassword($user, $result['password']);
+            $user->setPassword($hash);
 
-            $manager->persist($users);
+            $manager->persist($user);
         }
         $manager->flush();
     }

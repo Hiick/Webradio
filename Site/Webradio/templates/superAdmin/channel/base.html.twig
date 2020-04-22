@@ -23,7 +23,7 @@
                         <!-- Search form -->
                         <div class="form-group has-search user">
                             <button class="fa fa-search form-control-feedback"></button>
-                             {{ form_row(form.nomChaine) }}
+                             {{ form_row(form.channels) }}
                         </div>
                       {{ form_end(form) }}
                     </div>
@@ -54,7 +54,15 @@
                                                 <td>{{ channel.nomChaine }}</td>
                                                 <td>{{ channel.proprietaire }}</td>
                                                 <td>{{ channel.status }}</td>
-                                                <td><a href='#removeModal' data-toggle='modal' data-dismiss='modal' class='far fa-trash-alt fa-2x' id=''></a><a href='{{ path('superadmin.channel.edit', {id: channel.id}) }}' class='fa-2x far fa-edit' id=''></a></td>
+                                                <td>
+                                                    <form method="post" action="{{ path('superadmin.channel.delete', {'id': channel.id}) }}" style="display: inline-block" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ channel.id) }}">
+                                                        <button style="background: none; border: none;" class='far fa-trash-alt fa-2x'></button>
+                                                    </form>
+                                                    <a href='{{ path('superadmin.channel.edit', {id: channel.id}) }}' class='fa-2x far fa-edit' id=''></a>
+                                                    
+                                                </td>
                                             </tr>
                                          {% endfor %}
                                     </tbody>

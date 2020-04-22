@@ -539,7 +539,7 @@ a.btn.bouton-password{color: white; box-shadow: 0 6px 10px 0 #0000001a,0 1px 18p
  }
 
  /*input select*/
- select#users_roleUser.form-control{
+ select#user_roles.form-control{
     text-align-last: center !important;
     padding-right: 2px;
 }

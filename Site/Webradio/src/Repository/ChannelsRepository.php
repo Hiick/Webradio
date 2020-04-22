@@ -33,10 +33,10 @@ class ChannelsRepository extends ServiceEntityRepository
                 ->setParameter(':username', $search->getUsername());
         }
 
-        if($search->getNomChaine()) {
+        if($search->getChannels()) {
             $query = $query
                 ->andWhere('c.nomChaine = :nomChaine')
-                ->setParameter(':nomChaine', $search->getNomChaine());
+                ->setParameter(':nomChaine', $search->getChannels());
         }
 
         return $query->setMaxResults(4)
