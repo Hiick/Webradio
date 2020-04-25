@@ -54,8 +54,30 @@ class UserRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findTheUser($username) 
+    {
+        return $this->findVisibleQuery()
+        ->andWhere('u.username = :username')
+        ->setParameter(':username', $username)
+        ->getQuery()
+        ->getResult();
+
+    }
+
+    public function findUserByMail($email, $password) 
+    {
+        return $this->findVisibleQuery()
+        ->andWhere('u.email = :email')
+        ->andWhere('u.password = :password')
+        ->setParameter(':email', $email)
+        ->setParameter(':password', $password)
+        ->getQuery()
+        ->getResult();
+
+    }
+
     private function findVisibleQuery() :ORMQueryBuilder
     {
         return $this->createQueryBuilder('u');       
     }
-}
+}   

@@ -8,7 +8,7 @@ use Serializable;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-
+use Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -98,6 +98,11 @@ class User implements UserInterface, Serializable
         $this->email = $email;
 
         return $this;
+    }
+
+    public function getSlug() :string
+    {
+        return (new Slugify())->slugify($this->username); 
     }
 
     public function getChannels(): ?string

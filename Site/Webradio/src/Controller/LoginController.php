@@ -2,29 +2,45 @@
 
 namespace App\Controller;
 
-
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class LoginController extends BaseController {
 
     /**
-     * @Route("", name="login")
+     * @Route("/login", name="login")
      */
-    public function login(AuthenticationUtils $authenticationUtils): Response {
+    public function login(Request $request, User $user) {
 
-        $error = $authenticationUtils->getLastAuthenticationError();
+        $content = $request->getContent();
 
-        $lastUsername =  $authenticationUtils->getLastUsername();
-   
-        return $this->render('pages/home.html.twig', [
-            'last_username' => $lastUsername,
-            'error'         => $error,
-        ]);
+        if(!empty($content)) {
 
+            $params = json_decode($content, true);
+            $email = $params['email'];
+            $password = $params['password'];
+            $user = $this->repository->findUserByMail($email, $password);
+             $admin = "ADMIN";
+             $superadmin = "SUPERADMIN";
+             $user = "USER";
+            if($user->getRoles() === $superadmin){
+
+                return $this->redirectToRoute('superadmin.index');
+            }
+            elseif($user->getRoles() === $admin) {
+                return $this->redirectToRoute('admin.index');
+            }
+            else {
+                return $this->redirectToRoute('profil.index', ['username'=> $user->getUsername()]);
+            }
+            
+        }
+        
+
+        
     }
 
 }

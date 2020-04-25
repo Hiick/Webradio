@@ -13,10 +13,8 @@ return [
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/' => [
-            [['_route' => 'home.index', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null],
-            [['_route' => 'login', '_controller' => 'App\\Controller\\LoginController::login'], null, null, null, false, false, null],
-        ],
+        '/' => [[['_route' => 'home.index', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
+        '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\LoginController::login'], null, null, null, false, false, null]],
         '/radio' => [[['_route' => 'radio.index', '_controller' => 'App\\Controller\\RadioController::index'], null, ['GET' => 0], null, true, false, null]],
         '/register' => [[['_route' => 'user_registration', '_controller' => 'App\\Controller\\RegisterController::register'], null, null, null, false, false, null]],
         '/profile/library' => [[['_route' => 'profile.library.index', '_controller' => 'App\\Controller\\Users\\MusicLibraryController::index'], null, null, null, false, false, null]],
@@ -25,10 +23,6 @@ return [
         '/profile/planning/delete' => [[['_route' => 'profile.planning.delete', '_controller' => 'App\\Controller\\Users\\PlanningController::delete'], null, null, null, false, false, null]],
         '/profile/planning/next' => [[['_route' => 'profile.planning.nextMonth', '_controller' => 'App\\Controller\\Users\\PlanningController::nextMonth'], null, null, null, false, false, null]],
         '/profile/planning/previousMonth' => [[['_route' => 'profile.planning.previousMonth', '_controller' => 'App\\Controller\\Users\\PlanningController::previousMonth'], null, null, null, false, false, null]],
-        '/profile' => [[['_route' => 'profile.index', '_controller' => 'App\\Controller\\Users\\ProfileController::index'], null, null, null, true, false, null]],
-        '/profile/setting' => [[['_route' => 'profile.setting.index', '_controller' => 'App\\Controller\\Users\\SettingsController::index'], null, null, null, false, false, null]],
-        '/profile/setting/show' => [[['_route' => 'profile.setting.show', '_controller' => 'App\\Controller\\Users\\SettingsController::showUser'], null, null, null, false, false, null]],
-        '/profile/timeline' => [[['_route' => 'profile.timeline.index', '_controller' => 'App\\Controller\\Users\\TimelineController::index'], null, null, null, false, false, null]],
         '/admin/channel' => [[['_route' => 'admin.channel.index', '_controller' => 'App\\Controller\\admin\\ChannelAController::index'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
         '/admin' => [[['_route' => 'admin.index', '_controller' => 'App\\Controller\\admin\\adminDashController::index'], null, null, null, false, false, null]],
         '/admin/stats' => [[['_route' => 'admin.stats.show', '_controller' => 'App\\Controller\\admin\\adminDashController::getStatistics'], null, null, null, false, false, null]],
@@ -61,22 +55,27 @@ return [
                     .')'
                 .')'
                 .'|/radio/([^/]++)(*:184)'
+                .'|/profile/(?'
+                    .'|([^/]++)(*:212)'
+                    .'|setting/([^/]++)(*:236)'
+                    .'|timeline(*:252)'
+                .')'
                 .'|/admin/channel/([^/]++)(?'
-                    .'|/edit(*:223)'
-                    .'|(*:231)'
+                    .'|/edit(*:292)'
+                    .'|(*:300)'
                 .')'
                 .'|/superadmin/(?'
                     .'|channel/([^/]++)(?'
-                        .'|/edit(*:279)'
-                        .'|(*:287)'
+                        .'|/edit(*:348)'
+                        .'|(*:356)'
                     .')'
-                    .'|signal/([a-z0-9\\-]*)\\-([^/]++)(*:326)'
+                    .'|signal/([a-z0-9\\-]*)\\-([^/]++)(*:395)'
                     .'|users/(?'
                         .'|([^/]++)(?'
-                            .'|/edit(*:359)'
-                            .'|(*:367)'
+                            .'|/edit(*:428)'
+                            .'|(*:436)'
                         .')'
-                        .'|notifications(*:389)'
+                        .'|notifications(*:458)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -90,14 +89,17 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         184 => [[['_route' => 'radio.show', '_controller' => 'App\\Controller\\RadioController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        223 => [[['_route' => 'admin.channel.edit', '_controller' => 'App\\Controller\\admin\\ChannelAController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        231 => [[['_route' => 'admin.channel.delete', '_controller' => 'App\\Controller\\admin\\ChannelAController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        279 => [[['_route' => 'superadmin.channel.edit', '_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        287 => [[['_route' => 'superadmin.channel.delete', '_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        326 => [[['_route' => 'superadmin.Signalements.show', '_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::show'], ['slug', 'id'], null, null, false, true, null]],
-        359 => [[['_route' => 'superadmin.users.edit', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        367 => [[['_route' => 'superadmin.user.delete', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        389 => [
+        212 => [[['_route' => 'profile.index', '_controller' => 'App\\Controller\\Users\\ProfileController::index'], ['username'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        236 => [[['_route' => 'profile.setting.index', '_controller' => 'App\\Controller\\Users\\SettingsController::index'], ['id'], null, null, false, true, null]],
+        252 => [[['_route' => 'profile.timeline.index', '_controller' => 'App\\Controller\\Users\\TimelineController::index'], [], null, null, false, false, null]],
+        292 => [[['_route' => 'admin.channel.edit', '_controller' => 'App\\Controller\\admin\\ChannelAController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        300 => [[['_route' => 'admin.channel.delete', '_controller' => 'App\\Controller\\admin\\ChannelAController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        348 => [[['_route' => 'superadmin.channel.edit', '_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        356 => [[['_route' => 'superadmin.channel.delete', '_controller' => 'App\\Controller\\superAdmin\\ChannelAdminController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        395 => [[['_route' => 'superadmin.Signalements.show', '_controller' => 'App\\Controller\\superAdmin\\SignalAdminController::show'], ['slug', 'id'], null, null, false, true, null]],
+        428 => [[['_route' => 'superadmin.users.edit', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        436 => [[['_route' => 'superadmin.user.delete', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        458 => [
             [['_route' => 'superadmin.notifications.index', '_controller' => 'App\\Controller\\superAdmin\\UsersAdminController::notification'], [], ['GET' => 0], null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],

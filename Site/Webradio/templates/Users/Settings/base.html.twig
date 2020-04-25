@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     {% include 'Users/head.html.twig' %}
+    {% block stylesheets %}
+         <link rel="stylesheet" href="../../css/darkmode/darkmode.css">
+    {% endblock %}
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -11,10 +14,18 @@
             {% include 'Users/navigation.html.twig' %}
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xl-12 d-flex flex-column align-items-center justify-content-center">
+                    <div class="col-xl-10 d-flex flex-column align-items-center justify-content-center">
                         <div class="">
                             <h1 class="h2 mt-2 text-black">Gestion du compte</h1>
                         </div>
+                    </div>
+                    <div class="col-xl-2">
+                        <ul>
+                            <li>
+                                <input id="s1" type="checkbox" class="switch">
+                                <label for="s1">Dark mode</label>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="main d-flex flex-column align-items-center justify-content-center">
@@ -26,13 +37,13 @@
                     <div class="row mb-5">
                         <div class="col-sm">
                             <div class="form-group setting">
-                            <input type="text" class="form-control text-center text-black" id="nom" value="">
+                            <input type="text" class="form-control text-center text-black" id="nom" value="{{ user.username}}">
                         </div>
                          <div class="form-group setting">
-                            <input type="text" class="form-control text-center text-black" id="nomChaine" value="">
+                            <input type="text" class="form-control text-center text-black" id="nomChaine" value="{{ user.channels}}">
                         </div>
                         <div class="form-group setting">
-                            <input type="password" class="form-control text-center text-black" id="mdp" value="">
+                            <input type="password" class="form-control text-center text-black" id="mdp" value="{{ user.password}}">
                         </div>
                         <div class="form-group setting">
                             <input type="button" class="form-control border-0 font-weight-bold text-white" style="background-color:#EF0051;" value="Enregistrer">

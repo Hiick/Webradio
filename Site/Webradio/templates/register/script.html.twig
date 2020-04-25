@@ -29,9 +29,10 @@ $('#connexion').click(function(e) {
         }),
         async: true, 
         success: function () {
-            alert('compte crée avec succès');
+            let username = $('#username').val();
+            console.log('compte crée avec succès');
             setTimeout(function() {
-                window.location.href = "/profile"
+                window.location.href = "/profile/"+username
             }, 2000)
         },
         error: function (error) {
