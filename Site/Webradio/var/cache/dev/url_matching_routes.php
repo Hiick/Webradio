@@ -16,7 +16,7 @@ return [
         '/' => [[['_route' => 'home.index', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\LoginController::login'], null, null, null, false, false, null]],
         '/radio' => [[['_route' => 'radio.index', '_controller' => 'App\\Controller\\RadioController::index'], null, ['GET' => 0], null, true, false, null]],
-        '/register' => [[['_route' => 'user_registration', '_controller' => 'App\\Controller\\RegisterController::register'], null, null, null, false, false, null]],
+        '/register' => [[['_route' => 'user_registration', '_controller' => 'App\\Controller\\RegisterController::registre'], null, null, null, false, false, null]],
         '/profile/library' => [[['_route' => 'profile.library.index', '_controller' => 'App\\Controller\\Users\\MusicLibraryController::index'], null, null, null, false, false, null]],
         '/profile/planning' => [[['_route' => 'profile.planning.index', '_controller' => 'App\\Controller\\Users\\PlanningController::index'], null, null, null, false, false, null]],
         '/profile/planning/edit' => [[['_route' => 'profile.planning.edit', '_controller' => 'App\\Controller\\Users\\PlanningController::edit'], null, null, null, false, false, null]],

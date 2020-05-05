@@ -17,9 +17,26 @@
 <script>
 $('#login').click(function(e) {
 
-    $.ajax({
-        url: '/login',
-        type: 'POST',
+        let email = $('#email').val().trim();
+        let password = $('#password').val().trim();
+
+        const settings = {
+            "url": "/login",
+            "type": "POST",
+            "headers": {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            "data": {
+                "email": email,
+                "password": password
+            }
+        };
+
+        $.ajax(settings).done(function (data) {
+
+        if(data.success == true){
+          console.log("success");
+        } 
 
     });
 });

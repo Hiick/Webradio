@@ -30,9 +30,9 @@ class RegisterController extends BaseController
      /**
      * @Route("/register", name="user_registration")
      */
-    public function register(Request $request): Response
-    {
-        $content = $request->getContent();
+    //public function register(Request $request): Response
+   // {
+        /*$content = $request->getContent();
 
         if(!empty($content)) {
 
@@ -58,6 +58,12 @@ class RegisterController extends BaseController
 
         return $this->responseApi([
             "data" => json_decode($content, true)
-        ], 200);
+        ], 200);*/
+    //}
+
+    public function registre() 
+    {
+        //https://webradio-stream.herokuapp.com/auth/register
+        
     }
 }

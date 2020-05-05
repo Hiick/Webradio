@@ -19,7 +19,7 @@ return [
     'login' => [[], ['_controller' => 'App\\Controller\\LoginController::login'], [], [['text', '/login']], [], []],
     'radio.index' => [[], ['_controller' => 'App\\Controller\\RadioController::index'], [], [['text', '/radio/']], [], []],
     'radio.show' => [['id'], ['_controller' => 'App\\Controller\\RadioController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/radio']], [], []],
-    'user_registration' => [[], ['_controller' => 'App\\Controller\\RegisterController::register'], [], [['text', '/register']], [], []],
+    'user_registration' => [[], ['_controller' => 'App\\Controller\\RegisterController::registre'], [], [['text', '/register']], [], []],
     'profile.library.index' => [[], ['_controller' => 'App\\Controller\\Users\\MusicLibraryController::index'], [], [['text', '/profile/library']], [], []],
     'profile.planning.index' => [[], ['_controller' => 'App\\Controller\\Users\\PlanningController::index'], [], [['text', '/profile/planning']], [], []],
     'profile.planning.edit' => [[], ['_controller' => 'App\\Controller\\Users\\PlanningController::edit'], [], [['text', '/profile/planning/edit']], [], []],
